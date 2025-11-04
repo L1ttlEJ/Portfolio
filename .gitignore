@@ -1,0 +1,14 @@
+# Fichiers Visual Studio
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Dossier de build
+bin/
+obj/
+
+# Node modules (si tu fais du JS)
+node_modules/
+dist/
