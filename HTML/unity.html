@@ -1,0 +1,135 @@
+﻿<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projets Unity - Johannes Ibrahim</title>
+    <link rel="stylesheet" href="../CSS/unity.css">
+</head>
+<body>
+    <!-- Barre de navigation -->
+    <nav class="navbar">
+        <div class="logo">Portfolio</div>
+        <ul class="nav-links">
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="unity.html" class="active">Unity</a></li>
+            <li><a href="web.html">Web / Logiciel</a></li>
+            <li><a href="audiovisuel.html">Création Audiovisuelle</a></li>
+        </ul>
+    </nav>
+
+    <header class="header">
+        <h1>Mes Projets Unity</h1>
+        <p>Découvrez mes jeux développés sur Unity, alliant gameplay, design et narration.</p>
+    </header>
+
+    <!-- Boutons de sélection -->
+    <section class="tabs">
+        <button class="tab-btn" data-target="rise">Rise of Freedom</button>
+        <button class="tab-btn active" data-target="owen">Owen Odyssey</button>
+        <button class="tab-btn" data-target="pokemon">FanGame Pokémon</button>
+    </section>
+
+    <!-- Contenu associé -->
+    <section class="tab-content">
+        <!-- OwenOdyssey -->
+        <!-- Owen Odyssey -->
+<div class="content active" id="owen">
+  <h2>Owen Odyssey</h2>
+
+  <p class="intro">
+    <strong>Owen Odyssey</strong> est un puzzle-game 3D low-poly développé sur Unity.  
+    Ce projet nous a permis d’explorer la conception de niveaux isométriques, la gestion de caméra dynamique et le gameplay basé sur la perception et la réflexion.
+  </p>
+
+  <div class="story">
+    <h3>🌿 L’Histoire du jeu</h3>
+    <p>
+      Dans un monde onirique où la nature reprend ses droits, Owen évolue dans des jardins suspendus regorgeant de vie et de magie.  
+      Chaque plateau représente un fragment de ce monde oublié que le joueur doit réactiver, en résolvant des énigmes inspirées des forces naturelles et des anciens gardiens.
+    </p>
+  </div>
+
+  <div class="gameplay">
+    <h3>🎮 Gameplay et principe du jeu</h3>
+    <div class="gameplay-content">
+      <div class="gameplay-text">
+        <p>
+          <strong>Owen Odyssey</strong> est un puzzle game 3D en vue isométrique.  
+          Le joueur doit progresser de <strong>plateau en plateau</strong>, chacun représentant un mini-niveau.  
+          Sur chaque plateau, il faut résoudre une énigme pour ouvrir la porte menant au suivant.
+        </p>
+        <p>
+          La caméra est positionnée à <strong>45°</strong> et peut pivoter autour du plateau, offrant différentes perspectives sur l’environnement.  
+          Certains éléments deviennent visibles ou cachés selon l’angle de vue, rendant la <strong>perception</strong> essentielle à la résolution des énigmes.
+        </p>
+        <p>
+          Les environnements s’inspirent des <strong>forêts et jardins magiques</strong>.  
+          Les mécanismes s’intègrent dans cet univers : un bouton champignon, des racines qui déplacent des blocs, des fleurs lumineuses qui révèlent des passages, etc.
+        </p>
+      </div>
+      <div class="gameplay-img">
+        <img src="../assets/owen-gameplay.jpg" alt="Illustration du gameplay d’Owen Odyssey">
+      </div>
+    </div>
+
+    <div class="video-demo">
+      <h4>🎥 Démonstration du système de rotation</h4>
+      <video controls>
+        <source src="../assets/owen-rotation.mp4" type="video/mp4">
+        Votre navigateur ne supporte pas la lecture vidéo.
+      </video>
+    </div>
+  </div>
+
+  <div class="media-section">
+    <h3>📽️ Vidéo de présentation & GDD</h3>
+    <div class="media-content">
+      <div class="youtube-video">
+        <!-- Remplace le lien ci-dessous par ton lien YouTube -->
+        <iframe width="560" height="315"
+          src="https://www.youtube.com/embed/XXXXXXXXXXX"
+          title="Présentation Owen Odyssey"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen>
+        </iframe>
+      </div>
+
+      <div class="gdd-doc">
+        <iframe 
+          src="https://docs.google.com/document/d/1i7zfWmNKtGXJvVwu0JTApOYnJAKukTcBQZ0GTglLOxs/preview"
+          width="560" height="315">
+        </iframe>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+        <!-- Rise of Freedom -->
+        <div class="content" id="rise">
+            <h2>Rise of Freedom</h2>
+            <p>
+                Jeu d’aventure et de plateforme où le joueur incarne Owen, explorant un monde mystérieux rempli de défis et de secrets.
+            </p>
+            <img src="../imgs/concoursPixiContest.png" alt="RiseofFreedom - Aperçu" class="project-img">
+        </div>
+
+
+        <!-- FanGame Pokémon -->
+        <div class="content" id="pokemon">
+            <h2>FanGame Pokémon</h2>
+            <p>
+                Recréation libre inspirée de l’univers Pokémon, développée avec Unity et un moteur de combat personnalisé.
+            </p>
+            <img src="../assets/fangame-pokemon.jpg" alt="FanGame Pokémon - Aperçu" class="project-img">
+        </div>
+    </section>
+
+    <script src="../JS/unity.js"></script>
+</body>
+</html>
