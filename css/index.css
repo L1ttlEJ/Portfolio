@@ -1,0 +1,125 @@
+/* Palette principale :
+   Gris/noir dominant : #1E1E1E
+   Violet : #7C3AED
+   Jaune : #FACC15
+*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #1E1E1E;
+    color: #E5E5E5;
+    min-height: 100vh;
+}
+
+/* --- Barre de navigation --- */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #111;
+    padding: 1rem 2rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+}
+
+    .navbar .logo {
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: #FACC15;
+    }
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+}
+
+    .nav-links a {
+        text-decoration: none;
+        color: #E5E5E5;
+        font-weight: 500;
+        transition: color 0.3s ease;
+    }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: #7C3AED;
+        }
+
+/* --- Section principale --- */
+.hero {
+    text-align: center;
+    padding: 6rem 2rem;
+}
+
+    .hero h1 {
+        font-size: 3rem;
+        color: #FACC15;
+        margin-bottom: 1.5rem;
+    }
+
+.intro-text {
+    max-width: 700px;
+    margin: 0 auto 3rem;
+    line-height: 1.7;
+    color: #CCC;
+}
+
+/* --- Boutons stylisés --- */
+.button-group {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+
+.btn {
+    padding: 0.9rem 1.8rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+    .btn.violet {
+        background-color: #7C3AED;
+        color: white;
+    }
+
+        .btn.violet:hover {
+            background-color: transparent;
+            border-color: #7C3AED;
+            color: #7C3AED;
+        }
+
+    .btn.jaune {
+        background-color: #FACC15;
+        color: #1E1E1E;
+    }
+
+        .btn.jaune:hover {
+            background-color: transparent;
+            border-color: #FACC15;
+            color: #FACC15;
+        }
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+    .nav-links {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .hero h1 {
+        font-size: 2.2rem;
+    }
+}
