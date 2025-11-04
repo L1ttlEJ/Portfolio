@@ -96,7 +96,7 @@ body {
 
 /* --- Contenu des projets --- */
 .tab-content {
-    max-width: 900px;
+    max-width: 80%;
     margin: 3rem auto;
     padding: 2rem;
     background-color: #2A2A2A;
@@ -240,6 +240,109 @@ body {
         width: 150px;
         filter: drop-shadow(0 0 10px #7C3AED);
     }
+
+/* --- Owen Odyssey Section --- */
+.gameplay {
+    margin-top: 2rem;
+    background-color: #252525;
+    padding: 1.5rem;
+    border-left: 4px solid #7C3AED;
+    border-radius: 10px;
+}
+
+    .gameplay h3 {
+        color: #FACC15;
+        margin-bottom: 1rem;
+    }
+
+.gameplay-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.gameplay-text {
+    flex: 1 1 60%;
+    color: #ccc;
+    line-height: 1.7;
+}
+
+.gameplay-img {
+    flex: 1 1 35%;
+    text-align: center;
+}
+
+    .gameplay-img img {
+        width: 100%;
+        max-width: 400px;
+        border-radius: 10px;
+        border: 2px solid #7C3AED;
+        box-shadow: 0 0 10px rgba(124, 58, 237, 0.5);
+    }
+
+.video-demo {
+    margin-top: 2rem;
+    text-align: center;
+}
+
+    .video-demo h4 {
+        color: #FACC15;
+        margin-bottom: 1rem;
+    }
+
+    .video-demo video {
+        width: 90%;
+        max-width: 700px;
+        border-radius: 10px;
+        border: 2px solid #7C3AED;
+    }
+
+/* --- Media Section (YouTube + GDD) --- */
+.media-section {
+    margin-top: 3rem;
+    text-align: center;
+}
+
+    .media-section h3 {
+        color: #FACC15;
+        margin-bottom: 1.5rem;
+    }
+
+.media-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+}
+
+    .media-content iframe {
+        border-radius: 10px;
+        border: 2px solid #7C3AED;
+        box-shadow: 0 0 10px rgba(124, 58, 237, 0.5);
+    }
+
+/* Responsive */
+@media (max-width: 768px) {
+    .gameplay-content {
+        flex-direction: column;
+    }
+
+    .gameplay-img img,
+    .video-demo video {
+        max-width: 100%;
+    }
+
+    .media-content {
+        flex-direction: column;
+    }
+
+        .media-content iframe {
+            width: 100%;
+        }
+}
+
 
 /* --- Responsive --- */
 @media (max-width: 768px) {
