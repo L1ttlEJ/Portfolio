@@ -145,16 +145,16 @@ let isAudioInitialized = false;
 // === Données de configuration ===
 const pageData = {
     owen: {
-        bg: "../assets/backgrounds/owen-bg.jpg",
-        music: "../assets/music/owen.mp3"
+        bg: "imgs/owen/backgrounds/owen-bg.jpg",
+        music: "song/owen.mp3"
     },
     rise: {
-        bg: "../assets/backgrounds/rise-bg.jpg",
-        music: "../assets/music/rise.mp3"
+        bg: "imgs/rise/backgrounds/rise-bg.jpg",
+        music: "song/rise.mp3"
     },
     pokemon: {
-        bg: "../imgs/poke/fond.gif",
-        music: "../Song/pokeSong.mp3"
+        bg: "imgs/poke/fond.gif",
+        music: "song/pokeSong.mp3"
     }
 };
 
