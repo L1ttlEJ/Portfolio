@@ -373,3 +373,33 @@ body
 }
 
 
+/*--- EDITION LIMITEE ---*/
+.edition-identite, .edition-presentation, .edition-iframe {
+    margin-top: 2rem;
+}
+
+.edition-images {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+.edition-logo {
+    width: 250px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+
+.iframe-container {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+}
+
+    .iframe-container iframe {
+        width: 80%;
+        height: 500px;
+        border: 2px solid #ccc;
+        border-radius: 12px;
+    }
+
