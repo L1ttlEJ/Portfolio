@@ -10,12 +10,16 @@
     box-sizing: border-box;
 }
 
+/* === Fond dynamique === */
 body {
-    font-family: 'Poppins', sans-serif;
-    background-color: #1E1E1E;
-    color: #E5E5E5;
-    min-height: 100vh;
+    background-color: #0f0f0f;
+    background-image: url("../assets/backgrounds/owen-bg.jpg"); /* image par défaut */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    transition: background-image 1s ease-in-out, background-color 1s ease-in-out;
 }
+
 
 /* --- Barre de navigation --- */
 .navbar {
@@ -54,30 +58,71 @@ body {
 /* --- En-tête --- */
 .header {
     text-align: center;
-    padding: 4rem 1rem 2rem;
+    padding: 3rem 1rem 2rem;
+    background: rgba(0, 0, 0, 0.4);
+    border-radius: 10px;
+    margin: 1rem auto 2rem;
+    width: fit-content;
+    max-width: 90%;
+    backdrop-filter: blur(6px);
 }
 
     .header h1 {
-        color: #FACC15;
-        font-size: 2.8rem;
-        margin-bottom: 1rem;
+        color: #fff;
+        text-shadow: 0 0 10px rgba(0,0,0,0.6);
+        font-size: 2.5rem;
+        margin-bottom: 0.5rem;
     }
 
     .header p {
-        color: #CCC;
+        color: #f0f0f0;
+        text-shadow: 0 0 8px rgba(0,0,0,0.5);
         font-size: 1.1rem;
     }
 
-/* --- Onglets --- */
-.tabs {
+
+/* --- Contrôles audio --- */
+.sound-controls {
     display: flex;
     justify-content: center;
-    gap: 1.5rem;
-    flex-wrap: wrap;
-    margin-top: 3rem;
+    align-items: center;
+    gap: 1rem;
+    margin: 1rem auto 2rem;
 }
 
-.tab-btn {
+    .sound-controls button {
+        background-color: rgba(0,0,0,0.6);
+        color: #FACC15;
+        border: 2px solid #7C3AED;
+        padding: 0.6rem 1rem;
+        border-radius: 50%;
+        font-size: 1.4rem;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+        .sound-controls button:hover {
+            background-color: #7C3AED;
+            color: #fff;
+            box-shadow: 0 0 10px rgba(124, 58, 237, 0.5);
+        }
+
+
+
+/* --- Onglets --- */
+.unity-tabs {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin: 3rem auto;
+    width: 100%;
+    text-align: center;
+}
+
+
+.unity-btn {
     padding: 0.8rem 1.6rem;
     border: 2px solid #7C3AED;
     border-radius: 50px;
@@ -88,11 +133,11 @@ body {
     transition: all 0.3s ease;
 }
 
-    .tab-btn.active,
-    .tab-btn:hover {
-        background-color: #7C3AED;
-        color: white;
-    }
+.unity-btn.active,
+.unity-btn:hover {
+    background-color: #7C3AED;
+    color: white;
+}
 
 /* --- Contenu des projets --- */
 .tab-content {
@@ -124,6 +169,174 @@ body {
     margin-top: 1rem;
     border: 2px solid #7C3AED;
 }
+
+    /* --- Rise of Freedom Section --- */
+    #rise .intro {
+        margin-bottom: 2rem;
+        color: #ddd;
+        line-height: 1.7;
+    }
+
+    #rise .gameplay {
+        background-color: #252525;
+        padding: 1.5rem;
+        border-left: 4px solid #7C3AED;
+        border-radius: 10px;
+        margin-bottom: 3rem;
+    }
+
+        #rise .gameplay h3 {
+            color: #FACC15;
+            margin-bottom: 1rem;
+        }
+
+    #rise .gameplay-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 2rem;
+        flex-wrap: wrap;
+    }
+
+    #rise .gameplay-text {
+        flex: 1 1 60%;
+        color: #ccc;
+        line-height: 1.7;
+    }
+
+        #rise .gameplay-text ul {
+            margin-top: 1rem;
+            list-style: none;
+            padding-left: 0;
+        }
+
+        #rise .gameplay-text li {
+            margin-bottom: 1rem;
+            background-color: #1e1e1e;
+            padding: 0.8rem;
+            border-radius: 8px;
+            border-left: 3px solid #7C3AED;
+        }
+
+    #rise .gameplay-img {
+        flex: 1 1 35%;
+        text-align: center;
+    }
+
+        #rise .gameplay-img img {
+            width: 100%;
+            max-width: 350px;
+            border-radius: 10px;
+            border: 2px solid #7C3AED;
+            box-shadow: 0 0 15px rgba(124, 58, 237, 0.4);
+        }
+
+    /* --- Carrousel Rise of Freedom --- */
+    #rise .carousel-container {
+        text-align: center;
+        margin: 3rem auto;
+    }
+
+        #rise .carousel-container h3 {
+            color: #FACC15;
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+    #rise .carousel {
+        position: relative;
+        overflow: hidden;
+        width: 80%;
+        max-width: 700px;
+        margin: 0 auto;
+        border-radius: 15px;
+        box-shadow: 0 0 20px rgba(124, 58, 237, 0.4);
+        border: 2px solid #7C3AED;
+        background-color: rgba(20, 20, 20, 0.6);
+        backdrop-filter: blur(4px);
+    }
+
+    #rise .carousel-track {
+        display: flex;
+        transition: transform 0.5s ease-in-out;
+    }
+
+    #rise .carousel-img {
+        width: 100%;
+        flex-shrink: 0;
+        border-radius: 15px;
+        border: 2px solid #7C3AED;
+    }
+
+    /* --- Boutons du carrousel --- */
+    #rise .carousel-btn {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background-color: rgba(0, 0, 0, 0.6);
+        color: #FACC15;
+        border: none;
+        font-size: 2rem;
+        cursor: pointer;
+        padding: 0.5rem 1rem;
+        border-radius: 8px;
+        transition: all 0.3s ease;
+        z-index: 10;
+    }
+
+        #rise .carousel-btn:hover {
+            background-color: #7C3AED;
+            color: #fff;
+            box-shadow: 0 0 15px rgba(124, 58, 237, 0.6);
+        }
+
+        #rise .carousel-btn.prev {
+            left: 10px;
+        }
+
+        #rise .carousel-btn.next {
+            right: 10px;
+        }
+
+    /* --- Vidéo --- */
+    #rise .game-video {
+        margin-top: 3rem;
+        background-color: #252525;
+        padding: 2rem;
+        border-radius: 12px;
+        border-left: 4px solid #FACC15;
+        text-align: center;
+        box-shadow: 0 0 10px rgba(250, 204, 21, 0.2);
+    }
+
+        #rise .game-video h3 {
+            color: #FACC15;
+            margin-bottom: 1rem;
+            font-size: 1.8rem;
+        }
+
+        #rise .game-video p {
+            color: #ccc;
+            margin-bottom: 1.5rem;
+        }
+
+    #rise .video-container {
+        position: relative;
+        width: 80%;
+        max-width: 800px;
+        margin: 0 auto;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 0 15px rgba(124, 58, 237, 0.3);
+    }
+
+        #rise .video-container video {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+
+
 
 /* --- Section Owen --- */
 
@@ -166,8 +379,9 @@ body {
 .carousel {
     position: relative;
     overflow: hidden;
-    width: 90%;
-    max-width: 800px;
+    width: 60%;
+    max-width: 50%%;
+    max-height : 40%;
     margin: 0 auto;
 }
 
@@ -274,9 +488,10 @@ body {
     text-align: center;
 }
 
-    .gameplay-img img {
-        width: 100%;
-        max-width: 400px;
+    .gameplay-img img 
+    {
+        width: 80%;
+        max-width: 80%;
         border-radius: 10px;
         border: 2px solid #7C3AED;
         box-shadow: 0 0 10px rgba(124, 58, 237, 0.5);
@@ -353,6 +568,246 @@ body {
 
     .contest-logo img {
         margin-top: 1.5rem;
+    }
+}
+
+
+/*//////////////////////////////////////////////////////////////////*/
+
+
+/* --- FanGame Pokémon Section --- */
+#pokemon .intro {
+    margin-bottom: 2rem;
+    color: #ddd;
+    line-height: 1.7;
+}
+
+#pokemon .story {
+    background-color: #252525;
+    padding: 1.5rem;
+    border-left: 4px solid #7C3AED;
+    border-radius: 8px;
+    margin-bottom: 3rem;
+}
+
+    #pokemon .story h3 {
+        color: #FACC15;
+        margin-bottom: 1rem;
+    }
+
+    #pokemon .story p {
+        margin-bottom: 1rem;
+        color: #ccc;
+        line-height: 1.7;
+    }
+
+#pokemon .carousel-container h3 {
+    color: #FACC15;
+    margin-bottom: 1rem;
+}
+
+/* --- Tableau de rareté (mise à jour) --- */
+.rarity-table {
+    flex: 1 1 55%;
+    display: flex;
+    justify-content: center; /* centre le tableau horizontalement */
+    align-items: center;
+    padding: 1rem;
+}
+
+.rarity-system
+{
+    color : white;
+}
+
+    .rarity-system h3 {
+        color: #FACC15;
+    }
+
+
+    .rarity-table table {
+        width: 80%; /* réduit légèrement la largeur */
+        border-collapse: collapse;
+        text-align: center;
+        background-color: #1e1e1e;
+        border-radius: 10px;
+        border: 2px solid #7C3AED; /* cadre violet fin */
+        box-shadow: 0 0 10px rgba(124, 58, 237, 0.3);
+        overflow: hidden;
+    }
+
+    .rarity-table th {
+        background-color: #7C3AED;
+        color: white;
+        padding: 0.8rem;
+        font-weight: bold;
+    }
+
+    .rarity-table td {
+        padding: 0.6rem;
+        color: #ddd;
+        border-bottom: 1px solid #333;
+    }
+
+    .rarity-table tr:hover {
+        background-color: rgba(124, 58, 237, 0.15);
+        transition: 0.3s ease;
+    }
+
+    /* Images de rareté réduites et centrées */
+    .rarity-table img {
+        width: 60%; /* réduit en % */
+        max-width: 40px; /* limite de taille max */
+        display: block;
+        margin: 0 auto; /* centre chaque image dans sa cellule */
+        object-fit: contain;
+    }
+
+
+
+/* --- Carrousel Pokémon --- */
+#pokemon .carousel-container {
+    text-align: center;
+    margin: 3rem auto;
+}
+
+    #pokemon .carousel-container h3 {
+        color: #FACC15;
+        font-size: 1.8rem;
+        margin-bottom: 1rem;
+        text-shadow: 0 0 10px rgba(250, 204, 21, 0.4);
+    }
+
+#pokemon .carousel {
+    position: relative;
+    overflow: hidden;
+    width: 80%;
+    max-width: 700px;
+    margin: 0 auto;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(124, 58, 237, 0.4);
+    border: 2px solid #7C3AED;
+    background-color: rgba(20, 20, 20, 0.6);
+    backdrop-filter: blur(4px);
+}
+
+#pokemon .carousel-track {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+#pokemon .carousel-img {
+    width: 100%;
+    flex-shrink: 0;
+    border-radius: 15px;
+    border: 2px solid #7C3AED;
+    box-shadow: 0 0 15px rgba(124, 58, 237, 0.3);
+}
+
+/* --- Boutons du carrousel --- */
+#pokemon .carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.6);
+    color: #FACC15;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    z-index: 10;
+}
+
+    #pokemon .carousel-btn:hover {
+        background-color: #7C3AED;
+        color: #fff;
+        box-shadow: 0 0 15px rgba(124, 58, 237, 0.6);
+    }
+
+    #pokemon .carousel-btn.prev {
+        left: 10px;
+    }
+
+    #pokemon .carousel-btn.next {
+        right: 10px;
+    }
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+    #pokemon .carousel {
+        width: 95%;
+    }
+
+    #pokemon .carousel-btn {
+        font-size: 1.5rem;
+        padding: 0.3rem 0.7rem;
+    }
+}
+
+
+/* --- Section vidéo --- */
+.game-video {
+    margin-top: 3rem;
+    background-color: #252525;
+    padding: 2rem;
+    border-radius: 12px;
+    border-left: 4px solid #FACC15; /* jaune vif */
+    box-shadow: 0 0 10px rgba(250, 204, 21, 0.2);
+    text-align: center;
+}
+
+    .game-video h3 {
+        color: #FACC15;
+        margin-bottom: 1rem;
+        font-size: 1.8rem;
+    }
+
+    .game-video p {
+        color: #ccc;
+        margin-bottom: 1.5rem;
+        font-size: 1rem;
+        line-height: 1.6;
+    }
+
+/* Conteneur vidéo responsive */
+.video-container {
+    position: relative;
+    width: 80%;
+    max-width: 800px;
+    margin: 0 auto;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 0 15px rgba(124, 58, 237, 0.3);
+}
+
+    .video-container video {
+        width: 100%;
+        height: auto;
+        display: block;
+        border-radius: 10px;
+    }
+
+/* Responsive */
+@media (max-width: 768px) {
+    .video-container {
+        width: 100%;
+    }
+}
+
+
+
+/* Responsive */
+@media (max-width: 768px) {
+    .rarity-table table {
+        width: 100%;
+        font-size: 0.9rem;
+    }
+
+    .rarity-table img {
+        width: 50%;
+        max-width: 32px;
     }
 }
 

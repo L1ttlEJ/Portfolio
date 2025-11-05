@@ -19,22 +19,30 @@
         </ul>
     </nav>
 
+    <div class="sound-controls">
+        <button id="volume-down">🔉</button>
+        <button id="mute-toggle">🔇</button>
+        <button id="volume-up">🔊</button>
+    </div>
+
+
     <header class="header">
         <h1>Mes Projets Unity</h1>
         <p>Découvrez mes jeux développés sur Unity, alliant gameplay, design et narration.</p>
     </header>
 
     <!-- Boutons de sélection -->
-    <section class="tabs">
-        <button class="tab-btn" data-target="rise">Rise of Freedom</button>
-        <button class="tab-btn active" data-target="owen">Owen Odyssey</button>
-        <button class="tab-btn" data-target="pokemon">FanGame Pokémon</button>
-    </section>
+    <div class="unity-tabs">
+        <button class="unity-btn" data-target="rise">Rise of Freedom</button>
+        <button class="unity-btn" data-target="owen">Owen Odyssey</button>
+        <button class="unity-btn active" data-target="pokemon">FanGame Pokémon</button>
+    </div>
+
 
     <!-- Contenu associé -->
     <section class="tab-content">
         <!-- OwenOdyssey -->
-        <div class="content active" id="owen">
+        <div class="content" id="owen">
             <h2>OwenOdyssey</h2>
 
             <p class="intro">
@@ -63,24 +71,7 @@
                 </p>
             </div>
 
-            <!-- Carrousel d’images -->
-            <div class="carousel-container">
-                <h3>Assets 3D & Captures du jeu</h3>
-                <div class="carousel">
-                    <button class="carousel-btn prev">&#10094;</button>
-                    <div class="carousel-track">
-                        <img src="../imgs/owen/decor01.png" alt="Décors du jeu" class="carousel-img">
-                        <img src="../imgs/owen/outil01.png" alt="Outil du jeu" class="carousel-img">
-                        <img src="../imgs/owen/plante01.png" alt="Plante du jeu" class="carousel-img">
-                        <img src="../imgs/owen/plante02.png" alt="Mécanisme du jeu" class="carousel-img">
-                        <img src="../imgs/owen/MainMenu.png" alt="Menu d'accueil du jeu'" class="carousel-img">
-                        <img src="../imgs/owen/capture01.png" alt="Capture d'écran du jeu (niveau 01)'" class="carousel-img">
-                        <img src="../imgs/owen/liambookinterface.png" alt="Interface du carnet de Liam" class="carousel-img">
-                    </div>
-                    <button class="carousel-btn next">&#10095;</button>
-                </div>
-            </div>
-
+            <!-- Gameplay -->
             <div class="gameplay">
                 <h3>Gameplay et principe du jeu</h3>
                 <div class="gameplay-content">
@@ -100,14 +91,14 @@
                         </p>
                     </div>
                     <div class="gameplay-img">
-                        <img src="../assets/owen-gameplay.jpg" alt="Illustration du gameplay d’Owen Odyssey">
+                        <img src="../imgs/owen/capture01.png" alt="Illustration du gameplay d’Owen Odyssey">
                     </div>
                 </div>
 
                 <div class="video-demo">
                     <h4>Démonstration du système de rotation</h4>
-                    <video controls>
-                        <source src="../assets/owen-rotation.mp4" type="video/mp4">
+                    <video controls autoplay>
+                        <source src="../video/owen/rotationPlateau.mp4" type="video/mp4">
                         Votre navigateur ne supporte pas la lecture vidéo.
                     </video>
                 </div>
@@ -136,7 +127,25 @@
                 </div>
             </div>
 
-            <br/>
+            <br />
+
+            <!-- Carrousel d’images -->
+            <div class="carousel-container">
+                <h3>Assets 3D & Captures du jeu</h3>
+                <div class="carousel">
+                    <button class="carousel-btn prev">&#10094;</button>
+                    <div class="carousel-track">
+                        <img src="../imgs/owen/decor01.png" alt="Décors du jeu" class="carousel-img">
+                        <img src="../imgs/owen/outil01.png" alt="Outil du jeu" class="carousel-img">
+                        <img src="../imgs/owen/plante01.png" alt="Plante du jeu" class="carousel-img">
+                        <img src="../imgs/owen/plante02.png" alt="Mécanisme du jeu" class="carousel-img">
+                        <img src="../imgs/owen/MainMenu.png" alt="Menu d'accueil du jeu'" class="carousel-img">
+                        <img src="../imgs/owen/capture01.png" alt="Capture d'écran du jeu (niveau 01)'" class="carousel-img">
+                        <img src="../imgs/owen/liambookinterface.png" alt="Interface du carnet de Liam" class="carousel-img">
+                    </div>
+                    <button class="carousel-btn next">&#10095;</button>
+                </div>
+            </div>
 
             <!-- Concours -->
             <div class="contest-section">
@@ -158,26 +167,176 @@
         </div>
 
 
+        <!-- Rise of Freedom -->
+        <div class="content" id="rise">
+            <h2>Rise of Freedom</h2>
 
-            <!-- Rise of Freedom -->
-            <div class="content" id="rise">
-                <h2>Rise of Freedom</h2>
+            <div class="intro">
                 <p>
-                    Jeu d’aventure et de plateforme où le joueur incarne Owen, explorant un monde mystérieux rempli de défis et de secrets.
+                    <strong>Rise of Freedom</strong> est un projet scolaire réalisé entre mai et juillet 2025 sur le thème de Martin Luther King.
+                    En duo avec un camarade, nous avons choisi d’adopter une direction artistique en <em>pixel art</em> pour apporter une touche de légèreté à cette thématique historique profonde.
+                    C’était mon tout premier projet Unity : j’y ai principalement travaillé sur la partie graphique ainsi qu’une partie de la programmation.
                 </p>
-                <img src="../imgs/concoursPixiContest.png" alt="RiseofFreedom - Aperçu" class="project-img">
+            </div>
+
+            <!-- Partie Gameplay -->
+            <div class="gameplay">
+                <h3>Les 3 types de gameplay</h3>
+                <div class="gameplay-content">
+                    <div class="gameplay-text">
+                        <p>
+                            Pour représenter la lutte de Martin Luther King sous différents angles, nous avons imaginé trois styles de niveaux. Ces niveaux sont sélectionnables à partir d'un hub servant de "QG" au joueur.
+                        </p>
+                        <ul>
+                            <li>
+                                <strong>Niveau “Discours”</strong> Le joueur doit aller parler à des manifestants afin d'optenir des discours. Ces discours seront nécessaire afin de disperser les manifestants trop violents. 
+                                On a voulu mettre en avant la partie non violente de Martin Luther King qui agit avant tout par le discours que par la violence. 
+                                Le joueur trouvera d'ailleurs sur sa route des manifestants "violent" qui vont tenter de lui mettre des bâtons dans les roues lors de sont parcours'
+                            </li>
+                            <li>
+                                <strong>Niveau “Boycott”</strong> Le joueur aura 1 min pour aller parler à un maximum de personnes (sur 3 niveaux) afin de les convaincre de ne pas aller prendre le bus.
+                                On a voulu à travers ces niveaux rappeler le célèbre événement et refus dont Rosa Parks a été le sujet. 
+                            </li>
+                            <li>
+                                <strong>Niveau “Recrutement”</strong> Niveau que l'on n'a pas eu le temps de réaliser. Le joueur aurait du enquêter à travers une ville afin d'aller parler à des citoyens et les convaincre de les rejoindre dans la lutte contre la ségrégations.'
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="gameplay-img">
+                        <img src="../assets/rise/gameplay_preview.png" alt="Rise of Freedom - Gameplay aperçu">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Carrousel d’images -->
+            <div class="carousel-container">
+                <h3>Captures et visuels du jeu</h3>
+                <div class="carousel" id="rise-carousel">
+                    <button class="carousel-btn prev">&#10094;</button>
+                    <div class="carousel-track">
+                        <img src="../assets/rise/screen1.png" alt="Rise of Freedom - Capture 1" class="carousel-img">
+                        <img src="../assets/rise/screen2.png" alt="Rise of Freedom - Capture 2" class="carousel-img">
+                        <img src="../assets/rise/screen3.png" alt="Rise of Freedom - Capture 3" class="carousel-img">
+                        <img src="../assets/rise/screen4.png" alt="Rise of Freedom - Capture 4" class="carousel-img">
+                    </div>
+                    <button class="carousel-btn next">&#10095;</button>
+                </div>
+            </div>
+
+            <!-- Section vidéo -->
+            <div class="game-video">
+                <h3>Vidéo de présentation</h3>
+                <p>Découvrez un extrait du jeu <strong>Rise of Freedom</strong> présentant le style artistique et les mécaniques principales.</p>
+                <div class="video-container">
+                    <video controls>
+                        <source src="../assets/rise/rise_presentation.mp4" type="video/mp4">
+                        Votre navigateur ne supporte pas la lecture vidéo.
+                    </video>
+                </div>
+            </div>
+        </div>
+
+
+
+        <!-- FanGame Pokémon -->
+        <div class="content active" id="pokemon">
+            <h2>FanGame Pokémon — Le Défi des 100 Dresseurs</h2>
+
+            <p class="intro">
+                Grand passionné de la licence <strong>Pokémon</strong> depuis mon enfance, j’ai voulu rendre hommage à cet univers à travers un <strong>fan game développé sous Unity</strong>.
+                Ce projet personnel s’intitule <em>Pokémon : Le Défi des 100 Dresseurs</em>.
+            </p>
+
+            <div class="story">
+                <h3>🎮 Concept du jeu</h3>
+                <p>
+                    Le joueur incarne un jeune dresseur déterminé à relever un défi unique : <strong>affronter 100 dresseurs à la suite</strong>.
+                </p>
+                <p>
+                    Entre chaque round, le joueur a la possibilité de <strong>choisir un nouveau Pokémon</strong> parmi trois proposés aléatoirement, ajoutant une dimension de hasard et de stratégie.
+                    L’objectif est simple : <strong>survivre jusqu’au dernier combat</strong> avec au moins un Pokémon encore en vie.
+                </p>
+                <p>
+                    Ce jeu mêle l’esprit classique des combats Pokémon à une boucle de gameplay typique des <strong>rogue-likes</strong>, où chaque tentative est différente et chaque victoire mérite d’être savourée.
+                </p>
+            </div>
+
+            <!-- Système de rareté -->
+            <div class="rarity-system">
+                <h3>Système de rareté des Pokémon</h3>
+                <div class="rarity-content">
+                    <div class="rarity-text">
+                        <p>
+                            Le tirage aléatoire des Pokémon est basé sur un <strong>système de rareté</strong>.
+                            Chaque créature possède un niveau de rareté défini, influençant ses chances d’apparition.
+                            Plus un Pokémon est rare, plus ses statistiques et compétences sont puissantes, mais ses chances d’être proposé sont plus faibles.
+                            Ce système crée un équilibre entre <strong>chance</strong> et <strong>stratégie</strong>, offrant au joueur des choix variés à chaque round.
+                        </p>
+                    </div>
+
+                    <div class="rarity-table">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Rareté</th>
+                                    <th>Sprite</th>
+                                    <th>Probabilité d’apparition</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr><td>Commun</td><td><img src="../imgs/poke/Commun.png" alt="Rareté 1"></td><td>50%</td></tr>
+                                <tr><td>Peu commun</td><td><img src="../imgs/poke/PeuCommun.png" alt="Rareté 2"></td><td>20%</td></tr>
+                                <tr><td>Rare</td><td><img src="../imgs/poke/Rare.png" alt="Rareté 3"></td><td>10%</td></tr>
+                                <tr><td>Très rare</td><td><img src="../imgs/poke/Very.png" alt="Rareté 4"></td><td>7%</td></tr>
+                                <tr><td>Ultra rare</td><td><img src="../imgs/poke/Ultra.png" alt="Rareté 5"></td><td>5%</td></tr>
+                                <tr><td>Spécial</td><td><img src="../imgs/poke/UltraChieme.png" alt="Rareté 6"></td><td>3%</td></tr>
+                                <tr><td>Secret</td><td><img src="../imgs/poke/RareSecret.png" alt="Rareté 7"></td><td>2%</td></tr>
+                                <tr><td>Très secret</td><td><img src="../imgs/poke/UltraSecret.png" alt="Rareté 8"></td><td>1.5%</td></tr>
+                                <tr><td>Mega</td><td><img src="../imgs/poke/Mega.png" alt="Rareté 9"></td><td>1%</td></tr>
+                                <tr><td>Légendaire</td><td><img src="../imgs/poke/Legendaire.png" alt="Rareté 10"></td><td>0.5%</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
             </div>
 
 
-            <!-- FanGame Pokémon -->
-            <div class="content" id="pokemon">
-                <h2>FanGame Pokémon</h2>
-                <p>
-                    Recréation libre inspirée de l’univers Pokémon, développée avec Unity et un moteur de combat personnalisé.
-                </p>
-                <img src="../assets/fangame-pokemon.jpg" alt="FanGame Pokémon - Aperçu" class="project-img">
+            <!-- Carrousel d’images -->
+            <div class="carousel-container">
+                <h3>Captures et concepts du jeu</h3>
+                <div class="carousel" id="pokemon-carousel">
+                    <button class="carousel-btn prev" aria-label="Précédent">&#10094;</button>
+                    <div class="carousel-track">
+                        <img src="../imgs/poke/mainmenu.png" alt="FanGame Pokémon - Image 1" class="carousel-img">
+                        <img src="../imgs/poke/pokedex.png" alt="FanGame Pokémon - Image 2" class="carousel-img">
+                        <img src="../imgs/poke/pokemonselection.png" alt="FanGame Pokémon - Image 3" class="carousel-img">
+                        <img src="../imgs/poke/screeningame.png" alt="FanGame Pokémon - Image 4" class="carousel-img">
+                    </div>
+                    <button class="carousel-btn next" aria-label="Suivant">&#10095;</button>
+                </div>
             </div>
-</section>
+
+
+
+            <!-- Section Vidéo -->
+            <div class="game-video">
+                <h3>Vidéo de présentation du jeu</h3>
+                <p>
+                    Voici une courte capture vidéo de mon fangame<strong>Pokémon : Le Défi des 100 Dresseurs</strong>.
+                </p>
+
+                <div class="video-container">
+                    <!-- Tu remplaceras le src par ta propre vidéo -->
+                    <video controls>
+                        <source src="../assets/videos/fangame-demo.mp4" type="video/mp4">
+                        Ton navigateur ne supporte pas la lecture de cette vidéo.
+                    </video>
+                </div>
+            </div>
+        </div>
+
+
+    </section>
 
     <script src="../JS/unity.js"></script>
 </body>
