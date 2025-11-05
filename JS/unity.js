@@ -146,15 +146,15 @@ let isAudioInitialized = false;
 const pageData = {
     owen: {
         bg: "imgs/owen/backgrounds/owen-bg.jpg",
-        music: "song/owen.mp3"
+        music: "Song/owen.mp3"
     },
     rise: {
         bg: "imgs/rise/backgrounds/rise-bg.jpg",
-        music: "song/rise.mp3"
+        music: "Song/rise.mp3"
     },
     pokemon: {
         bg: "imgs/poke/fond.gif",
-        music: "song/pokeSong.mp3"
+        music: "Song/pokeSong.mp3"
     }
 };
 
