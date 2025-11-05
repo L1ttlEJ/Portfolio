@@ -1,0 +1,292 @@
+/* === BASE === */
+* 
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body 
+{
+    background-color: #0f0f0f;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    transition: background-image 1s ease-in-out;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* --- NAVBAR --- */
+.navbar 
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #111;
+    padding: 1rem 2rem;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+}
+
+.logo 
+{
+    font-size: 1.5rem;
+    color: #FACC15;
+    font-weight: 600;
+}
+
+.nav-links 
+{
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+}
+
+.nav-links a 
+{
+    text-decoration: none;
+    color: #E5E5E5;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover,
+.nav-links a.active 
+{
+    color: #7C3AED;
+}
+
+/* --- HEADER --- */
+.header 
+{
+    text-align: center;
+    padding: 3rem 1rem;
+    color: #fff;
+    text-shadow: 0 0 10px rgba(0,0,0,0.7);
+}
+
+.header h1 
+{
+    color: #FACC15;
+    font-size: 2.8rem;
+}
+
+.header p 
+{
+    color: #DDD;
+}
+
+/* --- ONGLET BUTTONS --- */
+.web-tabs 
+{
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.web-btn 
+{
+    background: linear-gradient(145deg, #1a1a1a, #0f0f0f);
+    color: #EAEAEA;
+    padding: 0.8rem 1.8rem;
+    border: none;
+    border-radius: 30px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.web-btn:hover 
+{
+    background: #7C3AED;
+    color: #fff;
+}
+
+.web-btn.active
+{
+    background: linear-gradient(145deg, #7C3AED, #581C87);
+    color: white;
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(124,58,237,0.5);
+}
+
+/* --- CONTENU --- */
+.tab-content 
+{
+    max-width: 80%;
+    margin: 0 auto 3rem;
+    padding: 2rem;
+    background-color: #2A2A2A;
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.3);
+    color: #ddd;
+}
+
+.content 
+{
+    display: none;
+    animation: fadeIn 0.4s ease;
+}
+
+.content.active 
+{
+    display: block;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+
+/* === Musée Albert Londres === */
+#musee {
+  color: #f5f5f5;
+  padding: 2rem;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 15px;
+}
+
+#musee h2 {
+  text-align: center;
+  font-size: 2rem;
+  color: #FFD700;
+  margin-bottom: 1.5rem;
+  text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+}
+
+#musee .intro {
+  text-align: center;
+  font-style: italic;
+  margin-bottom: 2rem;
+}
+
+/* --- Présentation --- */
+.musee-presentation {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.musee-text {
+  flex: 1 1 45%;
+  line-height: 1.6;
+}
+
+.musee-images {
+  flex: 1 1 40%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.musee-img {
+  width: 40%;
+  border-radius: 10px;
+  border: 2px solid #FFD700;
+  box-shadow: 0 0 10px rgba(255, 215, 0, 0.4);
+}
+
+/* --- Figma --- */
+.figma-container {
+  margin: 2rem auto;
+  text-align: center;
+}
+
+.figma-container iframe {
+  width: 60%;
+  height: 500px;
+  border: 2px solid #FFD700;
+  border-radius: 10px;
+  transition: width 0.3s ease;
+}
+
+.figma-controls {
+  margin-top: 1rem;
+}
+
+.figma-controls label {
+  margin-right: 0.5rem;
+}
+
+/* --- Carrousel --- */
+#musee .carousel-container {
+  text-align: center;
+  margin: 3rem auto;
+}
+
+#musee .carousel-container h3 {
+  color: #FFD700;
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  text-shadow: 0 0 10px rgba(255, 215, 0, 0.4);
+}
+
+#musee .carousel {
+  position: relative;
+  overflow: hidden;
+  width: 80%;
+  max-width: 700px;
+  margin: 0 auto;
+  border-radius: 15px;
+  background-color: rgba(20, 20, 20, 0.6);
+  border: 2px solid #FFD700;
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.4);
+}
+
+#musee .carousel-track {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+#musee .carousel-img {
+  width: 100%;
+  flex-shrink: 0;
+  border-radius: 15px;
+}
+
+#musee .carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #FFD700;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  z-index: 10;
+}
+
+#musee .carousel-btn:hover {
+  background-color: #FFD700;
+  color: #000;
+}
+
+#musee .carousel-btn.prev {
+  left: 10px;
+}
+
+#musee .carousel-btn.next {
+  right: 10px;
+}
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+  .musee-presentation {
+    flex-direction: column;
+  }
+
+  .figma-container iframe {
+    width: 90%;
+  }
+
+  #musee .carousel {
+    width: 95%;
+  }
+}
+

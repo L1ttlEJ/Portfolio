@@ -1,0 +1,130 @@
+﻿<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mes Projets Web</title>
+    <link rel="stylesheet" href="../css/web.css">
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="logo">Portfolio</div>
+        <ul class="nav-links">
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="unity.html">Unity</a></li>
+            <li><a href="web.html" class="active">Web</a></li>
+        </ul>
+    </nav>
+
+    <!-- En-tête -->
+    <header class="header">
+        <h1>Mes Projets Web</h1>
+        <p>Découvrez mes réalisations front-end et back-end en développement web.</p>
+    </header>
+
+    <!-- Onglets -->
+    <div class="web-tabs">
+        <button class="web-btn active" data-target="musee">Musée Albert Londres</button>
+        <button class="web-btn" data-target="edition">Édition Limitée</button>
+        <button class="web-btn" data-target="plante">MyCutPlante</button>
+    </div>
+
+    <!-- Contenu -->
+    <section class="tab-content">
+        <!-- === Musée Albert Londres === -->
+        <div class="content" id="musee">
+            <h2>Musée Albert Londres</h2>
+            <p class="intro">
+                J’ai effectué un stage de 3e année de 7 semaines au sein du Musée Albert Londres.
+                Durant cette période, j’ai développé une application de caisse enregistreuse
+                pour faciliter la gestion des ventes de tickets et des articles de la boutique.
+            </p>
+
+            <!-- Présentation du musée -->
+            <section class="musee-presentation">
+                <div class="musee-text">
+                    <h3>Présentation du musée</h3>
+                    <p>
+                        Le Musée Albert Londres rend hommage au célèbre journaliste vichyssois,
+                        premier grand reporter français. Le musée retrace son parcours, ses voyages,
+                        et expose de nombreux objets, articles et documents d’archives.Rénové récemment, le musée est tenu par l'association Albert Londre dont ma tutrice, Marie De Comlombel
+                        est la présidente.
+                    </p>
+                </div>
+                <div class="musee-images">
+                    <img src="../imgs/al/musee.jpg" alt="Musée Albert Londres - Façade" class="musee-img">
+                    <img src="../imgs/al/marie.png" alt="Madame de Colombel" class="musee-img">
+                </div>
+            </section>
+
+            <!-- Déroulement du projet -->
+            <section class="musee-projet">
+                <h3>Déroulement du projet</h3>
+                <p>
+                    J’ai commencé par recueillir le cahier des charges du musée afin de comprendre leurs besoins précis.
+                    À partir de ces échanges, j’ai réalisé une maquette sur Figma que j’ai présentée à
+                    <strong>Madame De Colombel</strong>, présidente de l’association Albert Londres.
+                </p>
+
+                <!-- Iframe Figma -->
+                <div class="figma-container">
+                    <iframe src="https://www.figma.com/design/aw83oRUJ3WLoyMS1xpbMKn/Untitled?node-id=0-1&m=dev&t=7fYD0RMjfSjwhmLs-1"
+                            allowfullscreen></iframe>
+
+                    <div class="figma-controls">
+                        <label for="figmaSize">Taille d’affichage :</label>
+                        <select id="figmaSize">
+                            <option value="40">40%</option>
+                            <option value="60" selected>60%</option>
+                        </select>
+                    </div>
+                </div>
+
+                <p>
+                    Une fois la maquette validée, j’ai choisi les outils techniques :
+                    <strong>.NET</strong> sur <strong>Visual Studio</strong>, avec une base de données
+                    <strong>SQL</strong> et du code en <strong>C#</strong>.
+                    Suite à des contraintes matérielles liées à une machine ancienne,
+                    j’ai remplacé SQL par <strong>SQLite</strong> afin de créer une base de données locale.
+                </p>
+
+                <p>
+                    Après la fin de mes études, j’ai pu finaliser le projet et effectuer des tests utilisateurs.
+                    Le défi principal fut d’adapter l’interface pour qu’elle soit claire et intuitive
+                    pour les membres âgés de l’association. Ce projet m’a permis de développer mes compétences
+                    en ergonomie, accessibilité et développement logiciel.
+                </p>
+            </section>
+
+            <!-- Carrousel des captures -->
+            <section class="carousel-container">
+                <h3>Captures de l’application de caisse</h3>
+                <div class="carousel">
+                    <button class="carousel-btn prev">&#10094;</button>
+                    <div class="carousel-track">
+                        <img src="../imgs/musee/app1.jpg" alt="Capture 1 - Interface principale" class="carousel-img">
+                        <img src="../imgs/musee/app2.jpg" alt="Capture 2 - Gestion des ventes" class="carousel-img">
+                        <img src="../imgs/musee/app3.jpg" alt="Capture 3 - Base de données SQLite" class="carousel-img">
+                    </div>
+                    <button class="carousel-btn next">&#10095;</button>
+                </div>
+            </section>
+        </div>
+
+
+        <div class="content" id="edition">
+            <h2>Édition Limitée</h2>
+            <p>Site e-commerce fictif de vêtements en édition limitée, avec gestion de panier et interface administrateur.</p>
+        </div>
+
+        <div class="content" id="plante">
+            <h2>MyCutPlante</h2>
+            <p>Application web permettant de cataloguer, échanger et suivre la croissance de plantes coupées, avec une interface moderne et responsive.</p>
+        </div>
+    </section>
+
+    <script src="../js/web.js"></script>
+</body>
+</html>
