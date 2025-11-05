@@ -35,3 +35,29 @@ window.addEventListener('DOMContentLoaded', () => {
     const defaultId = "musee";
     showContent(defaultId);
 });
+
+
+// === Carrousel Albert Londres ===
+const carouselTrack = document.querySelector('.carousel-track');
+const carouselImages = document.querySelectorAll('.carousel-img');
+const prevBtn = document.querySelector('.carousel-btn.prev');
+const nextBtn = document.querySelector('.carousel-btn.next');
+
+let currentIndex = 0;
+
+function updateCarousel() {
+    const width = carouselImages[0].clientWidth;
+    carouselTrack.style.transform = `translateX(-${currentIndex * width}px)`;
+}
+
+nextBtn.addEventListener('click', () => {
+    currentIndex = (currentIndex + 1) % carouselImages.length;
+    updateCarousel();
+});
+
+prevBtn.addEventListener('click', () => {
+    currentIndex = (currentIndex - 1 + carouselImages.length) % carouselImages.length;
+    updateCarousel();
+});
+
+window.addEventListener('resize', updateCarousel);

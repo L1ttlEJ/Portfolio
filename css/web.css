@@ -162,32 +162,90 @@ body
 }
 
 /* --- Présentation --- */
+/* --- Section Présentation Musée --- */
 .musee-presentation {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-around;
-  flex-wrap: wrap;
-  gap: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 3rem;
+    padding: 3rem 5%;
+    background-color: rgba(20, 20, 20, 0.8);
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(124, 58, 237, 0.2);
+    flex-wrap: wrap; /* permet de s'adapter aux petits écrans */
 }
 
 .musee-text {
-  flex: 1 1 45%;
-  line-height: 1.6;
+    flex: 1 1 45%;
+    color: #ddd;
+    line-height: 1.8;
+    text-align: justify;
+}
+
+.musee-text h3 {
+    color: #FACC15;
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    text-align: left;
 }
 
 .musee-images {
-  flex: 1 1 40%;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
+    flex: 1 1 40%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
 }
 
 .musee-img {
-  width: 40%;
-  border-radius: 10px;
-  border: 2px solid #FFD700;
-  box-shadow: 0 0 10px rgba(255, 215, 0, 0.4);
+    width: 100%;
+    max-width: 350px;
+    border-radius: 10px;
+    border: 2px solid #7C3AED;
+    box-shadow: 0 0 15px rgba(124, 58, 237, 0.4);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+
+.musee-img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 25px rgba(250, 204, 21, 0.4);
+}
+
+.violet h3
+{
+    text-align: center;
+    padding: 3rem 1rem;
+    color : #7C3AED;
+    text-shadow: 0 0 10px rgba(0,0,0,0.7);
+}
+
+/* --- Responsive --- */
+@media (max-width: 900px) {
+    .musee-presentation {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .musee-text {
+        flex: 1 1 100%;
+        text-align: center;
+    }
+
+    .musee-text h3 {
+        text-align: center;
+    }
+
+    .musee-images {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .musee-img {
+        max-width: 250px;
+    }
+}
+
 
 /* --- Figma --- */
 .figma-container {
@@ -289,4 +347,29 @@ body
     width: 95%;
   }
 }
+
+.feature-list {
+  list-style: none;
+  padding: 1rem 1.5rem;
+  margin-top: 1rem;
+  background-color: #252525;
+  border-left: 4px solid #7C3AED;
+  border-radius: 10px;
+  color: #ddd;
+  line-height: 1.7;
+}
+
+.feature-list li {
+  margin-bottom: 0.6rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.feature-list li:hover {
+  color: #FACC15;
+  transform: translateX(5px);
+}
+
 
