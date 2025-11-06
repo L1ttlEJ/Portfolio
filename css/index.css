@@ -123,3 +123,38 @@ body {
         font-size: 2.2rem;
     }
 }
+
+/* --- Photo de profil --- */
+.profile-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+}
+
+.profile-pic {
+    width: 180px;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 4px solid #7C3AED;
+    box-shadow: 0 0 25px rgba(124, 58, 237, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+    .profile-pic:hover {
+        transform: scale(1.05);
+        box-shadow: 0 0 35px rgba(124, 58, 237, 0.6);
+    }
+
+/* --- Bouton CV spécifique --- */
+.btn.jaune {
+    background-color: #FACC15;
+    color: #1E1E1E;
+}
+
+    .btn.jaune:hover {
+        background-color: transparent;
+        border-color: #FACC15;
+        color: #FACC15;
+    }
+
