@@ -61,3 +61,26 @@ prevBtn.addEventListener('click', () => {
 });
 
 window.addEventListener('resize', updateCarousel);
+
+
+// === Contrôle de la taille de l'iframe ===
+document.addEventListener("DOMContentLoaded", () => {
+    const iframe = document.querySelector(".iframe-container iframe");
+    const select = document.getElementById("iframe-size");
+
+    if (iframe && select) {
+        select.addEventListener("change", () => {
+            const value = select.value;
+            iframe.style.width = `${value}%`;
+
+            // dézoom proportionnel léger selon la taille choisie
+            const scaleMap = {
+                30: 0.85,
+                40: 0.9,
+                50: 0.95,
+                60: 1
+            };
+            iframe.style.transform = `scale(${scaleMap[value]})`;
+        });
+    }
+});

@@ -218,3 +218,51 @@ document.addEventListener('click', () => {
         }
     }
 }, { once: true });
+
+
+// === Carrousel Rise of Freedom ===
+document.addEventListener("DOMContentLoaded", () => {
+    const track = document.querySelector("#rise-carousel .carousel-track");
+    const images = Array.from(track.children);
+    const nextButton = document.querySelector("#rise-carousel .next");
+    const prevButton = document.querySelector("#rise-carousel .prev");
+    const dotsContainer = document.querySelector("#rise-dots");
+
+    let currentIndex = 0;
+
+    // Crée les petits points
+    images.forEach((_, i) => {
+        const dot = document.createElement("button");
+        if (i === 0) dot.classList.add("active");
+        dotsContainer.appendChild(dot);
+    });
+    const dots = Array.from(dotsContainer.children);
+
+    function updateCarousel(index) {
+        track.style.transform = `translateX(-${index * 100}%)`;
+        dots.forEach((dot, i) => dot.classList.toggle("active", i === index));
+    }
+
+    nextButton.addEventListener("click", () => {
+        currentIndex = (currentIndex + 1) % images.length;
+        updateCarousel(currentIndex);
+    });
+
+    prevButton.addEventListener("click", () => {
+        currentIndex = (currentIndex - 1 + images.length) % images.length;
+        updateCarousel(currentIndex);
+    });
+
+    dots.forEach((dot, i) => {
+        dot.addEventListener("click", () => {
+            currentIndex = i;
+            updateCarousel(currentIndex);
+        });
+    });
+
+    // Auto-slide
+    setInterval(() => {
+        currentIndex = (currentIndex + 1) % images.length;
+        updateCarousel(currentIndex);
+    }, 5000);
+});
