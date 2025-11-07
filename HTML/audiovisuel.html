@@ -4,16 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Audiovisuel - À venir...</title>
-    <base href="https://l1ttlej.github.io/Portfolio/">
+    <base href="/Portfolio/">
     <link rel="stylesheet" href="css/audiovisuel.css">
 </head>
 
 <body>
-    <div class="loading-container">
-        <div class="neon-ball"></div>
-        <h1 class="coming-soon">À venir...</h1>
-    </div>
+    <!-- === NAVBAR === -->
+    <nav class="navbar">
+        <div class="logo">Johannes</div>
+        <ul class="nav-links">
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="HTML/unity.html">Unity</a></li>
+            <li><a href="HTML/web.html">Web</a></li>
+            <li><a href="HTML/audiovisuel.html" class="active">Audiovisuel</a></li>
+        </ul>
+    </nav>
 
-    <script src="JS/audiovisuel.js"></script>
+    <!-- === ÉCRAN DE CHARGEMENT === -->
+    <main class="loading-container">
+        <div class="loading-box">
+            <div class="progress-bar">
+                <div class="progress-fill"></div>
+            </div>
+            <p class="progress-text">Chargement : <span id="progress">30%</span></p>
+            <h1 class="coming-soon">À venir...</h1>
+        </div>
+    </main>
+
+    <script src="JS/audiovisuel.js" defer></script>
 </body>
 </html>
