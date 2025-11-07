@@ -4,33 +4,40 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Audiovisuel - À venir...</title>
-    <base href="/Portfolio/">
-    <link rel="stylesheet" href="css/audiovisuel.css">
+
+    <!-- Meta SEO -->
+    <meta name="description" content="Projets audiovisuels - À venir sur le portfolio de Johannes Ibrahim.">
+    <meta name="author" content="Johannes Ibrahim">
+    <meta name="theme-color" content="#7C3AED">
+
+    <!-- Liens CSS -->
+    <link rel="stylesheet" href="../css/audiovisuel.css">
 </head>
 
 <body>
     <!-- === NAVBAR === -->
     <nav class="navbar">
-        <div class="logo">Johannes</div>
+        <div class="logo">Portfolio</div>
         <ul class="nav-links">
-            <li><a href="index.html">Accueil</a></li>
-            <li><a href="HTML/unity.html">Unity</a></li>
-            <li><a href="HTML/web.html">Web</a></li>
-            <li><a href="HTML/audiovisuel.html" class="active">Audiovisuel</a></li>
+            <li><a href="../index.html">Accueil</a></li>
+            <li><a href="unity.html">Unity</a></li>
+            <li><a href="web.html">Web</a></li>
+            <li><a href="audiovisuel.html" class="active">Audiovisuel</a></li>
         </ul>
     </nav>
 
-    <!-- === ÉCRAN DE CHARGEMENT === -->
+    <!-- === CONTENU PRINCIPAL === -->
     <main class="loading-container">
         <div class="loading-box">
             <div class="progress-bar">
-                <div class="progress-fill"></div>
+                <div class="progress-fill" id="progress-fill"></div>
             </div>
-            <p class="progress-text">Chargement : <span id="progress">30%</span></p>
+            <p class="progress-text">Chargement : <span id="progress-text">30%</span></p>
             <h1 class="coming-soon">À venir...</h1>
         </div>
     </main>
 
-    <script src="JS/audiovisuel.js" defer></script>
+    <!-- === SCRIPT JS === -->
+    <script src="../js/audiovisuel.js" defer></script>
 </body>
 </html>

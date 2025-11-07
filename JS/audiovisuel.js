@@ -1,16 +1,19 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const progressText = document.getElementById("progress");
-    const fill = document.querySelector(".progress-fill");
-    let progress = 0;
+    const progressFill = document.getElementById("progress-fill");
+    const progressText = document.getElementById("progress-text");
 
-    // Animation "jeu" du chargement jusqu'à 30%
-    const loading = setInterval(() => {
-        if (progress < 30) {
+    let progress = 0;
+    const target = 30; // 30%
+
+    const interval = setInterval(() => {
+        if (progress < target) {
             progress++;
-            fill.style.width = `${progress}%`;
+            progressFill.style.width = `${progress}%`;
             progressText.textContent = `${progress}%`;
         } else {
-            clearInterval(loading);
+            clearInterval(interval);
+            // petit effet de glow à la fin
+            progressFill.style.boxShadow = "0 0 25px #FACC15, 0 0 50px #7C3AED";
         }
-    }, 50);
+    }, 60);
 });
