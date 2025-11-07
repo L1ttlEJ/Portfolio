@@ -202,7 +202,7 @@ buttons.forEach(btn => {
 
 // === Par défaut : section Pokémon ===
 window.addEventListener('DOMContentLoaded', () => {
-    const defaultId = "pokemon";
+    const defaultId = "owen";
     document.querySelector(`.unity-btn[data-target="${defaultId}"]`).classList.add('active');
     showContent(defaultId);
 });
