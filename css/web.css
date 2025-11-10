@@ -512,9 +512,9 @@ body
 
 /* Taille des images réduite */
 .graphisme-img {
-    width: 60%; /* réduit à 60% de la largeur du conteneur */
-    max-width: 600px; /* limite maximale d’affichage */
-    height: auto; /* conserve les proportions */
+    width: 90%;
+    max-width: 600px;
+    height: auto; 
     border-radius: 12px;
     border: 2px solid #7C3AED;
     box-shadow: 0 0 10px rgba(124, 58, 237, 0.6);
@@ -529,7 +529,7 @@ body
 /* --- Responsive --- */
 @media (max-width: 768px) {
     .graphisme-img {
-        width: 85%; /* plus grand sur mobile pour occuper l’écran */
+        width: 85%;
         max-width: 400px;
     }
 }
