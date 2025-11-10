@@ -75,8 +75,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
             // dézoom proportionnel léger selon la taille choisie
             const scaleMap = {
-                30: 0.85,
-                40: 0.9,
                 50: 0.95,
                 60: 1
             };
