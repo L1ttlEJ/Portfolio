@@ -482,7 +482,7 @@ body
 }
 
 
-
+/* --- SECTION TRAVAIL GRAPHIQUE --- */
 .edition-graphisme {
     margin-top: 3rem;
     text-align: center;
@@ -492,6 +492,7 @@ body
     .edition-graphisme h3 {
         color: #FACC15;
         margin-bottom: 1rem;
+        font-size: 1.6rem;
     }
 
     .edition-graphisme p {
@@ -503,14 +504,16 @@ body
 
 .graphisme-gallery {
     display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 1.2rem;
+    flex-direction: column; /* empile les images */
+    align-items: center;
+    gap: 1.5rem;
     margin-top: 1.5rem;
+    width: 100%;
 }
 
 .graphisme-img {
-    width: 30%;
+    width: 20%; /* pleine largeur */
+    max-width: 800px; /* limite pour éviter qu’elles ne soient trop grandes sur grand écran */
     border-radius: 12px;
     border: 2px solid #7C3AED;
     box-shadow: 0 0 10px rgba(124, 58, 237, 0.6);
@@ -518,9 +521,6 @@ body
 }
 
     .graphisme-img:hover {
-        transform: scale(1.05);
-        box-shadow: 0 0 20px rgba(250, 204, 21, 0.7);
+        transform: scale(1.02);
+        box-shadow: 0 0 25px rgba(250, 204, 21, 0.7);
     }
-
-
-
