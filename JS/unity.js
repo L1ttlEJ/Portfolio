@@ -149,7 +149,7 @@ const pageData = {
         music: "Song/owensong.mp3"
     },
     rise: {
-        bg: "imgs/rise/backgrounds/rise-bg.jpg",
+        bg: "imgs/rof/martinlutherking.gif",
         music: "Song/mlk.mp3"
     },
     pokemon: {
