@@ -391,7 +391,6 @@ body
 }
 
 /* --- IFRAME Édition Limitée --- */
-/* --- IFRAME Édition Limitée --- */
 .iframe-controls {
     text-align: center;
     margin-top: 1rem;
@@ -431,7 +430,7 @@ body
 }
 
     .iframe-container iframe {
-        width: 30%; /* Taille par défaut */
+        width: 60%; /* Taille par défaut */
         height: 90vh; /* Presque toute la hauteur de l'écran */
         border: 2px solid #7C3AED;
         border-radius: 12px;
