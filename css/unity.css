@@ -368,12 +368,23 @@ body {
     margin-top: 1rem;
 }
 
-.video-demo video {
-    width: 100%;
-    max-width: 600px;
-    border-radius: 12px;
-    border: 2px solid #7C3AED;
+/* --- Gameplay Video Center --- */
+.video-demo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 2rem auto;
+    text-align: center;
 }
+
+    .video-demo video {
+        width: 100%;
+        max-width: 700px;
+        border-radius: 12px;
+        border: 2px solid #7C3AED;
+        box-shadow: 0 0 15px rgba(124, 58, 237, 0.4);
+    }
+
 
 /* Carrousel */
 .carousel-container {
@@ -430,6 +441,51 @@ body {
         height: 315px;
         border: 2px solid #7C3AED;
         border-radius: 10px;
+    }
+
+
+/* --- Liens stylisés --- */
+.media-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.stylized-link {
+    position: relative;
+    padding: 0.75rem 1.5rem;
+    color: #FACC15;
+    border: 2px solid #FACC15;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+    .stylized-link::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(90deg, #7C3AED, #FACC15);
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 0.4s ease;
+        z-index: -1;
+        border-radius: 6px;
+    }
+
+    .stylized-link:hover::before {
+        transform: scaleX(1);
+    }
+
+    .stylized-link:hover {
+        color: #fff;
+        border-color: transparent;
+        box-shadow: 0 0 15px rgba(250, 204, 21, 0.4);
     }
 
 /* Continuation */
