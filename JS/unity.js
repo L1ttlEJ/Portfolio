@@ -1,268 +1,148 @@
-// Gestion des onglets dynamiques
 document.addEventListener("DOMContentLoaded", () => {
-    const buttons = document.querySelectorAll(".tab-btn");
-    const contents = document.querySelectorAll(".content");
 
+    /* === Onglets dynamiques === */
+    const buttons = document.querySelectorAll(".tab-btn, .unity-btn");
+    const contents = document.querySelectorAll(".content");
+    const body = document.body;
+
+    /* === Audio === */
+    let currentAudio = null;
+    let isAudioInitialized = false;
+    let lastVolume = 0.4;
+
+    /* === Configuration des pages === */
+    const pageData = {
+        owen: {
+            bg: "imgs/owen/foret.gif",
+            music: "Song/owensong.mp3"
+        },
+        rise: {
+            bg: "imgs/rof/mlk.gif",
+            music: "Song/mlk.mp3"
+        },
+        pokemon: {
+            bg: "imgs/poke/fond.gif",
+            music: "Song/pokeSong.mp3"
+        }
+    };
+
+    /* === Contrôles du volume === */
+    const volUp = document.querySelector("#volume-up");
+    const volDown = document.querySelector("#volume-down");
+    const volMute = document.querySelector("#volume-mute");
+
+    function setVolume(value) {
+        if (!currentAudio) return;
+        currentAudio.volume = Math.min(1, Math.max(0, value));
+        lastVolume = currentAudio.volume;
+    }
+
+    function toggleMute() {
+        if (!currentAudio) return;
+        if (currentAudio.muted) {
+            currentAudio.muted = false;
+            currentAudio.volume = lastVolume;
+        } else {
+            currentAudio.muted = true;
+        }
+    }
+
+    volUp?.addEventListener("click", () => setVolume(currentAudio.volume + 0.1));
+    volDown?.addEventListener("click", () => setVolume(currentAudio.volume - 0.1));
+    volMute?.addEventListener("click", toggleMute);
+
+    /* === Fonction pour changer de section === */
+    function showContent(id) {
+        contents.forEach(c => c.classList.remove("active"));
+        document.getElementById(id)?.classList.add("active");
+
+        // Changement de fond
+        if (pageData[id]) body.style.backgroundImage = `url('${pageData[id].bg}')`;
+
+        // Stop musique précédente
+        if (currentAudio) {
+            currentAudio.pause();
+            currentAudio.currentTime = 0;
+        }
+
+        // Lancer nouvelle musique
+        if (pageData[id]?.music) {
+            currentAudio = new Audio(pageData[id].music);
+            currentAudio.volume = lastVolume;
+            currentAudio.loop = true;
+
+            if (isAudioInitialized) {
+                currentAudio.play().catch(err => console.warn("Lecture audio bloquée :", err));
+            }
+        }
+    }
+
+    /* === Navigation entre les sections === */
     buttons.forEach(btn => {
         btn.addEventListener("click", () => {
-            // Désactiver tous les boutons
             buttons.forEach(b => b.classList.remove("active"));
-            // Activer le bouton cliqué
             btn.classList.add("active");
-
-            // Cacher tous les contenus
-            contents.forEach(c => c.classList.remove("active"));
-            // Afficher le bon contenu
-            const target = btn.getAttribute("data-target");
-            document.getElementById(target).classList.add("active");
+            showContent(btn.dataset.target);
         });
     });
-});
 
-
-
-
-// --- Carrousel OwenOdyssey ---
-document.addEventListener("DOMContentLoaded", () => {
-    const track = document.querySelector(".carousel-track");
-    const images = Array.from(document.querySelectorAll(".carousel-img"));
-    const nextBtn = document.querySelector(".carousel-btn.next");
-    const prevBtn = document.querySelector(".carousel-btn.prev");
-    let index = 0;
-
-    function updateCarousel() {
-        const width = images[0].clientWidth;
-        track.style.transform = `translateX(${-index * width}px)`;
-    }
-
-    nextBtn.addEventListener("click", () => {
-        index = (index + 1) % images.length;
-        updateCarousel();
-    });
-
-    prevBtn.addEventListener("click", () => {
-        index = (index - 1 + images.length) % images.length;
-        updateCarousel();
-    });
-
-    window.addEventListener("resize", updateCarousel);
-});
-
-
-// CARROUSEL Pokémon - script autonome
-document.addEventListener('DOMContentLoaded', () => {
-    const carousel = document.getElementById('pokemon-carousel');
-    if (!carousel) return; // rien à faire si pas présent
-
-    const track = carousel.querySelector('.carousel-track');
-    const imgs = Array.from(carousel.querySelectorAll('.carousel-img'));
-    const prevBtn = carousel.querySelector('.carousel-btn.prev');
-    const nextBtn = carousel.querySelector('.carousel-btn.next');
-
-    let index = 0;
-    let slideWidth = 0;
-
-    // Attend que toutes les images du carrousel soient chargées pour calculer la largeur
-    function waitImagesLoaded(images) {
-        const promises = images.map(img => {
-            if (img.complete) return Promise.resolve();
-            return new Promise(resolve => { img.onload = img.onerror = resolve; });
-        });
-        return Promise.all(promises);
-    }
-
-    function updateSizes() {
-        // largeur visible du carrousel (on prend le conteneur)
-        slideWidth = carousel.clientWidth;
-        // on force chaque image à être à la largeur du conteneur (affiche 1 image à la fois)
-        imgs.forEach(img => {
-            img.style.width = `${slideWidth}px`;
-            img.style.minWidth = `${slideWidth}px`;
-        });
-        // repositionne la piste selon l'index actuel
-        track.style.transform = `translateX(${-index * slideWidth}px)`;
-    }
-
-    function showNext() {
-        index = (index + 1) % imgs.length;
-        track.style.transform = `translateX(${-index * slideWidth}px)`;
-    }
-
-    function showPrev() {
-        index = (index - 1 + imgs.length) % imgs.length;
-        track.style.transform = `translateX(${-index * slideWidth}px)`;
-    }
-
-    // initialisation après chargement des images
-    waitImagesLoaded(imgs).then(() => {
-        updateSizes();
-        // si plusieurs images et auto-fit : rien de plus
-    });
-
-    // événements boutons
-    nextBtn?.addEventListener('click', showNext);
-    prevBtn?.addEventListener('click', showPrev);
-
-    // redimensionnement : recalcul des tailles
-    window.addEventListener('resize', () => {
-        updateSizes();
-    });
-
-    // support swipe tactile simple
-    let startX = 0;
-    let isDown = false;
-    track.addEventListener('pointerdown', (e) => {
-        isDown = true; startX = e.clientX;
-        track.style.transition = 'none';
-    });
-    window.addEventListener('pointermove', (e) => {
-        if (!isDown) return;
-        const dx = e.clientX - startX;
-        track.style.transform = `translateX(${-index * slideWidth + dx}px)`;
-    });
-    window.addEventListener('pointerup', (e) => {
-        if (!isDown) return;
-        isDown = false;
-        track.style.transition = ''; // rétablit la transition CSS
-        const dx = e.clientX - startX;
-        const threshold = slideWidth * 0.15; // seuil de swipe
-        if (dx < -threshold) showNext();
-        else if (dx > threshold) showPrev();
-        else track.style.transform = `translateX(${-index * slideWidth}px)`; // revient en place
-    });
-
-});
-
-// === Sélection des éléments ===
-const buttons = document.querySelectorAll('.unity-btn');
-const contents = document.querySelectorAll('.content');
-const body = document.body;
-
-// === Audio ===
-let currentAudio = null;
-let isAudioInitialized = false;
-
-// === Données de configuration ===
-const pageData = {
-    owen: {
-        bg: "imgs/owen/foret.gif",
-        music: "Song/owensong.mp3"
-    },
-    rise: {
-        bg: "imgs/rof/mlk.gif",
-        music: "Song/mlk.mp3"
-    },
-    pokemon: {
-        bg: "imgs/poke/fond.gif",
-        music: "Song/pokeSong.mp3"
-    }
-};
-
-// === Fonction pour changer de section ===
-function showContent(id) {
-    // cacher toutes les sections
-    contents.forEach(content => content.classList.remove('active'));
-    // activer la section choisie
-    document.getElementById(id).classList.add('active');
-
-    // changer le fond
-    if (pageData[id]) {
-        body.style.backgroundImage = `url('${pageData[id].bg}')`;
-    }
-
-    // arrêter la musique actuelle
-    if (currentAudio) {
-        currentAudio.pause();
-        currentAudio.currentTime = 0;
-    }
-
-    // préparer la nouvelle musique
-    if (pageData[id] && pageData[id].music) {
-        currentAudio = new Audio(pageData[id].music);
-        currentAudio.volume = 0.4;
-        currentAudio.loop = true;
-
-        // lecture uniquement si l'utilisateur a déjà interagi
-        if (isAudioInitialized) {
-            currentAudio.play().catch(err => {
-                console.warn("Lecture audio bloquée :", err);
-            });
-        }
-    }
-}
-
-// === Gestion des clics sur les boutons ===
-buttons.forEach(btn => {
-    btn.addEventListener('click', () => {
-        buttons.forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        showContent(btn.dataset.target);
-    });
-});
-
-// === Par défaut : section Pokémon ===
-window.addEventListener('DOMContentLoaded', () => {
+    /* === Section par défaut === */
     const defaultId = "owen";
-    document.querySelector(`.unity-btn[data-target="${defaultId}"]`).classList.add('active');
+    document.querySelector(`.unity-btn[data-target="${defaultId}"]`)?.classList.add("active");
     showContent(defaultId);
-});
 
-// === Déblocage audio au premier clic utilisateur ===
-document.addEventListener('click', () => {
-    if (!isAudioInitialized) {
-        isAudioInitialized = true;
-        if (currentAudio) {
-            currentAudio.play().catch(err => {
-                console.warn("Lecture audio bloquée :", err);
-            });
+    /* === Déblocage audio au premier clic === */
+    document.addEventListener("click", () => {
+        if (!isAudioInitialized) {
+            isAudioInitialized = true;
+            if (currentAudio) {
+                currentAudio.play().catch(err => console.warn("Lecture audio bloquée :", err));
+            }
         }
-    }
-}, { once: true });
+    }, { once: true });
 
+    /* === Carrousel Rise of Freedom === */
+    const riseCarousel = document.querySelector("#rise-carousel");
+    if (riseCarousel) {
+        const track = riseCarousel.querySelector(".carousel-track");
+        const images = Array.from(track.children);
+        const nextButton = riseCarousel.querySelector(".next");
+        const prevButton = riseCarousel.querySelector(".prev");
+        const dotsContainer = document.querySelector("#rise-dots");
 
-// === Carrousel Rise of Freedom ===
-document.addEventListener("DOMContentLoaded", () => {
-    const track = document.querySelector("#rise-carousel .carousel-track");
-    const images = Array.from(track.children);
-    const nextButton = document.querySelector("#rise-carousel .next");
-    const prevButton = document.querySelector("#rise-carousel .prev");
-    const dotsContainer = document.querySelector("#rise-dots");
+        let currentIndex = 0;
+        images.forEach((_, i) => {
+            const dot = document.createElement("button");
+            if (i === 0) dot.classList.add("active");
+            dotsContainer.appendChild(dot);
+        });
+        const dots = Array.from(dotsContainer.children);
 
-    let currentIndex = 0;
+        function updateCarousel(index) {
+            track.style.transform = `translateX(-${index * 100}%)`;
+            dots.forEach((dot, i) => dot.classList.toggle("active", i === index));
+        }
 
-    // Crée les petits points
-    images.forEach((_, i) => {
-        const dot = document.createElement("button");
-        if (i === 0) dot.classList.add("active");
-        dotsContainer.appendChild(dot);
-    });
-    const dots = Array.from(dotsContainer.children);
-
-    function updateCarousel(index) {
-        track.style.transform = `translateX(-${index * 100}%)`;
-        dots.forEach((dot, i) => dot.classList.toggle("active", i === index));
-    }
-
-    nextButton.addEventListener("click", () => {
-        currentIndex = (currentIndex + 1) % images.length;
-        updateCarousel(currentIndex);
-    });
-
-    prevButton.addEventListener("click", () => {
-        currentIndex = (currentIndex - 1 + images.length) % images.length;
-        updateCarousel(currentIndex);
-    });
-
-    dots.forEach((dot, i) => {
-        dot.addEventListener("click", () => {
-            currentIndex = i;
+        nextButton.addEventListener("click", () => {
+            currentIndex = (currentIndex + 1) % images.length;
             updateCarousel(currentIndex);
         });
-    });
 
-    // Auto-slide
-    setInterval(() => {
-        currentIndex = (currentIndex + 1) % images.length;
-        updateCarousel(currentIndex);
-    }, 5000);
+        prevButton.addEventListener("click", () => {
+            currentIndex = (currentIndex - 1 + images.length) % images.length;
+            updateCarousel(currentIndex);
+        });
+
+        dots.forEach((dot, i) => {
+            dot.addEventListener("click", () => {
+                currentIndex = i;
+                updateCarousel(currentIndex);
+            });
+        });
+
+        setInterval(() => {
+            currentIndex = (currentIndex + 1) % images.length;
+            updateCarousel(currentIndex);
+        }, 5000);
+    }
 });
