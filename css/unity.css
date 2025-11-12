@@ -83,6 +83,7 @@ body {
         color: #f0f0f0;
         text-shadow: 0 0 8px rgba(0,0,0,0.5);
         font-size: 1.1rem;
+
     }
 
 
@@ -353,10 +354,12 @@ body {
     }
 
     #owen p {
-        max-width: 900px;
+        width: 80%;
+        max-width: 900px; /* facultatif, pour ne pas dépasser sur les grands écrans */
         margin: 0.5rem auto;
-        font-size: 1.05rem;
+        line-height: 1.6;
     }
+
 
 /* Gameplay */
 .gameplay-content {
