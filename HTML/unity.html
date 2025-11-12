@@ -254,101 +254,91 @@
 
 
         <!-- FanGame Pokémon -->
-        <div class="content" id="pokemon">
-            <h2>FanGame Pokémon — Le Défi des 100 Dresseurs</h2>
+        <section class="project-section" id="pokemon">
+            <h2 class="project-title">🎮 FanGame Pokémon — Le Défi des 100 Dresseurs</h2>
 
-            <p class="intro">
-                Grand passionné de la licence <strong>Pokémon</strong> depuis mon enfance, j’ai voulu rendre hommage à cet univers à travers un <strong>fan game développé sous Unity</strong>.
-                Ce projet personnel s’intitule <em>Pokémon : Le Défi des 100 Dresseurs</em>.
+            <p class="project-intro">
+                Grand passionné de la licence <strong>Pokémon</strong> depuis mon enfance, j’ai souhaité lui rendre hommage à travers un
+                <strong>fan game développé sous Unity</strong> intitulé <em>Pokémon : Le Défi des 100 Dresseurs</em>.
+                Ce projet met en avant ma maîtrise du <strong>game design</strong>, de la <strong>programmation C#</strong> et du <strong>level balancing</strong>.
             </p>
 
-            <div class="story">
-                <h3>🎮 Concept du jeu</h3>
+            <div class="project-section-content">
+                <h3>Concept du jeu</h3>
                 <p>
-                    Le joueur incarne un jeune dresseur déterminé à relever un défi unique : <strong>affronter 100 dresseurs à la suite</strong>.
+                    Le joueur incarne un dresseur déterminé à relever un défi unique : <strong>affronter 100 dresseurs à la suite</strong>.
+                    Après chaque combat, il peut <strong>choisir un nouveau Pokémon</strong> parmi trois proposés aléatoirement, ajoutant une dimension de hasard et de stratégie.
                 </p>
                 <p>
-                    Entre chaque round, le joueur a la possibilité de <strong>choisir un nouveau Pokémon</strong> parmi trois proposés aléatoirement, ajoutant une dimension de hasard et de stratégie.
-                    L’objectif est simple : <strong>survivre jusqu’au dernier combat</strong> avec au moins un Pokémon encore en vie.
-                </p>
-                <p>
-                    Ce jeu mêle l’esprit classique des combats Pokémon à une boucle de gameplay typique des <strong>rogue-likes</strong>, où chaque tentative est différente et chaque victoire mérite d’être savourée.
+                    Le but : <strong>tenir jusqu’au dernier combat</strong> avec au moins un Pokémon encore en vie.
+                    Ce jeu mêle les mécaniques classiques de Pokémon à une boucle de gameplay inspirée des <strong>roguelikes</strong>, où chaque tentative offre une expérience nouvelle.
                 </p>
             </div>
 
             <!-- Système de rareté -->
             <div class="rarity-system">
                 <h3>Système de rareté des Pokémon</h3>
-                <div class="rarity-content">
-                    <div class="rarity-text">
-                        <p>
-                            Le tirage aléatoire des Pokémon est basé sur un <strong>système de rareté</strong>.
-                            Chaque créature possède un niveau de rareté défini, influençant ses chances d’apparition.
-                            Plus un Pokémon est rare, plus ses statistiques et compétences sont puissantes, mais ses chances d’être proposé sont plus faibles.
-                            Ce système crée un équilibre entre <strong>chance</strong> et <strong>stratégie</strong>, offrant au joueur des choix variés à chaque round.
-                        </p>
-                    </div>
+                <p class="rarity-description">
+                    Le tirage des Pokémon repose sur un <strong>système de rareté dynamique</strong>.
+                    Chaque Pokémon a une probabilité d’apparition différente selon sa puissance et sa rareté.
+                    Ce système équilibre <strong>chance</strong> et <strong>stratégie</strong>, rendant chaque partie unique.
+                </p>
 
-                    <div class="rarity-table">
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>Rareté</th>
-                                    <th>Sprite</th>
-                                    <th>Probabilité d’apparition</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr><td>Commun</td><td><img src="imgs/poke/Commun.png" alt="Rareté 1"></td><td>50%</td></tr>
-                                <tr><td>Peu commun</td><td><img src="imgs/poke/PeuCommun.png" alt="Rareté 2"></td><td>20%</td></tr>
-                                <tr><td>Rare</td><td><img src="imgs/poke/Rare.png" alt="Rareté 3"></td><td>10%</td></tr>
-                                <tr><td>Très rare</td><td><img src="imgs/poke/Very.png" alt="Rareté 4"></td><td>7%</td></tr>
-                                <tr><td>Ultra rare</td><td><img src="imgs/poke/Ultra.png" alt="Rareté 5"></td><td>5%</td></tr>
-                                <tr><td>Spécial</td><td><img src="imgs/poke/UltraChieme.png" alt="Rareté 6"></td><td>3%</td></tr>
-                                <tr><td>Secret</td><td><img src="imgs/poke/RareSecret.png" alt="Rareté 7"></td><td>2%</td></tr>
-                                <tr><td>Très secret</td><td><img src="imgs/poke/UltraSecret.png" alt="Rareté 8"></td><td>1.5%</td></tr>
-                                <tr><td>Mega</td><td><img src="imgs/poke/Mega.png" alt="Rareté 9"></td><td>1%</td></tr>
-                                <tr><td>Légendaire</td><td><img src="imgs/poke/Legendaire.png" alt="Rareté 10"></td><td>0.5%</td></tr>
-                            </tbody>
-                        </table>
-                    </div>
+                <div class="rarity-table-wrapper">
+                    <table class="rarity-table">
+                        <thead>
+                            <tr>
+                                <th>Rareté</th>
+                                <th>Sprite</th>
+                                <th>Probabilité</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Commun</td><td><img src="imgs/poke/Commun.png" alt="Commun"></td><td>50%</td></tr>
+                            <tr><td>Peu commun</td><td><img src="imgs/poke/PeuCommun.png" alt="Peu commun"></td><td>20%</td></tr>
+                            <tr><td>Rare</td><td><img src="imgs/poke/Rare.png" alt="Rare"></td><td>10%</td></tr>
+                            <tr><td>Très rare</td><td><img src="imgs/poke/Very.png" alt="Très rare"></td><td>7%</td></tr>
+                            <tr><td>Ultra rare</td><td><img src="imgs/poke/Ultra.png" alt="Ultra rare"></td><td>5%</td></tr>
+                            <tr><td>Spécial</td><td><img src="imgs/poke/UltraChieme.png" alt="Spécial"></td><td>3%</td></tr>
+                            <tr><td>Secret</td><td><img src="imgs/poke/RareSecret.png" alt="Secret"></td><td>2%</td></tr>
+                            <tr><td>Très secret</td><td><img src="imgs/poke/UltraSecret.png" alt="Très secret"></td><td>1.5%</td></tr>
+                            <tr><td>Mega</td><td><img src="imgs/poke/Mega.png" alt="Mega"></td><td>1%</td></tr>
+                            <tr><td>Légendaire</td><td><img src="imgs/poke/Legendaire.png" alt="Légendaire"></td><td>0.5%</td></tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
 
-
             <!-- Carrousel d’images -->
             <div class="carousel-container">
-                <h3>Captures et concepts du jeu</h3>
+                <h3>Captures et concepts visuels</h3>
                 <div class="carousel" id="pokemon-carousel">
                     <button class="carousel-btn prev" aria-label="Précédent">&#10094;</button>
                     <div class="carousel-track">
-                        <img src="imgs/poke/mainmenu.png" alt="FanGame Pokémon - Image 1" class="carousel-img">
-                        <img src="imgs/poke/pokedex.png" alt="FanGame Pokémon - Image 2" class="carousel-img">
-                        <img src="imgs/poke/pokemonselection.png" alt="FanGame Pokémon - Image 3" class="carousel-img">
-                        <img src="imgs/poke/screeningame.png" alt="FanGame Pokémon - Image 4" class="carousel-img">
+                        <img src="imgs/poke/mainmenu.png" alt="Menu principal" class="carousel-img">
+                        <img src="imgs/poke/pokedex.png" alt="Pokedex" class="carousel-img">
+                        <img src="imgs/poke/pokemonselection.png" alt="Sélection de Pokémon" class="carousel-img">
+                        <img src="imgs/poke/screeningame.png" alt="Combat en jeu" class="carousel-img">
                     </div>
                     <button class="carousel-btn next" aria-label="Suivant">&#10095;</button>
                 </div>
             </div>
 
-
-
             <!-- Section Vidéo -->
-            <div class="game-video">
-                <h3>Vidéo de présentation du jeu</h3>
+            <div class="video-section">
+                <h3>Vidéo de présentation</h3>
                 <p>
-                    Voici une courte capture vidéo de mon fangame<strong>Pokémon : Le Défi des 100 Dresseurs</strong>.
+                    Voici une courte démonstration du fan game <strong>Pokémon : Le Défi des 100 Dresseurs</strong>, illustrant les mécaniques de combat et le système de rareté.
                 </p>
-
                 <div class="video-container">
-                    <!-- Tu remplaceras le src par ta propre vidéo -->
-                    <video controls>
+                    <video controls loop>
                         <source src="../assets/videos/fangame-demo.mp4" type="video/mp4">
                         Ton navigateur ne supporte pas la lecture de cette vidéo.
                     </video>
                 </div>
             </div>
-        </div>
+        </section>
+
 
 
     </section>
