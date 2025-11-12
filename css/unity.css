@@ -551,10 +551,8 @@ body {
 }
 
 .project-intro {
-    max-width: 70%;
     margin: 0 auto 2rem auto;
     font-size: 1.1rem;
-    text-align: center;
     line-height: 1.6;
     color: #e5e5e5;
 }
