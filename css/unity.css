@@ -354,8 +354,6 @@ body {
     }
 
     #owen p {
-        width: 80%;
-        max-width: 900px; /* facultatif, pour ne pas dépasser sur les grands écrans */
         margin: 0.5rem auto;
         line-height: 1.6;
     }
