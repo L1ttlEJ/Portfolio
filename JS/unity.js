@@ -145,8 +145,8 @@ let isAudioInitialized = false;
 // === Données de configuration ===
 const pageData = {
     owen: {
-        bg: "imgs/owen/backgrounds/owen-bg.jpg",
-        music: "Song/foret.gif"
+        bg: "imgs/owenforet.gif",
+        music: "Song/owensong.mp3"
     },
     rise: {
         bg: "imgs/rise/backgrounds/rise-bg.jpg",
