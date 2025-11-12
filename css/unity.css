@@ -340,225 +340,134 @@ body {
             border-radius: 10px;
         }
 
-
-
-
-/* --- Section Owen --- */
-
-.content .intro {
-    margin-bottom: 2rem;
-    line-height: 1.7;
-    color: #ddd;
+/* --- SECTION OWEN ODYSSEY --- */
+#owen {
+    animation: fadeIn 0.6s ease-in-out;
+    color: #f5f5f5;
+    line-height: 1.6;
 }
 
-.story {
-    background-color: #252525;
-    padding: 1.5rem;
-    border-left: 4px solid #7C3AED;
-    border-radius: 8px;
-    margin-bottom: 3rem;
-}
-
-    .story h3 {
+    #owen h2, #owen h3, #owen h4 {
         color: #FACC15;
-        margin-bottom: 1rem;
+        text-align: center;
     }
 
-    .story p {
-        margin-bottom: 1rem;
-        color: #ccc;
-        line-height: 1.7;
+    #owen p {
+        max-width: 900px;
+        margin: 0.5rem auto;
+        font-size: 1.05rem;
     }
 
-/* --- Carrousel --- */
-.carousel-container {
-    text-align: center;
-    margin-bottom: 4rem;
-}
-
-    .carousel-container h3 {
-        color: #FACC15;
-        margin-bottom: 1rem;
-    }
-
-.carousel {
-    position: relative;
-    overflow: hidden;
-    width: 60%;
-    max-width: 50%%;
-    max-height : 40%;
-    margin: 0 auto;
-}
-
-.carousel-track {
+/* Gameplay */
+.gameplay-content {
     display: flex;
-    transition: transform 0.5s ease;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    align-items: center;
+    margin-top: 1rem;
 }
 
-.carousel-img {
-    width: 45%;
-    min-width: 80%;
-    border-radius: 10px;
+.video-demo video {
+    width: 100%;
+    max-width: 600px;
+    border-radius: 12px;
     border: 2px solid #7C3AED;
 }
 
-.carousel-btn {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: rgba(0, 0, 0, 0.6);
-    border: none;
-    color: #FACC15;
-    font-size: 2rem;
-    cursor: pointer;
-    padding: 0.3rem 0.8rem;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
-}
-
-    .carousel-btn:hover {
-        background-color: #7C3AED;
-    }
-
-    .carousel-btn.prev {
-        left: 10px;
-    }
-
-    .carousel-btn.next {
-        right: 10px;
-    }
-
-/* --- Concours --- */
-.contest-section {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    background-color: #252525;
-    padding: 2rem;
-    border-radius: 12px;
-    border-left: 4px solid #FACC15;
-}
-
-.contest-text {
-    flex: 1 1 60%;
-    color: #ccc;
-}
-
-    .contest-text h3 {
-        color: #FACC15;
-        margin-bottom: 1rem;
-    }
-
-.contest-logo {
-    flex: 1 1 30%;
-    text-align: center;
-}
-
-    .contest-logo img {
-        width: 150px;
-        filter: drop-shadow(0 0 10px #7C3AED);
-    }
-
-/* --- Owen Odyssey Section --- */
-.gameplay {
-    margin-top: 2rem;
-    background-color: #252525;
-    padding: 1.5rem;
-    border-left: 4px solid #7C3AED;
-    border-radius: 10px;
-}
-
-    .gameplay h3 {
-        color: #FACC15;
-        margin-bottom: 1rem;
-    }
-
-.gameplay-content {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 2rem;
-}
-
-.gameplay-text {
-    flex: 1 1 60%;
-    color: #ccc;
-    line-height: 1.7;
-}
-
-.video-demo {
-    margin-top: 2rem;
-    text-align: center;
-}
-
-    .video-demo h4 {
-        color: #FACC15;
-        margin-bottom: 1rem;
-    }
-
-    .video-demo video {
-        width: 90%;
-        max-width: 700px;
-        border-radius: 10px;
-        border: 2px solid #7C3AED;
-    }
-
-/* --- Media Section (YouTube + GDD) --- */
-.media-section {
+/* Carrousel */
+.carousel-container {
     margin-top: 3rem;
     text-align: center;
 }
 
-    .media-section h3 {
-        color: #FACC15;
-        margin-bottom: 1.5rem;
+.carousel {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.carousel-track {
+    display: flex;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    gap: 1rem;
+    padding: 1rem;
+}
+
+.carousel-img {
+    height: 250px;
+    width: auto;
+    border-radius: 12px;
+    border: 2px solid #7C3AED;
+    transition: transform 0.3s ease;
+}
+
+    .carousel-img:hover {
+        transform: scale(1.05);
     }
 
+.carousel-btn {
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: #FACC15;
+    cursor: pointer;
+}
+
+/* Vidéos / Docs */
 .media-content {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 2rem;
+    margin-top: 1rem;
 }
 
     .media-content iframe {
-        border-radius: 10px;
+        width: 560px;
+        height: 315px;
         border: 2px solid #7C3AED;
-        box-shadow: 0 0 10px rgba(124, 58, 237, 0.5);
+        border-radius: 10px;
     }
 
-/* Responsive */
-@media (max-width: 768px) {
-    .gameplay-content {
-        flex-direction: column;
-    }
-
-    .gameplay-img img,
-    .video-demo video {
-        max-width: 100%;
-    }
-
-    .media-content {
-        flex-direction: column;
-    }
-
-        .media-content iframe {
-            width: 100%;
-        }
+/* Continuation */
+.continuation {
+    margin-top: 3rem;
+    text-align: center;
 }
 
-
-/* --- Responsive --- */
-@media (max-width: 768px) {
-    .contest-section {
-        flex-direction: column;
-        text-align: center;
+    .continuation h3 {
+        color: #FACC15;
+        margin-bottom: 1rem;
     }
 
-    .contest-logo img {
-        margin-top: 1.5rem;
+/* Concours */
+.contest-section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.contest-logo img {
+    width: 200px;
+    border-radius: 12px;
+}
+
+/* Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
 }
 
