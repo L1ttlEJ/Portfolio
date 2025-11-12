@@ -560,14 +560,14 @@ body {
 }
 
 .project-section-content h3 {
-    color: #7C3AED;
+    color: #FACC15;
     margin-bottom: 0.5rem;
 }
 
-.project-section-content p {
-    max-width: 80%;
+.project-section-content p 
+{
+
     margin: 0 auto 1rem auto;
-    text-align: justify;
     color: #dcdcdc;
 }
 
