@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     /* === Onglets dynamiques === */
     const buttons = document.querySelectorAll(".tab-btn, .unity-btn");
-    const contents = document.querySelectorAll(".content");
+    const contents = document.querySelectorAll(".content, .project-section"); // inclut Pokémon
     const body = document.body;
 
     /* === Audio === */
@@ -47,16 +47,17 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-    volUp?.addEventListener("click", () => setVolume(currentAudio.volume + 0.1));
-    volDown?.addEventListener("click", () => setVolume(currentAudio.volume - 0.1));
+    volUp?.addEventListener("click", () => setVolume(currentAudio ? currentAudio.volume + 0.1 : lastVolume + 0.1));
+    volDown?.addEventListener("click", () => setVolume(currentAudio ? currentAudio.volume - 0.1 : lastVolume - 0.1));
     volMute?.addEventListener("click", toggleMute);
 
     /* === Fonction pour changer de section === */
     function showContent(id) {
+        // Cache toutes les sections
         contents.forEach(c => c.classList.remove("active"));
         document.getElementById(id)?.classList.add("active");
 
-        // Changement de fond
+        // Change le fond selon la page
         if (pageData[id]) body.style.backgroundImage = `url('${pageData[id].bg}')`;
 
         // Stop musique précédente
@@ -65,7 +66,7 @@ document.addEventListener("DOMContentLoaded", () => {
             currentAudio.currentTime = 0;
         }
 
-        // Lancer nouvelle musique
+        // Lance la musique de la page
         if (pageData[id]?.music) {
             currentAudio = new Audio(pageData[id].music);
             currentAudio.volume = lastVolume;
@@ -75,6 +76,9 @@ document.addEventListener("DOMContentLoaded", () => {
                 currentAudio.play().catch(err => console.warn("Lecture audio bloquée :", err));
             }
         }
+
+        // Fait défiler vers le haut en douceur
+        window.scrollTo({ top: 0, behavior: "smooth" });
     }
 
     /* === Navigation entre les sections === */
@@ -111,6 +115,8 @@ document.addEventListener("DOMContentLoaded", () => {
         const dotsContainer = document.querySelector("#rise-dots");
 
         let currentIndex = 0;
+
+        // Création des petits points
         images.forEach((_, i) => {
             const dot = document.createElement("button");
             if (i === 0) dot.classList.add("active");
@@ -118,21 +124,24 @@ document.addEventListener("DOMContentLoaded", () => {
         });
         const dots = Array.from(dotsContainer.children);
 
+        // Met à jour le carrousel
         function updateCarousel(index) {
             track.style.transform = `translateX(-${index * 100}%)`;
             dots.forEach((dot, i) => dot.classList.toggle("active", i === index));
         }
 
-        nextButton.addEventListener("click", () => {
+        // Navigation
+        nextButton?.addEventListener("click", () => {
             currentIndex = (currentIndex + 1) % images.length;
             updateCarousel(currentIndex);
         });
 
-        prevButton.addEventListener("click", () => {
+        prevButton?.addEventListener("click", () => {
             currentIndex = (currentIndex - 1 + images.length) % images.length;
             updateCarousel(currentIndex);
         });
 
+        // Clic sur un point
         dots.forEach((dot, i) => {
             dot.addEventListener("click", () => {
                 currentIndex = i;
@@ -140,6 +149,7 @@ document.addEventListener("DOMContentLoaded", () => {
             });
         });
 
+        // Défilement automatique
         setInterval(() => {
             currentIndex = (currentIndex + 1) % images.length;
             updateCarousel(currentIndex);
