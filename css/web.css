@@ -440,6 +440,28 @@ body
     color: #eaeaea;
 }
 
+    /* --- Titres colorés --- */
+    .edition-header h2,
+    .edition-section h3 {
+        background: linear-gradient(90deg, #ffb347, #ffcc33);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        font-weight: 700;
+        text-align: center;
+    }
+
+
+        /* Petite barre décorative sous les titres */
+        .edition-section h3::after {
+            content: "";
+            display: block;
+            width: 50px;
+            height: 3px;
+            margin: 0.5em auto;
+            background: linear-gradient(90deg, #ffb347, #ffcc33);
+            border-radius: 10px;
+        }
+
 .edition-header {
     text-align: center;
     margin-bottom: 4%;
