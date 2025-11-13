@@ -313,17 +313,14 @@ body {
 }
 
     .edition-header h2 {
-        font-size: 2.2rem;
-        background: linear-gradient(90deg, #ffb347, #ffcc33);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        font-weight: 700;
-        margin-bottom: 1%;
-        text-transform: uppercase;
+        text-align: center;
+        font-size: 2rem;
+        color: #FFD700;
+        margin-bottom: 1.5rem;
+        text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
     }
 
     .edition-header p {
-        width: 80%;
         margin: 0 auto;
         font-size: 1rem;
         color: #ccc;
@@ -332,13 +329,11 @@ body {
 
 /* Titres des sous-sections */
 .edition-section h3 {
-    font-size: 1.6rem;
-    font-weight: 700;
     text-align: center;
-    margin-bottom: 1rem;
-    background: linear-gradient(90deg, #7C3AED, #FACC15);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    font-size: 2rem;
+    color: #FFD700;
+    margin-bottom: 1.5rem;
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
 }
 
     .edition-section h3::after {
