@@ -1,13 +1,11 @@
 /* === BASE === */
-* 
-{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-body 
-{
+body {
     background-color: #0f0f0f;
     background-size: cover;
     background-position: center;
@@ -17,10 +15,8 @@ body
 }
 
 /* ==========================================================
-    BARRE DE NAVIGATION
+   BARRE DE NAVIGATION
    ========================================================== */
-/* --- NAVBAR RESPONSIVE --- */
-
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -101,7 +97,6 @@ body
             right: 0;
         }
 
-    /* Animation hamburger -> croix */
     .menu-toggle.open span:nth-child(1) {
         transform: rotate(45deg) translate(5px, 5px);
     }
@@ -115,37 +110,36 @@ body
     }
 }
 
-/* --- HEADER --- */
-.header 
-{
+/* ==========================================================
+   HEADER
+   ========================================================== */
+.header {
     text-align: center;
     padding: 3rem 1rem;
     color: #fff;
     text-shadow: 0 0 10px rgba(0,0,0,0.7);
 }
 
-.header h1 
-{
-    color: #FACC15;
-    font-size: 2.8rem;
-}
+    .header h1 {
+        color: #FACC15;
+        font-size: 2.8rem;
+    }
 
-.header p 
-{
-    color: #DDD;
-}
+    .header p {
+        color: #DDD;
+    }
 
-/* --- ONGLET BUTTONS --- */
-.web-tabs 
-{
+/* ==========================================================
+   ONGLET BUTTONS
+   ========================================================== */
+.web-tabs {
     display: flex;
     justify-content: center;
     gap: 2rem;
     margin: 2rem 0;
 }
 
-.web-btn 
-{
+.web-btn {
     background: linear-gradient(145deg, #1a1a1a, #0f0f0f);
     color: #EAEAEA;
     padding: 0.8rem 1.8rem;
@@ -156,23 +150,22 @@ body
     transition: all 0.3s ease;
 }
 
-.web-btn:hover 
-{
-    background: #7C3AED;
-    color: #fff;
-}
+    .web-btn:hover {
+        background: #7C3AED;
+        color: #fff;
+    }
 
-.web-btn.active
-{
-    background: linear-gradient(145deg, #7C3AED, #581C87);
-    color: white;
-    transform: scale(1.05);
-    box-shadow: 0 0 15px rgba(124,58,237,0.5);
-}
+    .web-btn.active {
+        background: linear-gradient(145deg, #7C3AED, #581C87);
+        color: white;
+        transform: scale(1.05);
+        box-shadow: 0 0 15px rgba(124,58,237,0.5);
+    }
 
-/* --- CONTENU --- */
-.tab-content 
-{
+/* ==========================================================
+   CONTENU GÉNÉRAL
+   ========================================================== */
+.tab-content {
     max-width: 80%;
     margin: 0 auto 3rem;
     padding: 2rem;
@@ -182,47 +175,51 @@ body
     color: #ddd;
 }
 
-.content 
-{
+.content {
     display: none;
     animation: fadeIn 0.4s ease;
 }
 
-.content.active 
-{
-    display: block;
-}
+    .content.active {
+        display: block;
+    }
 
 @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
-
-/* === Musée Albert Londres === */
+/* ==========================================================
+   MUSÉE ALBERT LONDRES
+   ========================================================== */
 #musee {
-  color: #f5f5f5;
-  padding: 2rem;
-  background: rgba(0, 0, 0, 0.5);
-  border-radius: 15px;
+    color: #f5f5f5;
+    padding: 2rem;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 15px;
 }
 
-#musee h2 {
-  text-align: center;
-  font-size: 2rem;
-  color: #FFD700;
-  margin-bottom: 1.5rem;
-  text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
-}
+    #musee h2 {
+        text-align: center;
+        font-size: 2rem;
+        color: #FFD700;
+        margin-bottom: 1.5rem;
+        text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+    }
 
-#musee .intro {
-  text-align: center;
-  font-style: italic;
-  margin-bottom: 2rem;
-}
+    #musee .intro {
+        text-align: center;
+        font-style: italic;
+        margin-bottom: 2rem;
+    }
 
-/* --- Présentation --- */
-/* --- Section Présentation Musée --- */
 .musee-presentation {
     display: flex;
     align-items: center;
@@ -232,7 +229,7 @@ body
     background-color: rgba(20, 20, 20, 0.8);
     border-radius: 15px;
     box-shadow: 0 0 20px rgba(124, 58, 237, 0.2);
-    flex-wrap: wrap; /* permet de s'adapter aux petits écrans */
+    flex-wrap: wrap;
 }
 
 .musee-text {
@@ -242,12 +239,12 @@ body
     text-align: justify;
 }
 
-.musee-text h3 {
-    color: #FACC15;
-    font-size: 1.8rem;
-    margin-bottom: 1rem;
-    text-align: left;
-}
+    .musee-text h3 {
+        color: #FACC15;
+        font-size: 1.8rem;
+        margin-bottom: 1rem;
+        text-align: left;
+    }
 
 .musee-images {
     flex: 1 1 40%;
@@ -266,20 +263,19 @@ body
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.musee-img:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 25px rgba(250, 204, 21, 0.4);
-}
+    .musee-img:hover {
+        transform: scale(1.05);
+        box-shadow: 0 0 25px rgba(250, 204, 21, 0.4);
+    }
 
-.violet h3
-{
+.violet h3 {
     text-align: center;
     padding: 3rem 1rem;
-    color : #7C3AED;
+    color: #7C3AED;
     text-shadow: 0 0 10px rgba(0,0,0,0.7);
 }
 
-/* --- Responsive --- */
+/* Responsive Musée */
 @media (max-width: 900px) {
     .musee-presentation {
         flex-direction: column;
@@ -288,10 +284,6 @@ body
 
     .musee-text {
         flex: 1 1 100%;
-        text-align: center;
-    }
-
-    .musee-text h3 {
         text-align: center;
     }
 
@@ -306,160 +298,14 @@ body
     }
 }
 
-
-/* --- Figma --- */
-.figma-container {
-  margin: 2rem auto;
-  text-align: center;
-}
-
-.figma-container iframe {
-  width: 60%;
-  height: 500px;
-  border: 2px solid #FFD700;
-  border-radius: 10px;
-  transition: width 0.3s ease;
-}
-
-.figma-controls {
-  margin-top: 1rem;
-}
-
-.figma-controls label {
-  margin-right: 0.5rem;
-}
-
-/* --- Carrousel --- */
-#musee .carousel-container {
-  text-align: center;
-  margin: 3rem auto;
-}
-
-#musee .carousel-container h3 {
-  color: #FFD700;
-  font-size: 1.8rem;
-  margin-bottom: 1rem;
-  text-shadow: 0 0 10px rgba(255, 215, 0, 0.4);
-}
-
-#musee .carousel {
-  position: relative;
-  overflow: hidden;
-  width: 80%;
-  max-width: 700px;
-  margin: 0 auto;
-  border-radius: 15px;
-  background-color: rgba(20, 20, 20, 0.6);
-  border: 2px solid #FFD700;
-  box-shadow: 0 0 20px rgba(255, 215, 0, 0.4);
-}
-
-#musee .carousel-track {
-  display: flex;
-  transition: transform 0.5s ease-in-out;
-}
-
-#musee .carousel-img {
-  width: 100%;
-  flex-shrink: 0;
-  border-radius: 15px;
-}
-
-#musee .carousel-btn {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background-color: rgba(0, 0, 0, 0.5);
-  color: #FFD700;
-  border: none;
-  font-size: 2rem;
-  cursor: pointer;
-  padding: 0.5rem 1rem;
-  border-radius: 8px;
-  transition: all 0.3s ease;
-  z-index: 10;
-}
-
-#musee .carousel-btn:hover {
-  background-color: #FFD700;
-  color: #000;
-}
-
-#musee .carousel-btn.prev {
-  left: 10px;
-}
-
-#musee .carousel-btn.next {
-  right: 10px;
-}
-
-/* --- Responsive --- */
-@media (max-width: 768px) {
-  .musee-presentation {
-    flex-direction: column;
-  }
-
-  .figma-container iframe {
-    width: 90%;
-  }
-
-  #musee .carousel {
-    width: 95%;
-  }
-}
-
-.feature-list {
-  list-style: none;
-  padding: 1rem 1.5rem;
-  margin-top: 1rem;
-  background-color: #252525;
-  border-left: 4px solid #7C3AED;
-  border-radius: 10px;
-  color: #ddd;
-  line-height: 1.7;
-}
-
-.feature-list li {
-  margin-bottom: 0.6rem;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  transition: transform 0.2s ease, color 0.2s ease;
-}
-
-.feature-list li:hover {
-  color: #FACC15;
-  transform: translateX(5px);
-}
-
-/* ==== ÉDITION LIMITÉE ==== */
+/* ==========================================================
+   ÉDITION LIMITÉE
+   ========================================================== */
 .edition-section {
     margin: 0 auto;
-    padding: 3% 0;
+    padding: 4% 0;
     color: #eaeaea;
 }
-
-    /* --- Titres colorés --- */
-    .edition-header h2,
-    .edition-section h3 {
-        background: linear-gradient(90deg, #ffb347, #ffcc33);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        font-weight: 700;
-        text-align: center;
-    }
-
-
-        /* Petite barre décorative sous les titres */
-        .edition-section h3::after {
-            content: "";
-            display: block;
-            width: 50px;
-            height: 3px;
-            margin: 0.5em auto;
-            background: linear-gradient(90deg, #ffb347, #ffcc33);
-            border-radius: 10px;
-        }
 
 .edition-header {
     text-align: center;
@@ -467,29 +313,49 @@ body
 }
 
     .edition-header h2 {
-        font-size: 220%;
-        color: #f5f5f5;
+        font-size: 2.2rem;
+        background: linear-gradient(90deg, #ffb347, #ffcc33);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        font-weight: 700;
         margin-bottom: 1%;
+        text-transform: uppercase;
     }
 
     .edition-header p {
         width: 80%;
         margin: 0 auto;
-        font-size: 100%;
+        font-size: 1rem;
         color: #ccc;
         line-height: 1.6;
     }
 
-/* Sous-sections */
-.edition-section section {
-    margin-bottom: 5%;
+/* Titres des sous-sections */
+.edition-section h3 {
+    font-size: 1.6rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 1rem;
+    background: linear-gradient(90deg, #7C3AED, #FACC15);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
+
+    .edition-section h3::after {
+        content: "";
+        display: block;
+        width: 60px;
+        height: 3px;
+        margin: 0.5em auto;
+        background: linear-gradient(90deg, #7C3AED, #FACC15);
+        border-radius: 10px;
+    }
 
 .edition-organisation,
 .edition-presentation,
 .edition-graphisme {
     width: 90%;
-    margin: 0 auto;
+    margin: 0 auto 5%;
 }
 
 .edition-identite {
@@ -504,7 +370,7 @@ body
 
 .edition-text {
     flex: 1 1 50%;
-    font-size: 100%;
+    font-size: 1rem;
     color: #ddd;
     line-height: 1.6;
 }
@@ -515,20 +381,30 @@ body
     border-radius: 10px;
     margin: 0 auto;
     display: block;
+    box-shadow: 0 0 20px rgba(124, 58, 237, 0.3);
 }
 
+/* Liste des univers */
 .feature-list {
     list-style: none;
-    padding: 0;
-    margin-top: 2%;
+    padding: 1rem 1.5rem;
+    background-color: #252525;
+    border-left: 4px solid #FACC15;
+    border-radius: 10px;
+    color: #ddd;
+    line-height: 1.7;
+    margin-top: 1rem;
 }
 
     .feature-list li {
-        background: rgba(255, 255, 255, 0.05);
-        margin: 1% 0;
-        padding: 1%;
-        border-left: 3px solid #f2b632;
+        margin-bottom: 0.6rem;
+        transition: transform 0.2s ease, color 0.2s ease;
     }
+
+        .feature-list li:hover {
+            color: #FACC15;
+            transform: translateX(5px);
+        }
 
 /* Galerie */
 .graphisme-gallery {
@@ -568,7 +444,7 @@ body
         border-radius: 10px;
     }
 
-/* Responsive */
+/* Responsive Édition Limitée */
 @media (max-width: 900px) {
     .edition-identite {
         flex-direction: column;
@@ -583,4 +459,3 @@ body
         width: 90%;
     }
 }
-
