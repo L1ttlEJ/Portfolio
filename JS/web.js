@@ -1,3 +1,12 @@
+const iframeSelect = document.getElementById('iframe-size');
+const iframeWrapper = document.querySelector('.iframe-wrapper');
+
+iframeSelect.addEventListener('change', (e) => {
+    iframeWrapper.style.width = e.target.value + '%';
+});
+
+
+
 // === Sélection des éléments ===
 const buttons = document.querySelectorAll('.web-btn');
 const contents = document.querySelectorAll('.content');
