@@ -227,6 +227,55 @@ body {
         margin-bottom: 15px;
     }
 
+/* ===== TITRES ALBERT LONDRES ===== */
+#musee h2,
+#musee h3 {
+    text-align: left; /* Aligné à gauche */
+    background: linear-gradient(90deg, #FFD700, #ffef9f);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; /* Jaune brillant */
+    font-weight: 700;
+    margin-bottom: 1rem;
+    letter-spacing: 0.5px;
+}
+
+    /* Petite barre décorative */
+    #musee h3::after {
+        content: "";
+        display: block;
+        width: 60px;
+        height: 3px;
+        margin-top: 5px;
+        background: linear-gradient(90deg, #FFD700, #ffef9f);
+        border-radius: 5px;
+    }
+
+/* ===== TEXTES & PARAGRAPHES ===== */
+#musee p {
+    margin-bottom: 1.5rem; /* Espacement clean */
+    line-height: 1.7; /* Lisibilité */
+    color: #e6e6e6;
+}
+
+/* Pour les blocs texte */
+.musee-text {
+    margin-bottom: 2.5rem; /* Espacement entre sections */
+}
+
+/* Améliore la séparation des sections */
+#musee section {
+    margin-bottom: 3rem;
+}
+
+/* ===== CONTENEUR GLOBAL ===== */
+#musee {
+    padding: 2rem 4%;
+    background: rgba(0, 0, 0, 0.45);
+    border-radius: 12px;
+    backdrop-filter: blur(4px);
+}
+
+
 
 /* Conteneur des images + grille responsive */
 .musee-images {
