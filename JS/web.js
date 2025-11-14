@@ -46,30 +46,45 @@ window.addEventListener('DOMContentLoaded', () => {
 });
 
 
-// === Carrousel Albert Londres ===
-const carouselTrack = document.querySelector('.carousel-track');
-const carouselImages = document.querySelectorAll('.carousel-img');
-const prevBtn = document.querySelector('.carousel-btn.prev');
-const nextBtn = document.querySelector('.carousel-btn.next');
+// === Carrousel Albert Londres (corrigé & optimisé) ===
 
-let currentIndex = 0;
+// On attend le chargement DOM + des images
+window.addEventListener("load", () => {
+    const track = document.querySelector('.carousel-track');
+    const images = document.querySelectorAll('.carousel-img');
+    const prev = document.querySelector('.carousel-btn.prev');
+    const next = document.querySelector('.carousel-btn.next');
 
-function updateCarousel() {
-    const width = carouselImages[0].clientWidth;
-    carouselTrack.style.transform = `translateX(-${currentIndex * width}px)`;
-}
+    if (!track || !images.length || !prev || !next) return;
 
-nextBtn.addEventListener('click', () => {
-    currentIndex = (currentIndex + 1) % carouselImages.length;
-    updateCarousel();
+    let index = 0;
+
+    // Applique la bonne translation
+    function updateCarousel() {
+        const width = images[0].getBoundingClientRect().width;
+        track.style.transform = `translateX(-${index * width}px)`;
+    }
+
+    // Transition fluide
+    track.style.transition = "transform 0.4s ease-in-out";
+
+    next.addEventListener("click", () => {
+        index = (index + 1) % images.length;
+        updateCarousel();
+    });
+
+    prev.addEventListener("click", () => {
+        index = (index - 1 + images.length) % images.length;
+        updateCarousel();
+    });
+
+    // Recalcul si la fenêtre est redimensionnée
+    window.addEventListener("resize", () => {
+        updateCarousel();
+    });
+
+    updateCarousel(); // première mise en page
 });
-
-prevBtn.addEventListener('click', () => {
-    currentIndex = (currentIndex - 1 + carouselImages.length) % carouselImages.length;
-    updateCarousel();
-});
-
-window.addEventListener('resize', updateCarousel);
 
 
 // === Contrôle de la taille de l'iframe ===
