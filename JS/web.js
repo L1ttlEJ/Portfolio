@@ -95,30 +95,39 @@ document.addEventListener("DOMContentLoaded", () => {
 window.addEventListener("load", () => {
 
     const track = document.querySelector('.carousel-track');
-    const images = document.querySelectorAll('.carousel-img');
+    const slides = Array.from(document.querySelectorAll('.carousel-img'));
     const prev = document.querySelector('.carousel-btn.prev');
     const next = document.querySelector('.carousel-btn.next');
 
-    if (!track || images.length === 0 || !prev || !next) return;
+    if (!track || slides.length === 0) return;
 
     let index = 0;
 
+    function getSlideWidth() {
+        return slides[0].clientWidth;
+    }
+
     function updateCarousel() {
-        const width = images[0].getBoundingClientRect().width;
+        const width = getSlideWidth();
         track.style.transform = `translateX(-${index * width}px)`;
     }
 
+    // Correction : recalcul quand les images finissent de charger
+    slides.forEach(img => img.addEventListener("load", updateCarousel));
+
     next.addEventListener("click", () => {
-        index = (index + 1) % images.length;
+        index = (index + 1) % slides.length;
         updateCarousel();
     });
 
     prev.addEventListener("click", () => {
-        index = (index - 1 + images.length) % images.length;
+        index = (index - 1 + slides.length) % slides.length;
         updateCarousel();
     });
 
+    // Recalcule sur resize
     window.addEventListener("resize", updateCarousel);
 
     updateCarousel();
 });
+
