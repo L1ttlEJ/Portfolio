@@ -46,12 +46,15 @@
         <button class="web-btn" data-target="plante">MyCutPlante</button>
     </div>
 
+
     <!-- Contenu -->
     <section id="musee" class="content">
 
-        <!-- === Musée Albert Londres === -->
-        <section class="content" id="musee">
+        <!-- === MUSÉE ALBERT LONDRES === -->
+        <section class="content active" id="musee">
+
             <h2>Musée Albert Londres</h2>
+
             <p class="intro">
                 J’ai effectué un stage de 3e année de 7 semaines au sein du Musée Albert Londres.
                 Durant cette période, j’ai développé une application de caisse enregistreuse
@@ -78,23 +81,17 @@
 
             </section>
 
-
-            <br />
-
-            <!-- Déroulement du projet -->
             <section class="musee-projet">
                 <h3>Déroulement du projet</h3>
+
                 <p>
                     J’ai commencé par recueillir le cahier des charges du musée afin de comprendre leurs besoins précis.
-                    À partir de ces échanges, j’ai réalisé une maquette sur Figma que j’ai présentée à
-                    <strong>Madame De Colombel</strong>, présidente de l’association Albert Londres.
-                    J'ai du revenir plusieurs fois sur la maquettte apportant à chaque entrevue des changement afin d'optenir le résultat voulu
-                    par le musée.
+                    À partir de ces échanges, j’ai réalisé une maquette sur Figma...
                 </p>
 
                 <!-- Iframe Figma -->
                 <div class="figma-container">
-                    <iframe src="https://www.figma.com/design/aw83oRUJ3WLoyMS1xpbMKn/Untitled?node-id=0-1&m=dev&t=7fYD0RMjfSjwhmLs-1"
+                    <iframe src="https://www.figma.com/design/aw83oRUJ3WLoyMS1xpbMKn/Untitled?node-id=0-1&m=dev"
                             allowfullscreen></iframe>
 
                     <div class="figma-controls">
@@ -105,52 +102,29 @@
                         </select>
                     </div>
 
-                    <a href="https://www.figma.com/design/aw83oRUJ3WLoyMS1xpbMKn/Untitled?node-id=0-1&m=dev&t=7fYD0RMjfSjwhmLs-1"> Lien du figma </a>
-
+                    <a href="https://www.figma.com/design/aw83oRUJ3WLoyMS1xpbMKn/Untitled?node-id=0-1&m=dev">Lien du Figma</a>
                 </div>
-
-                <p>
-                    Une fois la maquette validée, j’ai choisi les outils techniques :
-                    <strong>.NET</strong> sur <strong>Visual Studio</strong>, avec une base de données
-                    <strong>SQL</strong> et le code en <strong>C#</strong>.
-                    Suite à des contraintes matérielles liées à une machine ancienne,
-                    j’ai remplacé SQL par <strong>SQLite</strong> afin de créer une base de données locale directement dans les fichiers de l'application.
-                </p>
-
-                <p>
-                    Faute de temps, j'ai du finaliser l'application après mes études en Aout 2025 afin de pouvoir faire les phases de test utilisateurs.
-                    Le défi principal fut d’adapter l’interface pour qu’elle soit claire et intuitive
-                    pour les membres âgés de l’association. Ce projet m’a permis de développer mes compétences
-                    en ergonomie, accessibilité et développement logiciel.
-                </p>
-
-                <br />
 
                 <div class="violet"><h3>Fonctionnalités principales de l’application</h3></div>
 
                 <ul class="feature-list">
-                    <li><strong>Gestion des ventes</strong> : sélectionner un ou plusieurs articles et les ajouter au ticket client.</li>
-                    <li> <strong>Encaissement</strong> : choix du moyen de paiement et impression (ou non) du ticket.</li>
-                    <li><strong>Gestion du stock</strong> : visualisation des produits disponibles, ajout ou suppression d’un article.</li>
-                    <li><strong>Modification rapide</strong> : mise à jour du nom, du prix ou de la quantité d’un produit (avec synchronisation automatique dans les ventes et la caisse).</li>
-                    <li><strong>Statistiques</strong> : consultation des ventes par jour, par mois ou sur l’année.</li>
-                    <li><strong>Exportation</strong> : possibilité d’imprimer les ventes ou l’état du stock.</li>
-                    <li><strong>Imprimer</strong> : possibilité d'imprimer les ventes suivant un filtre ainsi que d'imprimer le stock</li>
+                    <li><strong>Gestion des ventes</strong> : sélectionner un ou plusieurs articles...</li>
+                    <li><strong>Encaissement</strong> : choix du moyen de paiement...</li>
+                    <li><strong>Gestion du stock</strong> : visualisation des produits disponibles...</li>
+                    <li><strong>Modification rapide</strong> : mise à jour du nom, du prix ou quantité...</li>
+                    <li><strong>Statistiques</strong> : consultation des ventes...</li>
+                    <li><strong>Exportation</strong> : possibilité imprimer ventes ou stock.</li>
+                    <li><strong>Imprimer</strong> : impression filtrée des ventes.</li>
                 </ul>
 
             </section>
 
-            <br />
-
             <p>
-                En plus de remplir les différentes fonctionnalitées voulues par l'association, l'application s'adressant surtout à des bénévoles agés et peu familisarisé avec le monde informatique,
-                j'ai réalisé un guide afin que les bénévoles puissent être autonome pour utiliser l'application. Là aussi, pour le guide, j'ai demandé à des personnes de l'association de le relire
-                afin d'être certain qu'il soit compréhensible pour tous.
+                En plus de remplir les fonctionnalités, j'ai réalisé un guide pour les bénévoles...
             </p>
+
             <a href="imgs/al/guide.pdf">Guide de l'application</a>
 
-
-            <!-- Carrousel des captures -->
             <section class="carousel-container">
                 <h3>Captures de l’application de caisse</h3>
                 <div class="carousel">
@@ -165,107 +139,65 @@
                     <button class="carousel-btn next">&#10095;</button>
                 </div>
             </section>
+
         </section>
 
 
+
+
         <!-- === ÉDITION LIMITÉE === -->
-        <section id="edition" class="content edition-section">
+        <section class="content" id="edition">
+
             <header class="edition-header">
                 <h2>Édition Limitée</h2>
                 <p>
-                    J’ai effectué un stage de <strong>7 semaines</strong> au sein de la librairie
-                    <strong>BDfugue Vichy</strong>, spécialisée dans la bande dessinée et dirigée
-                    par <strong>Julien Brisse</strong>. Celui-ci a imaginé une identité graphique unique,
-                    baptisée <em>Édition Limitée</em>.
-                    Mon rôle principal a été de concevoir un <strong>site web fictif</strong> qui reflète cette identité
-                    visuelle et la philosophie de la marque.
+                    J’ai effectué un stage de 7 semaines au sein de BDfugue Vichy...
                 </p>
             </header>
 
-            <!-- Organisation -->
             <section class="edition-organisation">
                 <h3>Organisation du stage</h3>
                 <p>
-                    Ce stage alternait entre <strong>télétravail</strong> et <strong>présentiel</strong>.
-                    Je travaillais à distance les <strong>mercredi, jeudi et samedi</strong>, et à la librairie
-                    les <strong>mardi et vendredi</strong>.
-                    Cette organisation a favorisé mon <strong>autonomie</strong> tout en assurant un
-                    <strong>suivi régulier</strong> de l’avancement du projet avec mon tuteur.
+                    Stage alternant télétravail et présentiel...
                 </p>
             </section>
 
-            <!-- Identité graphique -->
             <section class="edition-identite">
                 <div class="edition-text">
                     <h3>Identité graphique & objectifs</h3>
                     <p>
-                        Le site devait traduire visuellement l’univers de la librairie, en proposant une expérience
-                        <strong>fluide, élégante et moderne</strong>.
-                        L’esthétique s’inspirait du logo et des valeurs imaginées par
-                        <strong>Julien Brisse</strong>, en mêlant sobriété et créativité.
+                        Le site devait traduire visuellement l’univers...
                     </p>
                 </div>
 
                 <div class="edition-media">
                     <img src="imgs/el/logoel.png" alt="Logo Édition Limitée" />
                 </div>
+
             </section>
 
-            <!-- Présentation du site -->
-            <section class="edition-presentation">
-                <h3>Création et hébergement du site</h3>
-                <p>
-                    J’ai choisi d’héberger le site sur la plateforme française <strong>O2Switch</strong>,
-                    offrant une solution <strong>WordPress</strong> préinstallée, simple et flexible.
-                    Le développement a été réalisé à l’aide du constructeur <strong>Elementor</strong>,
-                    enrichi de sections personnalisées en <strong>HTML</strong>, <strong>CSS</strong> et
-                    <strong>JavaScript</strong> pour une expérience sur mesure.
-                </p>
-
-                <p>
-                    Le site s’articule autour de trois univers principaux :
-                </p>
-
-                <ul class="feature-list">
-                    <li><strong>BD Franco-Belge</strong> — les grands classiques européens</li>
-                    <li><strong>Comics</strong> — les univers de <em>Batman</em> et <em>Star Wars</em></li>
-                    <li><strong>Manga</strong> — la culture japonaise moderne et dynamique</li>
-                </ul>
-
-                <p>
-                    Une section spéciale, <strong>Le Monde d’Aquilon</strong>, a été conçue comme un
-                    <strong>sous-site</strong> immersif, combinant graphisme, animations et narration visuelle.
-                </p>
-            </section>
-
-            <!-- Travail graphique -->
             <section class="edition-graphisme">
-                <h3>Travail graphique et conception visuelle</h3>
-                <p>
-                    J’ai réalisé de nombreux visuels pour le site à l’aide d’<strong>Adobe Photoshop</strong> :
-                    détourage, corrections d’images, colorimétrie et compositions originales à partir
-                    de couvertures de tomes.
-                    L’objectif : créer une atmosphère cohérente et immersive autour des univers de la librairie.
-                </p>
+                <h3>Travail graphique</h3>
+                <p>Corrections d’images, colorimétrie, détourage...</p>
 
                 <div class="graphisme-gallery">
-                    <img src="imgs/el/correction.png" alt="Correction d’images Aquilon" />
-                    <img src="imgs/el/detourage.png" alt="Détourage sur Photoshop" />
-                    <img src="imgs/el/colorimetrie.png" alt="Colorimétrie Aquilon" />
+                    <img src="imgs/el/correction.png">
+                    <img src="imgs/el/detourage.png">
+                    <img src="imgs/el/colorimetrie.png">
                 </div>
             </section>
 
-            <!-- Aperçu du site -->
             <section class="edition-apercu">
+
                 <h3>Aperçu du site Édition Limitée</h3>
-                <p>Visualisez directement le site ci-dessous :</p>
+                <p>Visualisez le site :</p>
 
                 <div class="iframe-controls">
 
                     <h3 class="lienedition">
                         <a href="https://editionlimiteevichy.com">Lien vers le site</a>
                     </h3>
-                    <br />
+
                     <label for="iframe-size">Taille de l’aperçu :</label>
                     <select id="iframe-size">
                         <option value="50">50%</option>
@@ -276,22 +208,20 @@
 
                 <div class="iframe-wrapper">
                     <iframe src="https://editionlimiteevichy.com"
-                            title="Site Édition Limitée - Vichy"
                             allowfullscreen
                             loading="lazy"></iframe>
                 </div>
+
             </section>
+
+            <!-- === MyCutPlante === -->
+            <div class="content" id="plante">
+
+                <h1>A venir ...</h1>
+
+            </div>
         </section>
 
-
-        <!-- === MyCutPlante === -->
-        <div class="content" id="plante">
-
-            <h1>A venir ...</h1>
-
-        </div>
-    </section>
-
-    <script src="JS/web.js"></script>
+        <script src="JS/web.js"></script>
 </body>
 </html>
