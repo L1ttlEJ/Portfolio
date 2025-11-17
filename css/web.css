@@ -443,34 +443,37 @@ body {
 
 
 /* Conteneur centré */
-.lienedition {
+/* Conteneur centré si tu encapsules le lien dans un div */
+.lienfigma-container {
     display: flex;
     justify-content: center;
     align-items: center;
     margin: 2rem 0;
 }
 
-    /* Style du lien */
-    .lienedition a {
-        padding: 0.8rem 1.6rem;
-        border: 2px solid #7C3AED;
-        border-radius: 50px;
-        background-color: transparent;
-        color: #E5E5E5;
-        font-weight: 600;
-        cursor: pointer;
-        text-decoration: none;
-        text-align: center;
-        transition: 0.3s;
+/* Style du lien Figma */
+.lienfigma {
+    padding: 0.8rem 1.6rem;
+    border: 2px solid #7C3AED;
+    border-radius: 50px;
+    background-color: transparent;
+    color: #E5E5E5;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+    text-align: center;
+    transition: 0.3s;
+    display: inline-block;
+}
+
+    /* Hover */
+    .lienfigma:hover {
+        background-color: #7C3AED;
+        color: #ffffff;
+        transform: translateY(-2px);
+        box-shadow: 0 6px 14px rgba(124, 58, 237, 0.35);
     }
 
-        /* Hover correct (sans espace) */
-        .lienedition a:hover {
-            background-color: #7C3AED;
-            color: #ffffff;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 14px rgba(124, 58, 237, 0.35);
-        }
 .lienfigma {
     display: flex;
     justify-content: center;
