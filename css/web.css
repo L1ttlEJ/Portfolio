@@ -112,7 +112,40 @@ body {
     }
 }
 
-/**/
+/*
+==========================================================
+    Header
+==========================================================
+*/
+.header {
+    text-align: center;
+    padding: 3rem 1rem 2rem;
+    background: rgba(0, 0, 0, 0.4);
+    border-radius: 10px;
+    margin: 1rem auto 2rem;
+    width: fit-content;
+    max-width: 90%;
+    backdrop-filter: blur(6px);
+}
+
+    .header h1 {
+        color: #fff;
+        text-shadow: 0 0 10px rgba(0,0,0,0.6);
+        font-size: 2.5rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .header p {
+        color: #f0f0f0;
+        text-shadow: 0 0 8px rgba(0,0,0,0.5);
+        font-size: 1.1rem;
+    }
+
+
+/*=========================================================
+    Bouton filtre
+===========================================================
+*/
 
 .web-btn 
 {
