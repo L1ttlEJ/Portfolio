@@ -240,6 +240,53 @@ body {
     object-fit: contain;
 }
 
+
+/* ==========================================================
+   LISTE DES FONCTIONNALITÉS
+========================================================== */
+
+.feature-list {
+    list-style: none;
+    margin: 2rem 0;
+    padding: 0;
+}
+
+    .feature-list li {
+        position: relative;
+        padding-left: 28px;
+        margin-bottom: 1.2rem;
+        line-height: 1.6;
+        color: #e7e7e7;
+        font-size: 1.05rem;
+        transition: transform 0.25s ease, color 0.25s ease;
+    }
+
+        /* Puce personnalisée */
+        .feature-list li::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 8px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: radial-gradient(circle, #FACC15 0%, #7C3AED 70%);
+            box-shadow: 0 0 8px rgba(250, 204, 21, 0.8);
+        }
+
+    /* Texte en gras mis en valeur */
+    .feature-list strong {
+        color: #FFD700;
+        font-weight: 600;
+    }
+
+    /* Effet hover */
+    .feature-list li:hover {
+        transform: translateX(6px);
+        color: #ffffff;
+    }
+
+
 /* ==========================================================
     CARROUSEL
 ========================================================== */
