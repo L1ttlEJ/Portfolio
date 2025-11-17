@@ -146,6 +146,17 @@ body {
     Bouton filtre
 ===========================================================
 */
+.web-tabs 
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin: 3rem auto;
+    width: 100%;
+    text-align: center;
+}
 
 .web-btn 
 {
