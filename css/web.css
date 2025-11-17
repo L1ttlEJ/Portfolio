@@ -75,7 +75,6 @@ body {
         transition: all 0.3s ease;
     }
 
-/* Responsive menu */
 @media (max-width: 768px) {
     .menu-toggle {
         display: flex;
@@ -142,12 +141,10 @@ body {
     }
 
 
-/*=========================================================
+/* ==========================================================
     Bouton filtre
-===========================================================
-*/
-.web-tabs 
-{
+========================================================== */
+.web-tabs {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -158,8 +155,7 @@ body {
     text-align: center;
 }
 
-.web-btn 
-{
+.web-btn {
     padding: 0.8rem 1.6rem;
     border: 2px solid #7C3AED;
     border-radius: 50px;
@@ -171,19 +167,15 @@ body {
 }
 
     .web-btn.active,
-    .web-btn:hover 
-    {
+    .web-btn:hover {
         background-color: #7C3AED;
         color: white;
     }
 
 
-
 /* ==========================================================
-    TITRES & TEXTES GLOBAUX (Musée + Édition limitée)
+    TITRES GLOBAUX
 ========================================================== */
-
-/* Titres H2 et H3 — même style pour toutes sections */
 .section-title,
 #musee h2, #musee h3,
 .edition-section h2, .edition-section h3 {
@@ -216,14 +208,14 @@ body {
     font-size: 1.05rem;
 }
 
+
 /* ==========================================================
-    CONTENEUR MUSÉE (sans fond noir, sans cadre)
+    MUSÉE
 ========================================================== */
 #musee {
     padding: 2rem 4%;
 }
 
-/* Grille images propre et centrée */
 .musee-images {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -243,7 +235,6 @@ body {
 /* ==========================================================
    LISTE DES FONCTIONNALITÉS
 ========================================================== */
-
 .feature-list {
     list-style: none;
     margin: 2rem 0;
@@ -260,7 +251,6 @@ body {
         transition: transform 0.25s ease, color 0.25s ease;
     }
 
-        /* Puce personnalisée */
         .feature-list li::before {
             content: "";
             position: absolute;
@@ -273,16 +263,14 @@ body {
             box-shadow: 0 0 8px rgba(250, 204, 21, 0.8);
         }
 
-    /* Texte en gras mis en valeur */
+        .feature-list li:hover {
+            transform: translateX(6px);
+            color: #ffffff;
+        }
+
     .feature-list strong {
         color: #FFD700;
         font-weight: 600;
-    }
-
-    /* Effet hover */
-    .feature-list li:hover {
-        transform: translateX(6px);
-        color: #ffffff;
     }
 
 
@@ -336,8 +324,9 @@ body {
         right: 12px;
     }
 
+
 /* ==========================================================
-    IFRAME CONTRÔLES
+    IFRAME (général)
 ========================================================== */
 .iframe-section {
     text-align: center;
@@ -358,8 +347,9 @@ body {
         box-shadow: 0 4px 15px rgba(0,0,0,0.5);
     }
 
+
 /* ==========================================================
-    ÉDITION LIMITÉE (structure)
+    ÉDITION LIMITÉE
 ========================================================== */
 .edition-section {
     padding: 2rem 4%;
@@ -423,7 +413,9 @@ body {
         }
 
 
-/* ==== SECTION EDITION PREVIEW ==== */
+/* ==========================================================
+    ÉDITION – APERÇU
+========================================================== */
 .edition-apercu {
     padding: 2rem;
     background: #1a1a1a;
@@ -432,15 +424,13 @@ body {
     color: #ffffff;
 }
 
-    /* ==== TITRE ET TEXTE ==== */
     .edition-apercu h3 {
-        color: #ffffff;
         margin-bottom: 0.5rem;
+        color: #fff;
     }
 
-/* ==== LIEN VERS LE SITE ==== */
 .lienedition a {
-    color: #b57cff; /* Violet clair */
+    color: #b57cff;
     font-weight: 600;
     text-decoration: none;
     padding: 6px 12px;
@@ -455,15 +445,19 @@ body {
         transform: translateY(-2px);
     }
 
-/* ==== LABEL ==== */
-.iframe-controls label {
+
+/* ==========================================================
+    IFRAME CONTROLS (édition & figma)
+========================================================== */
+.iframe-controls label,
+.figma-controls label {
     color: #ffffff;
     font-weight: 500;
     margin-right: 8px;
 }
 
-/* ==== SELECT (iframe-size) ==== */
-#iframe-size {
+#iframe-size,
+#figmaSize {
     background: #2a2a2a;
     color: #ffffff;
     padding: 8px 12px;
@@ -473,27 +467,59 @@ body {
     transition: 0.2s ease;
 }
 
-    #iframe-size:hover {
+    #iframe-size:hover,
+    #figmaSize:hover {
         border-color: #b57cff;
     }
 
-    #iframe-size:focus {
+    #iframe-size:focus,
+    #figmaSize:focus {
         outline: 2px solid #b57cff;
         border-color: #b57cff;
     }
 
-/* ==== IFRAME WRAPPER ==== */
-.iframe-wrapper {
-    margin-top: 1.5rem;
-    border-radius: 10px;
-    overflow: hidden;
-    border: 2px solid #333;
+
+/* ==========================================================
+    FIGMA CONTAINER (NOUVEAU)
+========================================================== */
+.figma-container {
+    width: 90%;
+    max-width: 1100px;
+    margin: 3rem auto;
+    padding: 1.8rem;
+    background: rgba(20, 20, 20, 0.6);
+    border-radius: 12px;
+    backdrop-filter: blur(6px);
+    border: 1px solid rgba(255,255,255,0.05);
+    box-shadow: 0 0 20px rgba(124, 58, 237, 0.15);
 }
 
-    .iframe-wrapper iframe {
-        width: 100%;
+    .figma-container iframe {
+        width: 60%;
         height: 600px;
         border: none;
+        border-radius: 10px;
+        transition: width 0.3s ease;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+    }
+
+.figma-controls {
+    margin: 1rem 0 1.5rem;
+}
+
+.figma-container a {
+    color: #b57cff;
+    font-weight: 600;
+    text-decoration: none;
+    padding: 6px 12px;
+    border-radius: 6px;
+    background: rgba(181, 124, 255, 0.15);
+    transition: 0.25s ease;
+}
+
+    .figma-container a:hover {
+        background: #b57cff;
+        color: #1a1a1a;
     }
 
 
@@ -510,7 +536,8 @@ body {
         width: 80%;
     }
 
-    .iframe-wrapper {
+    .iframe-wrapper,
+    .figma-container iframe {
         width: 90%;
     }
 }
