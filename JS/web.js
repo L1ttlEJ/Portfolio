@@ -19,58 +19,64 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // =========================================================
-    //  GESTION DES ONGLETS (Musée / Édition limitée / Plante)
+    //  GESTION DES ONGLETS (Musée / Édition / Plante)
     // =========================================================
-    const buttons = document.querySelectorAll('.web-btn');
-    const contents = document.querySelectorAll('.content');
+    const tabButtons = document.querySelectorAll('.web-btn');
+    const tabContents = document.querySelectorAll('.content');
 
-    function showContent(id) {
-        contents.forEach(content => {
-            content.classList.toggle("active", content.id === id);
+    function showTab(id) {
+
+        // Affichage / masquage des sections
+        tabContents.forEach(section => {
+            if (section.id === id) {
+                section.classList.add("active");
+                section.style.display = "block";
+            } else {
+                section.classList.remove("active");
+                section.style.display = "none";
+            }
         });
 
-        buttons.forEach(btn => {
+        // Activation visuelle des boutons
+        tabButtons.forEach(btn => {
             btn.classList.toggle("active", btn.dataset.target === id);
         });
     }
 
-    // Clics sur les onglets
-    buttons.forEach(btn => {
-        btn.addEventListener('click', () => {
-            showContent(btn.dataset.target);
+    // Clics
+    tabButtons.forEach(btn => {
+        btn.addEventListener("click", () => {
+            showTab(btn.dataset.target);
         });
     });
 
     // Onglet par défaut
-    showContent("musee");
-
+    showTab("musee");
 
     // =========================================================
-    //  CONTRÔLE DE LA TAILLE DE L'IFRAME (ÉDITION LIMITÉE)
+    //  CONTRÔLE IFRAME (ÉDITION LIMITÉE)
     // =========================================================
     const iframeSelect = document.getElementById('iframe-size');
     const iframeWrapper = document.querySelector('.iframe-wrapper');
 
     if (iframeSelect && iframeWrapper) {
-
         iframeSelect.addEventListener('change', (e) => {
             const value = e.target.value;
             iframeWrapper.style.width = value + "%";
 
-            // Petit dézoom s’adapte à la taille
             const scaleMap = {
                 50: "0.95",
                 60: "1",
                 80: "1"
             };
-            iframeWrapper.querySelector("iframe").style.transform =
-                `scale(${scaleMap[value] || 1})`;
+
+            const iframe = iframeWrapper.querySelector("iframe");
+            if (iframe) iframe.style.transform = `scale(${scaleMap[value] || 1})`;
         });
     }
 
-
     // =========================================================
-    //  CONTRÔLE DE LA TAILLE DE L'IFRAME FIGMA (MUSÉE)
+    //  CONTRÔLE IFRAME FIGMA (MUSÉE)
     // =========================================================
     const figmaSelect = document.getElementById('figmaSize');
     const figmaIframe = document.querySelector('.figma-container iframe');
@@ -84,7 +90,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 // =========================================================
-//  CARROUSEL ALBERT LONDRES (au chargement complet des images)
+//  CARROUSEL (images chargées)
 // =========================================================
 window.addEventListener("load", () => {
 
@@ -93,7 +99,7 @@ window.addEventListener("load", () => {
     const prev = document.querySelector('.carousel-btn.prev');
     const next = document.querySelector('.carousel-btn.next');
 
-    if (!track || !images.length || !prev || !next) return;
+    if (!track || images.length === 0 || !prev || !next) return;
 
     let index = 0;
 
