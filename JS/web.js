@@ -1,55 +1,93 @@
-const iframeSelect = document.getElementById('iframe-size');
-const iframeWrapper = document.querySelector('.iframe-wrapper');
+// =========================================================
+//  INITIALISATION GLOBALE
+// =========================================================
+document.addEventListener("DOMContentLoaded", () => {
 
-iframeSelect.addEventListener('change', (e) => {
-    iframeWrapper.style.width = e.target.value + '%';
-});
+    console.log("Portfolio Web chargé !");
 
+    // =========================================================
+    //  NAVBAR MOBILE
+    // =========================================================
+    const menuToggle = document.getElementById("menu-toggle");
+    const navLinks = document.getElementById("nav-links");
 
-
-// === Sélection des éléments ===
-const buttons = document.querySelectorAll('.web-btn');
-const contents = document.querySelectorAll('.content');
-
-// === Fonction pour afficher le bon contenu ===
-function showContent(id) {
-    // Cacher toutes les sections
-    contents.forEach(content => content.classList.remove('active'));
-
-    // Activer la section correspondante
-    const activeContent = document.getElementById(id);
-    if (activeContent) {
-        activeContent.classList.add('active');
+    if (menuToggle && navLinks) {
+        menuToggle.addEventListener("click", () => {
+            menuToggle.classList.toggle("open");
+            navLinks.classList.toggle("open");
+        });
     }
 
-    // Gérer l'état visuel des boutons
+    // =========================================================
+    //  GESTION DES ONGLETS (Musée / Édition limitée / Plante)
+    // =========================================================
+    const buttons = document.querySelectorAll('.web-btn');
+    const contents = document.querySelectorAll('.content');
+
+    function showContent(id) {
+        contents.forEach(content => {
+            content.classList.toggle("active", content.id === id);
+        });
+
+        buttons.forEach(btn => {
+            btn.classList.toggle("active", btn.dataset.target === id);
+        });
+    }
+
+    // Clics sur les onglets
     buttons.forEach(btn => {
-        if (btn.dataset.target === id) {
-            btn.classList.add('active');
-        } else {
-            btn.classList.remove('active');
-        }
+        btn.addEventListener('click', () => {
+            showContent(btn.dataset.target);
+        });
     });
-}
 
-// === Gestion des clics sur les boutons ===
-buttons.forEach(btn => {
-    btn.addEventListener('click', () => {
-        showContent(btn.dataset.target);
-    });
+    // Onglet par défaut
+    showContent("musee");
+
+
+    // =========================================================
+    //  CONTRÔLE DE LA TAILLE DE L'IFRAME (ÉDITION LIMITÉE)
+    // =========================================================
+    const iframeSelect = document.getElementById('iframe-size');
+    const iframeWrapper = document.querySelector('.iframe-wrapper');
+
+    if (iframeSelect && iframeWrapper) {
+
+        iframeSelect.addEventListener('change', (e) => {
+            const value = e.target.value;
+            iframeWrapper.style.width = value + "%";
+
+            // Petit dézoom s’adapte à la taille
+            const scaleMap = {
+                50: "0.95",
+                60: "1",
+                80: "1"
+            };
+            iframeWrapper.querySelector("iframe").style.transform =
+                `scale(${scaleMap[value] || 1})`;
+        });
+    }
+
+
+    // =========================================================
+    //  CONTRÔLE DE LA TAILLE DE L'IFRAME FIGMA (MUSÉE)
+    // =========================================================
+    const figmaSelect = document.getElementById('figmaSize');
+    const figmaIframe = document.querySelector('.figma-container iframe');
+
+    if (figmaSelect && figmaIframe) {
+        figmaSelect.addEventListener("change", () => {
+            figmaIframe.style.width = figmaSelect.value + "%";
+        });
+    }
 });
 
-// === Par défaut : afficher la première section (Musée Albert Londres) ===
-window.addEventListener('DOMContentLoaded', () => {
-    const defaultId = "musee";
-    showContent(defaultId);
-});
 
-
-// === Carrousel Albert Londres (corrigé & optimisé) ===
-
-// On attend le chargement DOM + des images
+// =========================================================
+//  CARROUSEL ALBERT LONDRES (au chargement complet des images)
+// =========================================================
 window.addEventListener("load", () => {
+
     const track = document.querySelector('.carousel-track');
     const images = document.querySelectorAll('.carousel-img');
     const prev = document.querySelector('.carousel-btn.prev');
@@ -59,14 +97,10 @@ window.addEventListener("load", () => {
 
     let index = 0;
 
-    // Applique la bonne translation
     function updateCarousel() {
         const width = images[0].getBoundingClientRect().width;
         track.style.transform = `translateX(-${index * width}px)`;
     }
-
-    // Transition fluide
-    track.style.transition = "transform 0.4s ease-in-out";
 
     next.addEventListener("click", () => {
         index = (index + 1) % images.length;
@@ -78,42 +112,7 @@ window.addEventListener("load", () => {
         updateCarousel();
     });
 
-    // Recalcul si la fenêtre est redimensionnée
-    window.addEventListener("resize", () => {
-        updateCarousel();
-    });
+    window.addEventListener("resize", updateCarousel);
 
-    updateCarousel(); // première mise en page
+    updateCarousel();
 });
-
-
-// === Contrôle de la taille de l'iframe ===
-document.addEventListener("DOMContentLoaded", () => {
-    const iframe = document.querySelector(".iframe-container iframe");
-    const select = document.getElementById("iframe-size");
-
-    if (iframe && select) {
-        select.addEventListener("change", () => {
-            const value = select.value;
-            iframe.style.width = `${value}%`;
-
-            // dézoom proportionnel léger selon la taille choisie
-            const scaleMap = {
-                50: 0.95,
-                60: 1
-            };
-            iframe.style.transform = `scale(${scaleMap[value]})`;
-        });
-    }
-});
-
-document.addEventListener("DOMContentLoaded", () => {
-    const menuToggle = document.getElementById("menu-toggle");
-    const navLinks = document.getElementById("nav-links");
-
-    menuToggle.addEventListener("click", () => {
-        menuToggle.classList.toggle("open");
-        navLinks.classList.toggle("open");
-    });
-});
-
