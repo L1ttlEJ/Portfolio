@@ -1,33 +1,89 @@
+// =========================================================
+//  INITIALISATION GLOBALE
+// =========================================================
 document.addEventListener("DOMContentLoaded", () => {
-    const progressFill = document.getElementById("progress-fill");
-    const progressText = document.getElementById("progress-text");
 
-    let progress = 0;
-    const target = 30; // 30%
+    console.log("Portfolio Web chargé !");
 
-    const interval = setInterval(() => {
-        if (progress < target) {
-            progress++;
-            progressFill.style.width = `${progress}%`;
-            progressText.textContent = `${progress}%`;
-        } else {
-            clearInterval(interval);
-            // petit effet de glow à la fin
-            progressFill.style.boxShadow = "0 0 25px #FACC15, 0 0 50px #7C3AED";
-        }
-    }, 60);
-});
-
-
-
-//////////////////////////////////NAV////////////////////////////////////
-
-document.addEventListener("DOMContentLoaded", () => {
+    // =========================================================
+    //  NAVBAR MOBILE
+    // =========================================================
     const menuToggle = document.getElementById("menu-toggle");
     const navLinks = document.getElementById("nav-links");
 
-    menuToggle.addEventListener("click", () => {
-        menuToggle.classList.toggle("open");
-        navLinks.classList.toggle("open");
+    if (menuToggle && navLinks) {
+        menuToggle.addEventListener("click", () => {
+            menuToggle.classList.toggle("open");
+            navLinks.classList.toggle("open");
+        });
+    }
+
+    // =========================================================
+    //  GESTION DES ONGLETS (Musée / Édition / Plante)
+    // =========================================================
+    const tabButtons = document.querySelectorAll('.web-btn');
+    const tabContents = document.querySelectorAll('.content');
+
+    function showTab(id) {
+
+        // Affichage / masquage des sections
+        tabContents.forEach(section => {
+            if (section.id === id) {
+                section.classList.add("active");
+                section.style.display = "block";
+            } else {
+                section.classList.remove("active");
+                section.style.display = "none";
+            }
+        });
+
+        // Activation visuelle des boutons
+        tabButtons.forEach(btn => {
+            btn.classList.toggle("active", btn.dataset.target === id);
+        });
+    }
+
+    // Clics
+    tabButtons.forEach(btn => {
+        btn.addEventListener("click", () => {
+            showTab(btn.dataset.target);
+        });
     });
+
+    // Onglet par défaut
+    showTab("musee");
+
+    // =========================================================
+    //  CONTRÔLE IFRAME (ÉDITION LIMITÉE)
+    // =========================================================
+    const iframeSelect = document.getElementById('iframe-size');
+    const iframeWrapper = document.querySelector('.iframe-wrapper');
+
+    if (iframeSelect && iframeWrapper) {
+        iframeSelect.addEventListener('change', (e) => {
+            const value = e.target.value;
+            iframeWrapper.style.width = value + "%";
+
+            const scaleMap = {
+                50: "0.95",
+                60: "1",
+                80: "1"
+            };
+
+            const iframe = iframeWrapper.querySelector("iframe");
+            if (iframe) iframe.style.transform = `scale(${scaleMap[value] || 1})`;
+        });
+    }
+
+    // =========================================================
+    //  CONTRÔLE IFRAME FIGMA (MUSÉE)
+    // =========================================================
+    const figmaSelect = document.getElementById('figmaSize');
+    const figmaIframe = document.querySelector('.figma-container iframe');
+
+    if (figmaSelect && figmaIframe) {
+        figmaSelect.addEventListener("change", () => {
+            figmaIframe.style.width = figmaSelect.value + "%";
+        });
+    }
 });
