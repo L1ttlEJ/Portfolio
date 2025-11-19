@@ -3,7 +3,7 @@
 // =========================================================
 document.addEventListener("DOMContentLoaded", () => {
 
-    console.log("Portfolio Web chargé !");
+    console.log("Portfolio AudioVisuel chargé !");
 
     // =========================================================
     //  NAVBAR MOBILE
@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // =========================================================
     //  GESTION DES ONGLETS (Musée / Édition / Plante)
     // =========================================================
-    const tabButtons = document.querySelectorAll('.web-btn');
+    const tabButtons = document.querySelectorAll('.av-btn');
     const tabContents = document.querySelectorAll('.content');
 
     function showTab(id) {
@@ -51,7 +51,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     // Onglet par défaut
-    showTab("musee");
+    showTab("d3");
 
     // =========================================================
     //  CONTRÔLE IFRAME (ÉDITION LIMITÉE)
