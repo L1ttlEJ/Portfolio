@@ -2,51 +2,72 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Audiovisuel - � venir...</title>
+    <title>Créations Audiovisuelles - Johannes Ibrahim</title>
 
-    <!-- Meta SEO -->
-    <meta name="description" content="Projets audiovisuels - � venir sur le portfolio de Johannes Ibrahim.">
-    <meta name="author" content="Johannes Ibrahim">
-    <meta name="theme-color" content="#7C3AED">
+    <!-- Base pour tes chemins -->
+    <base href="/Portfolio/">
 
-    <!-- Liens CSS -->
-    <link rel="stylesheet" href="../css/audiovisuel.css">
+    <!-- Feuille de style -->
+    <link rel="stylesheet" href="css/web.css">
 </head>
 
 <body>
-    <!-- Barre de navigation -->
+
+    <!-- NAVBAR -->
     <nav class="navbar">
         <div class="logo">Portfolio</div>
 
-        <!-- Bouton hamburger -->
         <div class="menu-toggle" id="menu-toggle">
             <span></span>
             <span></span>
             <span></span>
         </div>
 
-        <!-- Liens -->
         <ul class="nav-links" id="nav-links">
-            <li><a href="index.html" class="active">Accueil</a></li>
+            <li><a href="index.html">Accueil</a></li>
             <li><a href="HTML/unity.html">Unity</a></li>
             <li><a href="HTML/web.html">Web / Logiciel</a></li>
-            <li><a href="HTML/audiovisuel.html">Création Audiovisuelle</a></li>
+            <li><a href="HTML/audiovisuel.html" class="active">Création Audiovisuelle</a></li>
         </ul>
     </nav>
 
-    <!-- === CONTENU PRINCIPAL === -->
-    <main class="loading-container">
-        <div class="loading-box">
-            <div class="progress-bar">
-                <div class="progress-fill" id="progress-fill"></div>
-            </div>
-            <p class="progress-text">Chargement : <span id="progress-text">30%</span></p>
-            <h1 class="coming-soon">� venir...</h1>
-        </div>
-    </main>
+    <!-- HEADER -->
+    <header class="header">
+        <h1>Créations Audiovisuelles</h1>
+        <p>Découvrez mes projets artistiques : 3D, dessin, montage vidéo et retouches Photoshop.</p>
+    </header>
 
-    <!-- === SCRIPT JS === -->
-    <script src="../js/audiovisuel.js" defer></script>
+    <!-- ONGLET : boutons -->
+    <div class="web-tabs">
+        <button class="web-btn active" data-target="d3">3D</button>
+        <button class="web-btn" data-target="dessin">Dessin</button>
+        <button class="web-btn" data-target="photoshop">Photoshop</button>
+        <button class="web-btn" data-target="video">Vidéo</button>
+    </div>
+
+    <!-- ======================== SECTION 3D ======================== -->
+    <section class="content active" id="d3">
+        
+    </section>
+
+    <!-- ======================== SECTION DESSIN ======================== -->
+    <section class="content" id="dessin">
+       
+    </section>
+
+    <!-- ======================== SECTION PHOTOSHOP ======================== -->
+    <section class="content" id="photoshop">
+       
+    </section>
+
+    <!-- ======================== SECTION VIDEO ======================== -->
+    <section class="content" id="video">
+        
+    </section>
+
+    <!-- JS global -->
+    <script src="JS/web.js"></script>
 </body>
 </html>

@@ -3,16 +3,20 @@
   "WorkspaceRootPath": "D:\\JIMAGINE\\Portfolio\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\JIMAGINE\\Portfolio\\css\\web.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:css\\web.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\JIMAGINE\\Portfolio\\HTML\\web.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:HTML\\web.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\JIMAGINE\\Portfolio\\JS\\web.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:JS\\web.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\JIMAGINE\\Portfolio\\css\\web.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:css\\web.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\JIMAGINE\\Portfolio\\css\\audiovisuel.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:css\\audiovisuel.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\JIMAGINE\\Portfolio\\HTML\\audiovisuel.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:HTML\\audiovisuel.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,44 +26,56 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "web.js",
-              "DocumentMoniker": "D:\\JIMAGINE\\Portfolio\\JS\\web.js",
-              "RelativeDocumentMoniker": "JS\\web.js",
-              "ToolTip": "D:\\JIMAGINE\\Portfolio\\JS\\web.js",
-              "RelativeToolTip": "JS\\web.js",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAFYAAAALAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2025-11-14T08:56:13.256Z",
-              "IsPinned": true,
+              "Title": "audiovisuel.css",
+              "DocumentMoniker": "D:\\JIMAGINE\\Portfolio\\css\\audiovisuel.css",
+              "RelativeDocumentMoniker": "css\\audiovisuel.css",
+              "ToolTip": "D:\\JIMAGINE\\Portfolio\\css\\audiovisuel.css",
+              "RelativeToolTip": "css\\audiovisuel.css",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-11-17T16:32:36.182Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
+              "Title": "audiovisuel.html",
+              "DocumentMoniker": "D:\\JIMAGINE\\Portfolio\\HTML\\audiovisuel.html",
+              "RelativeDocumentMoniker": "HTML\\audiovisuel.html",
+              "ToolTip": "D:\\JIMAGINE\\Portfolio\\HTML\\audiovisuel.html",
+              "RelativeToolTip": "HTML\\audiovisuel.html",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
+              "WhenOpened": "2025-11-17T16:32:12.876Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "web.css",
               "DocumentMoniker": "D:\\JIMAGINE\\Portfolio\\css\\web.css",
               "RelativeDocumentMoniker": "css\\web.css",
               "ToolTip": "D:\\JIMAGINE\\Portfolio\\css\\web.css",
               "RelativeToolTip": "css\\web.css",
-              "ViewState": "AgIAAMsBAAAAAAAAAAAYwAsCAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAALwBAAAAAAAAAAAAANsBAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
               "WhenOpened": "2025-11-14T08:45:46.367Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "web.html",
               "DocumentMoniker": "D:\\JIMAGINE\\Portfolio\\HTML\\web.html",
               "RelativeDocumentMoniker": "HTML\\web.html",
               "ToolTip": "D:\\JIMAGINE\\Portfolio\\HTML\\web.html",
               "RelativeToolTip": "HTML\\web.html",
-              "ViewState": "AgIAAF4AAAAAAAAAAAAYwC8AAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAEwAAAAAAAAAAAD4v2kAAAAWAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
               "WhenOpened": "2025-11-14T08:45:32.856Z",
               "EditorCaption": ""
