@@ -19,31 +19,25 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // =========================================================
-    //  GESTION DES ONGLETS (Musée / Édition / Plante)
+    //  GESTION DES ONGLETS AUDIOVISUELS
     // =========================================================
     const tabButtons = document.querySelectorAll('.av-btn');
     const tabContents = document.querySelectorAll('.content');
 
     function showTab(id) {
 
-        // Affichage / masquage des sections
         tabContents.forEach(section => {
+            section.classList.remove("active");
             if (section.id === id) {
                 section.classList.add("active");
-                section.style.display = "block";
-            } else {
-                section.classList.remove("active");
-                section.style.display = "none";
             }
         });
 
-        // Activation visuelle des boutons
         tabButtons.forEach(btn => {
             btn.classList.toggle("active", btn.dataset.target === id);
         });
     }
 
-    // Clics
     tabButtons.forEach(btn => {
         btn.addEventListener("click", () => {
             showTab(btn.dataset.target);
