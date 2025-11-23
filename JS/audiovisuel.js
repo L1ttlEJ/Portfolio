@@ -1,16 +1,11 @@
-// =========================================================
-//  INITIALISATION GLOBALE
-// =========================================================
+// JS complet pour audiovisuels : onglets + galerie/lightbox
 document.addEventListener("DOMContentLoaded", () => {
 
     console.log("Portfolio AudioVisuel chargé !");
 
-    // =========================================================
-    //  NAVBAR MOBILE
-    // =========================================================
+    // ---------- NAVBAR MOBILE ----------
     const menuToggle = document.getElementById("menu-toggle");
     const navLinks = document.getElementById("nav-links");
-
     if (menuToggle && navLinks) {
         menuToggle.addEventListener("click", () => {
             menuToggle.classList.toggle("open");
@@ -18,24 +13,20 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // =========================================================
-    //  GESTION DES ONGLETS AUDIOVISUELS
-    // =========================================================
+    // ---------- ONGLETS ----------
     const tabButtons = document.querySelectorAll('.av-btn');
     const tabContents = document.querySelectorAll('.content');
 
     function showTab(id) {
-
         tabContents.forEach(section => {
-            section.classList.remove("active");
-            if (section.id === id) {
-                section.classList.add("active");
-            }
+            section.classList.toggle("active", section.id === id);
         });
-
         tabButtons.forEach(btn => {
             btn.classList.toggle("active", btn.dataset.target === id);
         });
+        // scroll to top of section smoothly on mobile/long pages
+        const active = document.getElementById(id);
+        if (active) active.scrollIntoView({ behavior: "smooth", block: "start" });
     }
 
     tabButtons.forEach(btn => {
@@ -46,25 +37,23 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Onglet par défaut
     showTab("d3");
-});
 
+    // ---------- LIGHTBOX / GALLERY ----------
+    const gallery = document.getElementById("gallery-3d");
+    if (!gallery) return; // si la galerie n'existe pas, on arrête ici
 
-// =========================================================
-//  LIGHTBOX / GALLERIE 3D
-// =========================================================
-document.addEventListener("DOMContentLoaded", () => {
+    // on sélectionne les images *après* le DOM complet
+    let images = Array.from(gallery.querySelectorAll(".gallery-item img"));
 
-    const images = document.querySelectorAll(".gallery-item img");
-
-    // Création de la lightbox
+    // crée la lightbox (unique)
     const lightbox = document.createElement("div");
     lightbox.id = "lightbox-3d";
     lightbox.innerHTML = `
-        <div class="lightbox-content">
-            <span class="lightbox-close">&times;</span>
+        <div class="lightbox-content" role="dialog" aria-modal="true">
+            <span class="lightbox-close" aria-label="Fermer">&times;</span>
             <img class="lightbox-img" src="" alt="">
-            <div class="lightbox-arrow left">&#10094;</div>
-            <div class="lightbox-arrow right">&#10095;</div>
+            <div class="lightbox-arrow left" role="button" aria-label="Précédent">&#10094;</div>
+            <div class="lightbox-arrow right" role="button" aria-label="Suivant">&#10095;</div>
         </div>
     `;
     document.body.appendChild(lightbox);
@@ -76,51 +65,66 @@ document.addEventListener("DOMContentLoaded", () => {
 
     let currentIndex = 0;
 
-    // Ouvrir la lightbox
     function openLightbox(index) {
+        if (!images.length) return;
         currentIndex = index;
-        lightboxImg.src = images[index].src;
+        const src = images[currentIndex].getAttribute("src");
+        const alt = images[currentIndex].getAttribute("alt") || "";
+        lightboxImg.src = src;
+        lightboxImg.alt = alt;
         lightbox.classList.add("show");
+        // lock scroll
+        document.documentElement.style.overflow = "hidden";
     }
 
-    // Fermer la lightbox
     function closeLightbox() {
         lightbox.classList.remove("show");
+        lightboxImg.src = "";
+        document.documentElement.style.overflow = "";
     }
 
-    // Navigation flèches
     function showNext() {
+        if (!images.length) return;
         currentIndex = (currentIndex + 1) % images.length;
-        lightboxImg.src = images[currentIndex].src;
+        openLightbox(currentIndex);
     }
 
     function showPrev() {
+        if (!images.length) return;
         currentIndex = (currentIndex - 1 + images.length) % images.length;
-        lightboxImg.src = images[currentIndex].src;
+        openLightbox(currentIndex);
     }
 
-    // Clic sur une image
-    images.forEach((img, index) => {
-        img.addEventListener("click", () => openLightbox(index));
+    // listener : clic sur vignette (delegation)
+    gallery.addEventListener("click", (e) => {
+        const img = e.target.closest(".gallery-item img");
+        if (!img) return;
+        images = Array.from(gallery.querySelectorAll(".gallery-item img")); // refresh
+        const index = images.indexOf(img);
+        if (index >= 0) openLightbox(index);
     });
 
-    // Boutons
+    // boutons lightbox
     closeBtn.addEventListener("click", closeLightbox);
-    arrowLeft.addEventListener("click", showPrev);
-    arrowRight.addEventListener("click", showNext);
+    arrowLeft.addEventListener("click", (e) => { e.stopPropagation(); showPrev(); });
+    arrowRight.addEventListener("click", (e) => { e.stopPropagation(); showNext(); });
 
-    // Clic extérieur
+    // clic en dehors du contenu ferme
     lightbox.addEventListener("click", (e) => {
         if (e.target === lightbox) closeLightbox();
     });
 
-    // Navigation au clavier
+    // clavier
     document.addEventListener("keydown", (e) => {
         if (!lightbox.classList.contains("show")) return;
-
         if (e.key === "ArrowRight") showNext();
         if (e.key === "ArrowLeft") showPrev();
         if (e.key === "Escape") closeLightbox();
+    });
+
+    // gestion du redimensionnement : on rafraîchit images (au cas où)
+    window.addEventListener("resize", () => {
+        images = Array.from(gallery.querySelectorAll(".gallery-item img"));
     });
 
 });
