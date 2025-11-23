@@ -250,6 +250,31 @@ body {
         object-fit: cover;
     }
 
+
+/* Zone de texte */
+.gallery-text {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 0.7rem 1rem;
+    box-sizing: border-box;
+    background: linear-gradient( to top, rgba(20, 20, 20, 0.85), rgba(20, 20, 20, 0.10) );
+    color: #FACC15; /* Or */
+    font-size: 0.95rem;
+    font-weight: 500;
+    text-shadow: 0 0 10px rgba(250, 204, 21, 0.4);
+    letter-spacing: 0.5px;
+    border-top: 1px solid rgba(250, 204, 21, 0.25);
+    transition: backdrop-filter 0.3s ease, background 0.3s ease;
+}
+
+/* Effet hover : texte plus lisible */
+.gallery-item:hover .gallery-text {
+    backdrop-filter: blur(4px);
+    background: rgba(30, 30, 30, 0.8);
+}
+
+
 /* ================================
    LIGHTBOX 3D
 ================================ */
