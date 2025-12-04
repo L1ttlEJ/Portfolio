@@ -1,9 +1,12 @@
 {
   "ExpandedNodes": [
     "",
-    "\\creations",
-    "\\creations\\build"
+    "\\css",
+    "\\HTML",
+    "\\imgs",
+    "\\imgs\\visu",
+    "\\JS"
   ],
-  "SelectedNode": "\\creations",
+  "SelectedNode": "\\css\\audiovisuel.css",
   "PreviewInSolutionExplorer": false
 }
