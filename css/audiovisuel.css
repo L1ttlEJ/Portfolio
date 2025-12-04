@@ -274,97 +274,8 @@ body {
     background: rgba(30, 30, 30, 0.8);
 }
 
-
 /* ================================
-   LIGHTBOX 3D
-================================ */
-#lightbox-3d {
-    position: fixed;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.85);
-    backdrop-filter: blur(4px);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity .3s ease;
-    z-index: 2000;
-}
-
-    #lightbox-3d.show {
-        opacity: 1;
-        pointer-events: auto;
-    }
-
-.lightbox-content {
-    position: relative;
-    max-width: 90%;
-    max-height: 90%;
-}
-
-.lightbox-img {
-    width: 100%;
-    max-height: 90vh;
-    object-fit: contain;
-    border-radius: 12px;
-    box-shadow: 0 0 20px rgba(124, 58, 237, 0.5);
-    animation: fadeIn .25s ease;
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: scale(.95);
-    }
-
-    to {
-        opacity: 1;
-        transform: scale(1);
-    }
-}
-
-.lightbox-close {
-    position: absolute;
-    top: -40px;
-    right: 0;
-    font-size: 2.5rem;
-    cursor: pointer;
-    color: #fff;
-    transition: 0.2s;
-}
-
-    .lightbox-close:hover {
-        color: #FACC15;
-    }
-
-.lightbox-arrow {
-    position: absolute;
-    top: 50%;
-    font-size: 3rem;
-    cursor: pointer;
-    color: #fff;
-    padding: 10px;
-    transform: translateY(-50%);
-}
-
-    .lightbox-arrow.left {
-        left: -50px;
-    }
-
-    .lightbox-arrow.right {
-        right: -50px;
-    }
-
-    .lightbox-arrow:hover {
-        color: #7C3AED;
-    }
-
-
-/* ================================
-   G A L E R I E   V I S U E L S
+   G A L E R I E   VISUELS
 ================================ */
 .gallery-visuels {
     display: grid;
@@ -381,18 +292,24 @@ body {
         background: #1a1a1a;
         border: 1px solid #333;
         transition: transform 0.4s ease, box-shadow 0.4s ease;
+        height: 180px; /* hauteur uniforme */
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
+
+        .gallery-visuels .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* crop uniforme */
+            display: block;
+            transition: transform 0.3s ease;
+        }
 
         .gallery-visuels .gallery-item:hover {
             transform: perspective(600px) rotateX(5deg) rotateY(-5deg) scale(1.04);
             box-shadow: 0 12px 25px rgba(124, 58, 237, 0.4), 0 0 20px rgba(250, 204, 21, 0.25);
         }
-
-    .gallery-visuels img {
-        width: 100%;
-        height: auto;
-        object-fit: cover;
-    }
 
     .gallery-visuels .gallery-text {
         position: absolute;
@@ -412,4 +329,71 @@ body {
     .gallery-visuels .gallery-item:hover .gallery-text {
         backdrop-filter: blur(4px);
         background: rgba(30, 30, 30, 0.8);
+    }
+
+/* ================================
+   LIGHTBOX VISUELS
+================================ */
+#lightbox-visuels {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.85);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 2000;
+}
+
+    #lightbox-visuels.show {
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+.lightbox-content-visuels {
+    position: relative;
+    max-width: 90%;
+    max-height: 90%;
+}
+
+.lightbox-img-visuels {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* montre toute l’image */
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(124, 58, 237, 0.5);
+}
+
+.lightbox-close-visuels,
+.lightbox-arrow-visuels {
+    color: #fff;
+    cursor: pointer;
+    position: absolute;
+    transition: 0.2s;
+}
+
+    .lightbox-close-visuels:hover {
+        color: #FACC15;
+    }
+
+    .lightbox-arrow-visuels.left {
+        left: -50px;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 3rem;
+    }
+
+    .lightbox-arrow-visuels.right {
+        right: -50px;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 3rem;
+    }
+
+    .lightbox-arrow-visuels:hover {
+        color: #7C3AED;
     }
