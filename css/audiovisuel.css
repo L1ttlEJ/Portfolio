@@ -361,3 +361,55 @@ body {
     .lightbox-arrow:hover {
         color: #7C3AED;
     }
+
+
+/* ================================
+   G A L E R I E   V I S U E L S
+================================ */
+.gallery-visuels {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.5rem;
+    padding: 1rem;
+}
+
+    .gallery-visuels .gallery-item {
+        position: relative;
+        border-radius: 12px;
+        overflow: hidden;
+        cursor: pointer;
+        background: #1a1a1a;
+        border: 1px solid #333;
+        transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+
+        .gallery-visuels .gallery-item:hover {
+            transform: perspective(600px) rotateX(5deg) rotateY(-5deg) scale(1.04);
+            box-shadow: 0 12px 25px rgba(124, 58, 237, 0.4), 0 0 20px rgba(250, 204, 21, 0.25);
+        }
+
+    .gallery-visuels img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+    }
+
+    .gallery-visuels .gallery-text {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        padding: 0.7rem 1rem;
+        background: linear-gradient(to top, rgba(20,20,20,0.85), rgba(20,20,20,0.10));
+        color: #FACC15;
+        font-size: 0.95rem;
+        font-weight: 500;
+        text-shadow: 0 0 10px rgba(250,204,21,0.4);
+        border-top: 1px solid rgba(250,204,21,0.25);
+        letter-spacing: 0.5px;
+        transition: backdrop-filter 0.3s ease, background 0.3s ease;
+    }
+
+    .gallery-visuels .gallery-item:hover .gallery-text {
+        backdrop-filter: blur(4px);
+        background: rgba(30, 30, 30, 0.8);
+    }
