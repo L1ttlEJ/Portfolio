@@ -128,3 +128,29 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
 });
+
+
+
+
+/*///////////////////////////////////////////////////////////////////////////////////////////////////////*/
+/* ===== CAROUSEL ===== */
+const track = document.querySelector(".carousel-track");
+const images = Array.from(track.children);
+
+let index = 0;
+
+document.querySelector(".carousel-btn.next").onclick = () => {
+    index = (index + 1) % images.length;
+    updateCarousel();
+};
+
+document.querySelector(".carousel-btn.prev").onclick = () => {
+    index = (index - 1 + images.length) % images.length;
+    updateCarousel();
+};
+
+function updateCarousel() {
+    const width = images[0].clientWidth;
+    track.style.transform = `translateX(-${index * width}px)`;
+}
+
