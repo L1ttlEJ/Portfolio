@@ -1,18 +1,22 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\JIMAGINE\\Portfolio\\",
+  "WorkspaceRootPath": "F:\\JIMAGINE\\Portfolio\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\JIMAGINE\\Portfolio\\HTML\\audiovisuel.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|F:\\JIMAGINE\\Portfolio\\HTML\\audiovisuel.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:HTML\\audiovisuel.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\JIMAGINE\\Portfolio\\css\\audiovisuel.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|F:\\JIMAGINE\\Portfolio\\css\\audiovisuel.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:css\\audiovisuel.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\JIMAGINE\\Portfolio\\JS\\audiovisuel.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|F:\\JIMAGINE\\Portfolio\\JS\\audiovisuel.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:JS\\audiovisuel.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|F:\\JIMAGINE\\Portfolio\\HTML\\web.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:HTML\\web.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,42 +30,54 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "audiovisuel.css",
-              "DocumentMoniker": "D:\\JIMAGINE\\Portfolio\\css\\audiovisuel.css",
-              "RelativeDocumentMoniker": "css\\audiovisuel.css",
-              "ToolTip": "D:\\JIMAGINE\\Portfolio\\css\\audiovisuel.css",
-              "RelativeToolTip": "css\\audiovisuel.css",
-              "ViewState": "AgIAAFEBAAAAAAAAAAAiwGsBAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2025-12-04T10:21:08.303Z",
+              "DocumentIndex": 2,
+              "Title": "audiovisuel.js",
+              "DocumentMoniker": "F:\\JIMAGINE\\Portfolio\\JS\\audiovisuel.js",
+              "RelativeDocumentMoniker": "JS\\audiovisuel.js",
+              "ToolTip": "F:\\JIMAGINE\\Portfolio\\JS\\audiovisuel.js",
+              "RelativeToolTip": "JS\\audiovisuel.js",
+              "ViewState": "AgIAAJgAAAAAAAAAAAAcwJsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2025-12-05T08:32:23.411Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "audiovisuel.js",
-              "DocumentMoniker": "D:\\JIMAGINE\\Portfolio\\JS\\audiovisuel.js",
-              "RelativeDocumentMoniker": "JS\\audiovisuel.js",
-              "ToolTip": "D:\\JIMAGINE\\Portfolio\\JS\\audiovisuel.js",
-              "RelativeToolTip": "JS\\audiovisuel.js",
-              "ViewState": "AgIAACkAAAAAAAAAAAAAACkAAAAEAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2025-12-04T10:20:54.928Z",
+              "DocumentIndex": 1,
+              "Title": "audiovisuel.css",
+              "DocumentMoniker": "F:\\JIMAGINE\\Portfolio\\css\\audiovisuel.css",
+              "RelativeDocumentMoniker": "css\\audiovisuel.css",
+              "ToolTip": "F:\\JIMAGINE\\Portfolio\\css\\audiovisuel.css",
+              "RelativeToolTip": "css\\audiovisuel.css",
+              "ViewState": "AgIAAGgBAAAAAAAAAAAYwIEBAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-12-05T08:32:00.092Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "audiovisuel.html",
-              "DocumentMoniker": "D:\\JIMAGINE\\Portfolio\\HTML\\audiovisuel.html",
+              "DocumentMoniker": "F:\\JIMAGINE\\Portfolio\\HTML\\audiovisuel.html",
               "RelativeDocumentMoniker": "HTML\\audiovisuel.html",
-              "ToolTip": "D:\\JIMAGINE\\Portfolio\\HTML\\audiovisuel.html",
+              "ToolTip": "F:\\JIMAGINE\\Portfolio\\HTML\\audiovisuel.html",
               "RelativeToolTip": "HTML\\audiovisuel.html",
-              "ViewState": "AgIAAEcAAAAAAAAAAAAcwFAAAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAAFUAAAAAAAAAAIAwwGoAAABJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
-              "WhenOpened": "2025-12-04T10:07:41.396Z",
+              "WhenOpened": "2025-12-05T08:23:57.66Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "web.html",
+              "DocumentMoniker": "F:\\JIMAGINE\\Portfolio\\HTML\\web.html",
+              "RelativeDocumentMoniker": "HTML\\web.html",
+              "ToolTip": "F:\\JIMAGINE\\Portfolio\\HTML\\web.html",
+              "RelativeToolTip": "HTML\\web.html",
+              "ViewState": "AgIAAFYAAAAAAAAAAADwv4EAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
+              "WhenOpened": "2025-12-05T08:03:49.499Z"
             }
           ]
         }
