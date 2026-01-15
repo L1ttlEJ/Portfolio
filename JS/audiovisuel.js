@@ -96,7 +96,6 @@ document.addEventListener("DOMContentLoaded", () => {
             openLightbox(currentIndex);
         }
 
-        // clic sur vignette (delegation)
         gallery.addEventListener("click", (e) => {
             const img = e.target.closest(".gallery-item img");
             if (!img) return;
