@@ -158,16 +158,13 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    /* =========================
-       CAROUSEL (VISUELS)
-       HTML attendu :
-       .carousel-track > .carousel-item > img + .carousel-caption
-    ========================== */
+    // ---------- CAROUSEL (VISUELS) ----------
     const track = document.querySelector(".carousel-track");
     const nextBtn = document.querySelector(".carousel-btn.next");
     const prevBtn = document.querySelector(".carousel-btn.prev");
 
     if (track && nextBtn && prevBtn) {
+        const carousel = track.closest(".carousel");
         const slides = Array.from(track.querySelectorAll(".carousel-item"));
         let slideIndex = 0;
 
@@ -179,13 +176,15 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         function updateCarousel() {
-            if (!slides.length) return;
-
-            // sécurité si jamais slides change
-            slideIndex = Math.max(0, Math.min(slideIndex, slides.length - 1));
+            if (!slides.length || !carousel) return;
 
             const step = getStepPx();
-            track.style.transform = `translateX(-${slideIndex * step}px)`;
+            const slideWidth = slides[0].getBoundingClientRect().width;
+            const carouselWidth = carousel.getBoundingClientRect().width;
+
+            const centerOffset = (carouselWidth - slideWidth) / 2;
+
+            track.style.transform = `translateX(${centerOffset - slideIndex * step}px)`;
         }
 
         nextBtn.addEventListener("click", () => {
@@ -198,23 +197,8 @@ document.addEventListener("DOMContentLoaded", () => {
             updateCarousel();
         });
 
-        // clavier (optionnel) : flèches quand la souris est sur le carousel
-        const carousel = track.closest(".carousel");
-        if (carousel) {
-            carousel.tabIndex = 0; // focusable
-            carousel.addEventListener("keydown", (e) => {
-                if (e.key === "ArrowRight") {
-                    slideIndex = (slideIndex + 1) % slides.length;
-                    updateCarousel();
-                }
-                if (e.key === "ArrowLeft") {
-                    slideIndex = (slideIndex - 1 + slides.length) % slides.length;
-                    updateCarousel();
-                }
-            });
-        }
-
         window.addEventListener("resize", updateCarousel);
         updateCarousel();
     }
+
 });
