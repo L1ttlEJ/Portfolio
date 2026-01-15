@@ -1,9 +1,14 @@
-// JS complet : navbar + onglets + lightbox 3D + carousel
-document.addEventListener("DOMContentLoaded", () => {
+// audiovisuel.js — Navbar + Onglets + Lightbox 3D + Carousel (optimisé)
+// Compatible avec ton HTML/CSS :
+// - Galerie 3D : .gallery-3d (ou id="gallery-3d")
+// - Carousel : .carousel-track contient des .carousel-item (img + .carousel-caption)
 
+document.addEventListener("DOMContentLoaded", () => {
     console.log("Portfolio AudioVisuel chargé !");
 
-    // ---------- NAVBAR MOBILE ----------
+    /* =========================
+       NAVBAR MOBILE
+    ========================== */
     const menuToggle = document.getElementById("menu-toggle");
     const navLinks = document.getElementById("nav-links");
 
@@ -12,36 +17,53 @@ document.addEventListener("DOMContentLoaded", () => {
             menuToggle.classList.toggle("open");
             navLinks.classList.toggle("open");
         });
+
+        // (optionnel) ferme le menu au clic sur un lien
+        navLinks.addEventListener("click", (e) => {
+            const a = e.target.closest("a");
+            if (!a) return;
+            menuToggle.classList.remove("open");
+            navLinks.classList.remove("open");
+        });
     }
 
-    // ---------- ONGLETS ----------
-    const tabButtons = document.querySelectorAll(".av-btn");
-    const tabContents = document.querySelectorAll(".content");
+    /* =========================
+       ONGLET AUDIOVISUEL
+    ========================== */
+    const tabButtons = Array.from(document.querySelectorAll(".av-btn"));
+    const tabContents = Array.from(document.querySelectorAll(".content"));
 
     function showTab(id) {
-        tabContents.forEach(section => {
+        const target = document.getElementById(id);
+        if (!target) return; // évite les bugs si une section manque (ex: "video")
+
+        tabContents.forEach((section) => {
             section.classList.toggle("active", section.id === id);
         });
-        tabButtons.forEach(btn => {
+
+        tabButtons.forEach((btn) => {
             btn.classList.toggle("active", btn.dataset.target === id);
         });
 
-        const active = document.getElementById(id);
-        if (active) active.scrollIntoView({ behavior: "smooth", block: "start" });
+        target.scrollIntoView({ behavior: "smooth", block: "start" });
     }
 
-    tabButtons.forEach(btn => {
+    tabButtons.forEach((btn) => {
         btn.addEventListener("click", () => showTab(btn.dataset.target));
     });
 
-    // Onglet par défaut
-    showTab("d3");
+    // Onglet par défaut (si existe)
+    if (document.getElementById("d3")) showTab("d3");
 
-    // ---------- LIGHTBOX / GALLERY 3D ----------
-    // (si tu as mis id="gallery-3d" dans le HTML, ça marche direct)
-    const gallery = document.getElementById("gallery-3d") || document.querySelector(".gallery-3d");
+    /* =========================
+       LIGHTBOX / GALLERY 3D
+    ========================== */
+    const gallery =
+        document.getElementById("gallery-3d") || document.querySelector(".gallery-3d");
+
     if (gallery) {
         let galleryImages = Array.from(gallery.querySelectorAll(".gallery-item img"));
+        let currentIndex = 0;
 
         // crée la lightbox (unique)
         const lightbox = document.createElement("div");
@@ -61,27 +83,27 @@ document.addEventListener("DOMContentLoaded", () => {
         const arrowLeft = lightbox.querySelector(".lightbox-arrow.left");
         const arrowRight = lightbox.querySelector(".lightbox-arrow.right");
 
-        let currentIndex = 0;
+        function lockScroll(lock) {
+            document.documentElement.style.overflow = lock ? "hidden" : "";
+        }
 
         function openLightbox(index) {
             galleryImages = Array.from(gallery.querySelectorAll(".gallery-item img"));
             if (!galleryImages.length) return;
 
             currentIndex = index;
-            const src = galleryImages[currentIndex].getAttribute("src");
-            const alt = galleryImages[currentIndex].getAttribute("alt") || "";
+            const img = galleryImages[currentIndex];
 
-            lightboxImg.src = src;
-            lightboxImg.alt = alt;
+            lightboxImg.src = img.getAttribute("src");
+            lightboxImg.alt = img.getAttribute("alt") || "";
             lightbox.classList.add("show");
-
-            document.documentElement.style.overflow = "hidden";
+            lockScroll(true);
         }
 
         function closeLightbox() {
             lightbox.classList.remove("show");
             lightboxImg.src = "";
-            document.documentElement.style.overflow = "";
+            lockScroll(false);
         }
 
         function showNext() {
@@ -96,6 +118,7 @@ document.addEventListener("DOMContentLoaded", () => {
             openLightbox(currentIndex);
         }
 
+        // clic sur vignette (delegation)
         gallery.addEventListener("click", (e) => {
             const img = e.target.closest(".gallery-item img");
             if (!img) return;
@@ -105,14 +128,23 @@ document.addEventListener("DOMContentLoaded", () => {
             if (index >= 0) openLightbox(index);
         });
 
+        // boutons lightbox
         closeBtn.addEventListener("click", closeLightbox);
-        arrowLeft.addEventListener("click", (e) => { e.stopPropagation(); showPrev(); });
-        arrowRight.addEventListener("click", (e) => { e.stopPropagation(); showNext(); });
+        arrowLeft.addEventListener("click", (e) => {
+            e.stopPropagation();
+            showPrev();
+        });
+        arrowRight.addEventListener("click", (e) => {
+            e.stopPropagation();
+            showNext();
+        });
 
+        // clic hors contenu
         lightbox.addEventListener("click", (e) => {
             if (e.target === lightbox) closeLightbox();
         });
 
+        // clavier
         document.addEventListener("keydown", (e) => {
             if (!lightbox.classList.contains("show")) return;
             if (e.key === "ArrowRight") showNext();
@@ -120,31 +152,41 @@ document.addEventListener("DOMContentLoaded", () => {
             if (e.key === "Escape") closeLightbox();
         });
 
+        // refresh images si resize (rare, mais safe)
         window.addEventListener("resize", () => {
             galleryImages = Array.from(gallery.querySelectorAll(".gallery-item img"));
         });
     }
 
-    // ---------- CAROUSEL (VISUELS) ----------
+    /* =========================
+       CAROUSEL (VISUELS)
+       HTML attendu :
+       .carousel-track > .carousel-item > img + .carousel-caption
+    ========================== */
     const track = document.querySelector(".carousel-track");
     const nextBtn = document.querySelector(".carousel-btn.next");
     const prevBtn = document.querySelector(".carousel-btn.prev");
 
     if (track && nextBtn && prevBtn) {
         const slides = Array.from(track.querySelectorAll(".carousel-item"));
-
         let slideIndex = 0;
+
+        function getStepPx() {
+            if (!slides.length) return 0;
+            const slideWidth = slides[0].getBoundingClientRect().width;
+            const gap = parseFloat(getComputedStyle(track).gap) || 0;
+            return slideWidth + gap;
+        }
 
         function updateCarousel() {
             if (!slides.length) return;
 
-            const slideWidth = slides[0].getBoundingClientRect().width;
-            const gap = parseFloat(getComputedStyle(track).gap) || 0;
+            // sécurité si jamais slides change
+            slideIndex = Math.max(0, Math.min(slideIndex, slides.length - 1));
 
-            track.style.transform = `translateX(-${index * (slideWidth + gap)}px)`;
+            const step = getStepPx();
+            track.style.transform = `translateX(-${slideIndex * step}px)`;
         }
-
-
 
         nextBtn.addEventListener("click", () => {
             slideIndex = (slideIndex + 1) % slides.length;
@@ -156,8 +198,23 @@ document.addEventListener("DOMContentLoaded", () => {
             updateCarousel();
         });
 
+        // clavier (optionnel) : flèches quand la souris est sur le carousel
+        const carousel = track.closest(".carousel");
+        if (carousel) {
+            carousel.tabIndex = 0; // focusable
+            carousel.addEventListener("keydown", (e) => {
+                if (e.key === "ArrowRight") {
+                    slideIndex = (slideIndex + 1) % slides.length;
+                    updateCarousel();
+                }
+                if (e.key === "ArrowLeft") {
+                    slideIndex = (slideIndex - 1 + slides.length) % slides.length;
+                    updateCarousel();
+                }
+            });
+        }
+
         window.addEventListener("resize", updateCarousel);
         updateCarousel();
     }
-
 });
