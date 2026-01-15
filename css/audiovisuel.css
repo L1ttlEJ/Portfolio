@@ -377,15 +377,25 @@ body {
     box-shadow: 0 0 20px rgba(0,0,0,0.4);
 }
 
-.carousel-track {
+.carousel-track 
+{
     display: flex;
+    align-items: center;
+    gap: 2rem; 
     transition: transform 0.5s ease-in-out;
 }
-.carousel img {
-    width: 100%;
-    height: 450px;
-    object-fit: cover;
+.carousel img 
+{
+    width: 15vw;
+    max-width: 220px; 
+    min-width: 120px; 
+    height: auto;
+    object-fit: contain;
     flex-shrink: 0;
+    border-radius: 12px;
+    background: #111;
+    padding: 0.5rem;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.4);
 }
 
 

@@ -136,10 +136,13 @@ document.addEventListener("DOMContentLoaded", () => {
         let slideIndex = 0;
 
         function updateCarousel() {
-            if (!slides.length) return;
-            const slideWidth = slides[0].getBoundingClientRect().width;
-            track.style.transform = `translateX(-${slideIndex * slideWidth}px)`;
+            const slide = images[0];
+            const slideWidth = slide.getBoundingClientRect().width;
+            const gap = parseFloat(getComputedStyle(track).gap) || 0;
+
+            track.style.transform = `translateX(-${index * (slideWidth + gap)}px)`;
         }
+
 
         nextBtn.addEventListener("click", () => {
             slideIndex = (slideIndex + 1) % slides.length;
