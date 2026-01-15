@@ -379,7 +379,6 @@ body {
     box-shadow: 0 0 20px rgba(0,0,0,0.4);
 }
 
-/* piste */
 .carousel-track {
     display: flex;
     align-items: center;
@@ -387,10 +386,9 @@ body {
     transition: transform 0.5s ease-in-out;
 }
 
-/* item (wrapper image + texte) */
 .carousel-item {
     position: relative;
-    width: 15vw;
+    width: 20vw;
     max-width: 220px;
     min-width: 120px;
     flex-shrink: 0;
@@ -400,16 +398,14 @@ body {
     box-shadow: 0 6px 15px rgba(0,0,0,0.4);
 }
 
-    /* image */
     .carousel-item img {
         width: 100%;
         height: auto;
         display: block;
-        object-fit: contain; /* image entière */
+        object-fit: contain;
         padding: 0.5rem;
     }
 
-/* overlay texte */
 .carousel-caption {
     position: absolute;
     inset: 0;
