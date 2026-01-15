@@ -598,6 +598,7 @@ body {
 /*//////////////////////////////////////////////////////////////////*/
 
 /* --- FAN GAME POKÉMON --- */
+/*
 #pokemon {
     background: linear-gradient(180deg, #0c0c0f, #161623);
     color: #f3f3f3;
@@ -633,7 +634,7 @@ body {
     color: #dcdcdc;
 }
 
-/* Rareté */
+/*
 .rarity-system {
     margin-top: 3rem;
     text-align: center;
@@ -674,7 +675,6 @@ body {
         height: 40px;
     }
 
-/* Carrousel */
 .carousel-container {
     text-align: center;
     margin-top: 3rem;
@@ -729,7 +729,6 @@ body {
     }
 
 
-/* === Section Code / Explication Dév === */
 .code {
     background: rgba(30, 30, 30, 0.8);
     border-left: 4px solid #7C3AED;
@@ -783,7 +782,6 @@ body {
                 transform: scaleX(1);
             }
 
-/* Adaptation mobile */
 @media (max-width: 768px) {
     .code {
         max-width: 90%;
@@ -793,7 +791,6 @@ body {
 }
 
 
-/* Vidéo */
 .video-section {
     margin-top: 3rem;
     text-align: center;
@@ -814,13 +811,12 @@ body {
 
 
 
-/* --- Section vidéo --- */
 .game-video {
     margin-top: 3rem;
     background-color: #252525;
     padding: 2rem;
     border-radius: 12px;
-    border-left: 4px solid #FACC15; /* jaune vif */
+    border-left: 4px solid #FACC15;
     box-shadow: 0 0 10px rgba(250, 204, 21, 0.2);
     text-align: center;
 }
@@ -838,7 +834,6 @@ body {
         line-height: 1.6;
     }
 
-/* Conteneur vidéo responsive */
 .video-container {
     position: relative;
     width: 80%;
@@ -856,7 +851,6 @@ body {
         border-radius: 10px;
     }
 
-/* Responsive */
 @media (max-width: 768px) {
     .video-container {
         width: 100%;
@@ -864,8 +858,6 @@ body {
 }
 
 
-
-/* Responsive */
 @media (max-width: 768px) {
     .rarity-table table {
         width: 100%;
@@ -877,7 +869,7 @@ body {
         max-width: 32px;
     }
 }
-
+*/
 
 
 /*////////////////////////////////////////////////////////////////*/

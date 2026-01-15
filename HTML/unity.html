@@ -100,8 +100,9 @@
                             la <strong>perception du joueur</strong> et l'angle de la caméra' devient ainsi un élément clé du gameplay.
                         </p>
                         <p>
-                            L’univers mêle <strong>forêts vivantes</strong>, <strong>bioluminescence</strong> et <strong>mysticisme naturel</strong>.
-                            Les mécaniques s’intègrent à l’environnement : champignons déclancheurs,fleurs lumineuses, plantes ascenseurs…
+                            Afin de pouvoir progresser de niveau en niveau ( visuellement séparer par des petits ponts ), le joueur pourra s'aider de mécanismes, des éléments du décors avec lesquels il pourra intéragir afin d'activer d'autres mécanismes ou ouvrir la porte vers le niveau suivant.
+                            Ces mécanismes se fondant dans le décor on souvent une apparence en rapport avec la nature. En plus des mécanismes, le joueur pourra s'aider d'un outil "magique", un objet dont il pourra s'équiper ou se déséquiper.
+                            La gestion de l'angle de la caméra en plus de l'activation des mécanismes et l'utilisation des outils constituent les éléments de gameplay de notre jeu.
                         </p>
                     </div>
 
@@ -282,112 +283,110 @@
 
 
 
-        <!-- FanGame Pokémon -->
-        <div class="project-section" id="pokemon">
-            <h2 class="project-title">FanGame Pokémon — Le Défi des 100 Dresseurs</h2>
+        <!-- FanGame Pokémon
+    <div class="project-section" id="pokemon">
+        <h2 class="project-title">FanGame Pokémon — Le Défi des 100 Dresseurs</h2>
 
-            <p class="project-intro">
-                Grand passionné de la licence <strong>Pokémon</strong> depuis mon enfance, j’ai souhaité lui rendre hommage à travers un
-                <strong>fan game développé sous Unity</strong> intitulé <em>Pokémon : Le Défi des 100 Dresseurs</em>.
-                Ce projet met en avant ma maîtrise du <strong>game design</strong>, de la <strong>programmation C#</strong> et du <strong>level balancing</strong>.
+        <p class="project-intro">
+            Grand passionné de la licence <strong>Pokémon</strong> depuis mon enfance, j’ai souhaité lui rendre hommage à travers un
+            <strong>fan game développé sous Unity</strong> intitulé <em>Pokémon : Le Défi des 100 Dresseurs</em>.
+            Ce projet met en avant ma maîtrise du <strong>game design</strong>, de la <strong>programmation C#</strong> et du <strong>level balancing</strong>.
+        </p>
+
+        <div class="project-section-content">
+            <h3>Concept du jeu</h3>
+            <p>
+                Le joueur incarne un dresseur déterminé à relever un défi unique : <strong>affronter 100 dresseurs à la suite</strong>.
+                Après chaque combat, il peut <strong>choisir un nouveau Pokémon</strong> parmi trois proposés aléatoirement, ajoutant une dimension de hasard et de stratégie.
+            </p>
+            <p>
+                Le but : <strong>tenir jusqu’au dernier combat</strong> avec au moins un Pokémon encore en vie.
+                Ce jeu mêle les mécaniques classiques de Pokémon à une boucle de gameplay inspirée des <strong>roguelikes</strong>, où chaque tentative offre une expérience nouvelle.
+            </p>
+        </div>
+
+        <div class="rarity-system">
+            <h3>Système de rareté des Pokémon</h3>
+            <p class="rarity-description">
+                Le tirage des Pokémon repose sur un <strong>système de rareté dynamique</strong>.
+                Chaque Pokémon a une probabilité d’apparition différente selon sa puissance et sa rareté.
+                Ce système équilibre <strong>chance</strong> et <strong>stratégie</strong>, rendant chaque partie unique.
             </p>
 
-            <div class="project-section-content">
-                <h3>Concept du jeu</h3>
-                <p>
-                    Le joueur incarne un dresseur déterminé à relever un défi unique : <strong>affronter 100 dresseurs à la suite</strong>.
-                    Après chaque combat, il peut <strong>choisir un nouveau Pokémon</strong> parmi trois proposés aléatoirement, ajoutant une dimension de hasard et de stratégie.
-                </p>
-                <p>
-                    Le but : <strong>tenir jusqu’au dernier combat</strong> avec au moins un Pokémon encore en vie.
-                    Ce jeu mêle les mécaniques classiques de Pokémon à une boucle de gameplay inspirée des <strong>roguelikes</strong>, où chaque tentative offre une expérience nouvelle.
-                </p>
+            <div class="rarity-table-wrapper">
+                <table class="rarity-table">
+                    <thead>
+                        <tr>
+                            <th>Rareté</th>
+                            <th>Sprite</th>
+                            <th>Probabilité</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Commun</td><td><img src="imgs/poke/Commun.png" alt="Commun"></td><td>50%</td></tr>
+                        <tr><td>Peu commun</td><td><img src="imgs/poke/PeuCommun.png" alt="Peu commun"></td><td>20%</td></tr>
+                        <tr><td>Rare</td><td><img src="imgs/poke/Rare.png" alt="Rare"></td><td>10%</td></tr>
+                        <tr><td>Très rare</td><td><img src="imgs/poke/Very.png" alt="Très rare"></td><td>7%</td></tr>
+                        <tr><td>Ultra rare</td><td><img src="imgs/poke/Ultra.png" alt="Ultra rare"></td><td>5%</td></tr>
+                        <tr><td>Spécial</td><td><img src="imgs/poke/UltraChieme.png" alt="Spécial"></td><td>3%</td></tr>
+                        <tr><td>Secret</td><td><img src="imgs/poke/RareSecret.png" alt="Secret"></td><td>2%</td></tr>
+                        <tr><td>Très secret</td><td><img src="imgs/poke/UltraSecret.png" alt="Très secret"></td><td>1.5%</td></tr>
+                        <tr><td>Mega</td><td><img src="imgs/poke/Mega.png" alt="Mega"></td><td>1%</td></tr>
+                        <tr><td>Légendaire</td><td><img src="imgs/poke/Legendaire.png" alt="Légendaire"></td><td>0.5%</td></tr>
+                    </tbody>
+                </table>
             </div>
+        </div>
 
-            <!-- Système de rareté -->
-            <div class="rarity-system">
-                <h3>Système de rareté des Pokémon</h3>
-                <p class="rarity-description">
-                    Le tirage des Pokémon repose sur un <strong>système de rareté dynamique</strong>.
-                    Chaque Pokémon a une probabilité d’apparition différente selon sa puissance et sa rareté.
-                    Ce système équilibre <strong>chance</strong> et <strong>stratégie</strong>, rendant chaque partie unique.
-                </p>
+        <br />
 
-                <div class="rarity-table-wrapper">
-                    <table class="rarity-table">
-                        <thead>
-                            <tr>
-                                <th>Rareté</th>
-                                <th>Sprite</th>
-                                <th>Probabilité</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr><td>Commun</td><td><img src="imgs/poke/Commun.png" alt="Commun"></td><td>50%</td></tr>
-                            <tr><td>Peu commun</td><td><img src="imgs/poke/PeuCommun.png" alt="Peu commun"></td><td>20%</td></tr>
-                            <tr><td>Rare</td><td><img src="imgs/poke/Rare.png" alt="Rare"></td><td>10%</td></tr>
-                            <tr><td>Très rare</td><td><img src="imgs/poke/Very.png" alt="Très rare"></td><td>7%</td></tr>
-                            <tr><td>Ultra rare</td><td><img src="imgs/poke/Ultra.png" alt="Ultra rare"></td><td>5%</td></tr>
-                            <tr><td>Spécial</td><td><img src="imgs/poke/UltraChieme.png" alt="Spécial"></td><td>3%</td></tr>
-                            <tr><td>Secret</td><td><img src="imgs/poke/RareSecret.png" alt="Secret"></td><td>2%</td></tr>
-                            <tr><td>Très secret</td><td><img src="imgs/poke/UltraSecret.png" alt="Très secret"></td><td>1.5%</td></tr>
-                            <tr><td>Mega</td><td><img src="imgs/poke/Mega.png" alt="Mega"></td><td>1%</td></tr>
-                            <tr><td>Légendaire</td><td><img src="imgs/poke/Legendaire.png" alt="Légendaire"></td><td>0.5%</td></tr>
-                        </tbody>
-                    </table>
+        <div class="code">
+            <p>
+                En suivant les premiers tutoriels de
+                <a href="https://www.youtube.com/@GameDevExperiments" target="_blank">Game Dev Experiments</a>
+                sur YouTube, j’ai appris à concevoir un système de combat et à créer mes premiers scripts définissant le fonctionnement des créatures.
+                <br><br>
+                À partir de cette base, j’ai retravaillé et reconstruit le code ainsi que les éléments Unity pour développer mon propre jeu.
+                J’ai notamment créé des <strong>Scriptable Objects</strong> pour les attaques, les créatures et les dresseurs, mis en place un <strong>système de rounds</strong>,
+                ainsi qu’un <strong>système de draft</strong> proposant trois créatures aléatoires à chaque tour, basé sur leur <strong>rareté</strong>.
+                <br><br>
+                J’ai également conçu l’ensemble de l’<strong>interface utilisateur</strong> (UI) afin d’assurer une navigation fluide entre les différents menus et phases de jeu.
+            </p>
+        </div>
+
+
+
+        <div class="carousel-container">
+            <h3>Captures et concepts visuels</h3>
+            <div class="carousel" id="pokemon-carousel">
+                <button class="carousel-btn prev" aria-label="Précédent">&#10094;</button>
+                <div class="carousel-track">
+                    <img src="imgs/poke/mainmenu.png" alt="Menu principal" class="carousel-img">
+                    <img src="imgs/poke/pokedex.png" alt="Pokedex" class="carousel-img">
+                    <img src="imgs/poke/pokemonselection.png" alt="Sélection de Pokémon" class="carousel-img">
+                    <img src="imgs/poke/screeningame.png" alt="Combat en jeu" class="carousel-img">
                 </div>
+                <button class="carousel-btn next" aria-label="Suivant">&#10095;</button>
             </div>
+        </div>
+
+        <div class="video-section">
+            <h3>Vidéo de présentation</h3>
+            <p>
+                Voici une courte démonstration du fan game <strong>Pokémon : Le Défi des 100 Dresseurs</strong>, illustrant les mécaniques de combat et le système de rareté.
+            </p>
 
             <br />
 
-            <div class="code">
-                <p>
-                    En suivant les premiers tutoriels de
-                    <a href="https://www.youtube.com/@GameDevExperiments" target="_blank">Game Dev Experiments</a>
-                    sur YouTube, j’ai appris à concevoir un système de combat et à créer mes premiers scripts définissant le fonctionnement des créatures.
-                    <br><br>
-                    À partir de cette base, j’ai retravaillé et reconstruit le code ainsi que les éléments Unity pour développer mon propre jeu.
-                    J’ai notamment créé des <strong>Scriptable Objects</strong> pour les attaques, les créatures et les dresseurs, mis en place un <strong>système de rounds</strong>,
-                    ainsi qu’un <strong>système de draft</strong> proposant trois créatures aléatoires à chaque tour, basé sur leur <strong>rareté</strong>.
-                    <br><br>
-                    J’ai également conçu l’ensemble de l’<strong>interface utilisateur</strong> (UI) afin d’assurer une navigation fluide entre les différents menus et phases de jeu.
-                </p>
-            </div>
-
-
-
-            <!-- Carrousel d’images -->
-            <div class="carousel-container">
-                <h3>Captures et concepts visuels</h3>
-                <div class="carousel" id="pokemon-carousel">
-                    <button class="carousel-btn prev" aria-label="Précédent">&#10094;</button>
-                    <div class="carousel-track">
-                        <img src="imgs/poke/mainmenu.png" alt="Menu principal" class="carousel-img">
-                        <img src="imgs/poke/pokedex.png" alt="Pokedex" class="carousel-img">
-                        <img src="imgs/poke/pokemonselection.png" alt="Sélection de Pokémon" class="carousel-img">
-                        <img src="imgs/poke/screeningame.png" alt="Combat en jeu" class="carousel-img">
-                    </div>
-                    <button class="carousel-btn next" aria-label="Suivant">&#10095;</button>
-                </div>
-            </div>
-
-            <!-- Section Vidéo -->
-            <div class="video-section">
-                <h3>Vidéo de présentation</h3>
-                <p>
-                    Voici une courte démonstration du fan game <strong>Pokémon : Le Défi des 100 Dresseurs</strong>, illustrant les mécaniques de combat et le système de rareté.
-                </p>
-
-                <br />
-
-                <div class="video-container">
-                    <video controls loop>
-                        <source src="../assets/videos/fangame-demo.mp4" type="video/mp4">
-                        Ton navigateur ne supporte pas la lecture de cette vidéo.
-                    </video>
-                </div>
+            <div class="video-container">
+                <video controls loop>
+                    <source src="../assets/videos/fangame-demo.mp4" type="video/mp4">
+                    Ton navigateur ne supporte pas la lecture de cette vidéo.
+                </video>
             </div>
         </div>
+    </div>
+        -->
 
         <script src="JS/unity.js"></script>
 </body>
