@@ -1,4 +1,4 @@
-/* ==========================================================
+Ôªø/* ==========================================================
     RESET & BASE
 ========================================================== */
 * {
@@ -365,41 +365,78 @@ body {
 
 
     /*/////////////////////////////////////////////////////////////////////////////////////////////*/
-/* ===== CAROUSEL ===== */
+/* =========================
+   CAROUSEL VISUELS
+========================= */
+
 .carousel {
     position: relative;
-    width: 80%;
-    max-width: 800px;
-    height: 450px;
+    width: 100%;
+    max-width: 100%;
     margin: 40px auto;
     overflow: hidden;
     border-radius: 15px;
     box-shadow: 0 0 20px rgba(0,0,0,0.4);
 }
 
-.carousel-track 
-{
+/* piste */
+.carousel-track {
     display: flex;
     align-items: center;
-    gap: 2rem; 
+    gap: 2rem;
     transition: transform 0.5s ease-in-out;
 }
-.carousel img 
-{
+
+/* item (wrapper image + texte) */
+.carousel-item {
+    position: relative;
     width: 15vw;
-    max-width: 220px; 
-    min-width: 120px; 
-    height: auto;
-    object-fit: contain;
+    max-width: 220px;
+    min-width: 120px;
     flex-shrink: 0;
     border-radius: 12px;
+    overflow: hidden;
     background: #111;
-    padding: 0.5rem;
     box-shadow: 0 6px 15px rgba(0,0,0,0.4);
 }
 
+    /* image */
+    .carousel-item img {
+        width: 100%;
+        height: auto;
+        display: block;
+        object-fit: contain; /* image enti√®re */
+        padding: 0.5rem;
+    }
 
-.carousel-btn {
+/* overlay texte */
+.carousel-caption {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: flex-end;
+    padding: 0.8rem;
+    font-size: 0.85rem;
+    line-height: 1.3;
+    color: #fff;
+    background: linear-gradient( to top, rgba(0,0,0,0.85), rgba(0,0,0,0.05) );
+    opacity: 0;
+    transform: translateY(8px);
+    transition: opacity 0.25s ease, transform 0.25s ease;
+    pointer-events: none;
+}
+
+.carousel-item:hover .carousel-caption {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.carousel-item:hover img {
+    filter: brightness(0.9);
+}
+
+.carousel-btn 
+{
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
@@ -412,6 +449,7 @@ body {
     border-radius: 50%;
     transition: 0.3s;
     backdrop-filter: blur(3px);
+    z-index: 10;
 }
 
     .carousel-btn:hover {
@@ -425,6 +463,17 @@ body {
     .carousel-btn.next {
         right: 15px;
     }
+
+/* responsive mobile */
+@media (max-width: 600px) {
+    .carousel-item {
+        width: 40vw;
+    }
+
+    .carousel-caption {
+        font-size: 0.8rem;
+    }
+}
 
     /*//////////////////////////////////////////////////////////GUIDE DE LECTURE///////////////////////////////////////////////////////*/
 /* ======================================
@@ -451,7 +500,7 @@ body {
 }
 
 
-/* Images cÙte ‡ cÙte */
+/* Images c√¥te √† c√¥te */
 .reading-images {
     display: flex;
     justify-content: center;
@@ -473,7 +522,7 @@ body {
             box-shadow: 0 10px 25px rgba(124, 58, 237, 0.4);
         }
 
-/* Bouton "TÈlÈcharger" */
+/* Bouton "T√©l√©charger" */
 .download-btn {
     display: block;
     width: fit-content;
