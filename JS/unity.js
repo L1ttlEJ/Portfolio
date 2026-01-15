@@ -105,56 +105,112 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }, { once: true });
 
-    /* === Carrousel Rise of Freedom === */
+    /* === Carrousel Rise of Freedom (PRO) === */
     const riseCarousel = document.querySelector("#rise-carousel");
     if (riseCarousel) {
-        const track = riseCarousel.querySelector(".carousel-track");
-        const images = Array.from(track.children);
-        const nextButton = riseCarousel.querySelector(".next");
-        const prevButton = riseCarousel.querySelector(".prev");
+        const track = riseCarousel.querySelector(".rise-track");
+        const slides = Array.from(riseCarousel.querySelectorAll(".rise-slide"));
+        const btnNext = riseCarousel.querySelector(".rise-btn.next");
+        const btnPrev = riseCarousel.querySelector(".rise-btn.prev");
         const dotsContainer = document.querySelector("#rise-dots");
 
-        let currentIndex = 0;
+        let index = 0;
+        let autoTimer = null;
+        let isHover = false;
 
-        // Création des petits points
-        images.forEach((_, i) => {
-            const dot = document.createElement("button");
-            if (i === 0) dot.classList.add("active");
-            dotsContainer.appendChild(dot);
-        });
-        const dots = Array.from(dotsContainer.children);
-
-        // Met à jour le carrousel
-        function updateCarousel(index) {
-            track.style.transform = `translateX(-${index * 100}%)`;
-            dots.forEach((dot, i) => dot.classList.toggle("active", i === index));
+        // Dots
+        if (dotsContainer) {
+            dotsContainer.innerHTML = "";
+            slides.forEach((_, i) => {
+                const dot = document.createElement("button");
+                dot.type = "button";
+                dot.setAttribute("aria-label", `Aller à l'image ${i + 1}`);
+                dot.addEventListener("click", () => {
+                    index = i;
+                    update();
+                    restartAuto();
+                });
+                dotsContainer.appendChild(dot);
+            });
         }
 
-        // Navigation
-        nextButton?.addEventListener("click", () => {
-            currentIndex = (currentIndex + 1) % images.length;
-            updateCarousel(currentIndex);
+        const dots = dotsContainer ? Array.from(dotsContainer.children) : [];
+
+        function update() {
+            track.style.transform = `translateX(-${index * 100}%)`;
+            dots.forEach((d, i) => d.classList.toggle("active", i === index));
+        }
+
+        function next() {
+            index = (index + 1) % slides.length;
+            update();
+        }
+
+        function prev() {
+            index = (index - 1 + slides.length) % slides.length;
+            update();
+        }
+
+        btnNext?.addEventListener("click", () => { next(); restartAuto(); });
+        btnPrev?.addEventListener("click", () => { prev(); restartAuto(); });
+
+        // Clavier (quand le carousel est focus)
+        riseCarousel.tabIndex = 0;
+        riseCarousel.addEventListener("keydown", (e) => {
+            if (e.key === "ArrowRight") { next(); restartAuto(); }
+            if (e.key === "ArrowLeft") { prev(); restartAuto(); }
         });
 
-        prevButton?.addEventListener("click", () => {
-            currentIndex = (currentIndex - 1 + images.length) % images.length;
-            updateCarousel(currentIndex);
+        // Swipe mobile (touch)
+        let startX = 0;
+        let currentX = 0;
+        let isDown = false;
+
+        const viewport = riseCarousel.querySelector(".rise-viewport");
+
+        viewport.addEventListener("touchstart", (e) => {
+            isDown = true;
+            startX = e.touches[0].clientX;
+            currentX = startX;
+        }, { passive: true });
+
+        viewport.addEventListener("touchmove", (e) => {
+            if (!isDown) return;
+            currentX = e.touches[0].clientX;
+        }, { passive: true });
+
+        viewport.addEventListener("touchend", () => {
+            if (!isDown) return;
+            isDown = false;
+
+            const diff = currentX - startX;
+            const threshold = 40; // sensibilité swipe
+
+            if (diff > threshold) prev();
+            else if (diff < -threshold) next();
+
+            restartAuto();
         });
 
-        // Clic sur un point
-        dots.forEach((dot, i) => {
-            dot.addEventListener("click", () => {
-                currentIndex = i;
-                updateCarousel(currentIndex);
-            });
-        });
+        // Autoplay (pause hover)
+        function startAuto() {
+            if (autoTimer) clearInterval(autoTimer);
+            autoTimer = setInterval(() => {
+                if (!isHover) next();
+            }, 5000);
+        }
 
-        // Défilement automatique
-        setInterval(() => {
-            currentIndex = (currentIndex + 1) % images.length;
-            updateCarousel(currentIndex);
-        }, 5000);
+        function restartAuto() {
+            startAuto();
+        }
+
+        riseCarousel.addEventListener("mouseenter", () => { isHover = true; });
+        riseCarousel.addEventListener("mouseleave", () => { isHover = false; });
+
+        update();
+        startAuto();
     }
+
 });
 
 

@@ -261,19 +261,31 @@
             <!-- Carrousel d’images -->
             <div class="carousel-container">
                 <h3>Captures et visuels du jeu</h3>
-                <div class="carousel" id="rise-carousel">
+                <div class="rise-carousel" id="rise-carousel" aria-label="Carousel Rise of Freedom">
+                    <button class="rise-btn prev" type="button" aria-label="Image précédente">❮</button>
 
-                    <div class="carousel-track">
-                        <img src="imgs/rof/hub.png" alt="Rise of Freedom - Capture 1" class="carousel-img active">
-                        <img src="imgs/rof/gameover.png" alt="Rise of Freedom - Capture 2" class="carousel-img">
-                        <img src="imgs/rof/niveau1.png" alt="Rise of Freedom - Capture 3" class="carousel-img">
-                        <img src="imgs/rof/niveau2.png" alt="Rise of Freedom - Capture 4" class="carousel-img">
+                    <div class="rise-viewport">
+                        <div class="rise-track">
+                            <div class="rise-slide">
+                                <img src="imgs/rof/hub.png" alt="Rise of Freedom - Hub">
+                            </div>
+                            <div class="rise-slide">
+                                <img src="imgs/rof/gameover.png" alt="Rise of Freedom - Game Over">
+                            </div>
+                            <div class="rise-slide">
+                                <img src="imgs/rof/niveau1.png" alt="Rise of Freedom - Niveau Discours">
+                            </div>
+                            <div class="rise-slide">
+                                <img src="imgs/rof/niveau2.png" alt="Rise of Freedom - Niveau Boycott">
+                            </div>
+                        </div>
                     </div>
 
+                    <button class="rise-btn next" type="button" aria-label="Image suivante">❯</button>
                 </div>
 
-                <!-- Petits points indicateurs -->
-                <div class="carousel-dots" id="rise-dots"></div>
+                <div class="rise-dots" id="rise-dots" aria-label="Indicateurs du carousel"></div>
+
             </div>
 
 
