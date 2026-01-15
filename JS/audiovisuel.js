@@ -132,16 +132,19 @@ document.addEventListener("DOMContentLoaded", () => {
     const prevBtn = document.querySelector(".carousel-btn.prev");
 
     if (track && nextBtn && prevBtn) {
-        const slides = Array.from(track.children);
+        const slides = Array.from(track.querySelectorAll(".carousel-item"));
+
         let slideIndex = 0;
 
         function updateCarousel() {
-            const slide = images[0];
-            const slideWidth = slide.getBoundingClientRect().width;
+            if (!slides.length) return;
+
+            const slideWidth = slides[0].getBoundingClientRect().width;
             const gap = parseFloat(getComputedStyle(track).gap) || 0;
 
             track.style.transform = `translateX(-${index * (slideWidth + gap)}px)`;
         }
+
 
 
         nextBtn.addEventListener("click", () => {
