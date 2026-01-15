@@ -1,32 +1,43 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-    /* === Onglets dynamiques === */
-    const buttons = document.querySelectorAll(".tab-btn, .unity-btn");
-    const contents = document.querySelectorAll(".content, .project-section"); // inclut Pokémon
+    /* =========================
+       NAV BURGER
+    ========================== */
+    const menuToggle = document.getElementById("menu-toggle");
+    const navLinks = document.getElementById("nav-links");
+
+    if (menuToggle && navLinks) {
+        menuToggle.addEventListener("click", () => {
+            menuToggle.classList.toggle("open");
+            navLinks.classList.toggle("open");
+        });
+
+        // ferme le menu après clic sur un lien (mobile)
+        navLinks.addEventListener("click", (e) => {
+            const a = e.target.closest("a");
+            if (!a) return;
+            menuToggle.classList.remove("open");
+            navLinks.classList.remove("open");
+        });
+    }
+
+    /* =========================
+       TABS + FOND + AUDIO
+    ========================== */
+    const buttons = document.querySelectorAll(".unity-btn"); // ici tu n'as que unity-btn
+    const contents = document.querySelectorAll(".content, .project-section");
     const body = document.body;
 
-    /* === Audio === */
     let currentAudio = null;
     let isAudioInitialized = false;
     let lastVolume = 0.4;
 
-    /* === Configuration des pages === */
     const pageData = {
-        owen: {
-            bg: "imgs/owen/foret.gif",
-            music: "Song/owensong.mp3"
-        },
-        rise: {
-            bg: "imgs/rof/mlk.gif",
-            music: "Song/mlk.mp3"
-        },
-        pokemon: {
-            bg: "imgs/poke/fond.gif",
-            music: "Song/pokeSong.mp3"
-        }
+        owen: { bg: "imgs/owen/foret.gif", music: "Song/owensong.mp3" },
+        rise: { bg: "imgs/rof/mlk.gif", music: "Song/mlk.mp3" },
+        pokemon: { bg: "imgs/poke/fond.gif", music: "Song/pokeSong.mp3" }
     };
 
-    /* === Contrôles du volume === */
     const volUp = document.querySelector("#volume-up");
     const volDown = document.querySelector("#volume-down");
     const volMute = document.querySelector("#volume-mute");
@@ -39,49 +50,56 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function toggleMute() {
         if (!currentAudio) return;
-        if (currentAudio.muted) {
-            currentAudio.muted = false;
-            currentAudio.volume = lastVolume;
-        } else {
-            currentAudio.muted = true;
+        currentAudio.muted = !currentAudio.muted;
+        if (!currentAudio.muted) currentAudio.volume = lastVolume;
+    }
+
+    volUp?.addEventListener("click", () => {
+        if (!currentAudio) return;
+        setVolume(currentAudio.volume + 0.1);
+    });
+
+    volDown?.addEventListener("click", () => {
+        if (!currentAudio) return;
+        setVolume(currentAudio.volume - 0.1);
+    });
+
+    volMute?.addEventListener("click", toggleMute);
+
+    function stopAudio() {
+        if (!currentAudio) return;
+        currentAudio.pause();
+        currentAudio.currentTime = 0;
+        currentAudio = null;
+    }
+
+    function startAudioFor(id) {
+        const data = pageData[id];
+        if (!data?.music) return;
+
+        currentAudio = new Audio(data.music);
+        currentAudio.volume = lastVolume;
+        currentAudio.loop = true;
+
+        if (isAudioInitialized) {
+            currentAudio.play().catch(err => console.warn("Lecture audio bloquée :", err));
         }
     }
 
-    volUp?.addEventListener("click", () => setVolume(currentAudio ? currentAudio.volume + 0.1 : lastVolume + 0.1));
-    volDown?.addEventListener("click", () => setVolume(currentAudio ? currentAudio.volume - 0.1 : lastVolume - 0.1));
-    volMute?.addEventListener("click", toggleMute);
-
-    /* === Fonction pour changer de section === */
     function showContent(id) {
-        // Cache toutes les sections
         contents.forEach(c => c.classList.remove("active"));
         document.getElementById(id)?.classList.add("active");
 
-        // Change le fond selon la page
-        if (pageData[id]) body.style.backgroundImage = `url('${pageData[id].bg}')`;
-
-        // Stop musique précédente
-        if (currentAudio) {
-            currentAudio.pause();
-            currentAudio.currentTime = 0;
+        if (pageData[id]?.bg) {
+            body.style.backgroundImage = `url('${pageData[id].bg}')`;
         }
 
-        // Lance la musique de la page
-        if (pageData[id]?.music) {
-            currentAudio = new Audio(pageData[id].music);
-            currentAudio.volume = lastVolume;
-            currentAudio.loop = true;
+        stopAudio();
+        startAudioFor(id);
 
-            if (isAudioInitialized) {
-                currentAudio.play().catch(err => console.warn("Lecture audio bloquée :", err));
-            }
-        }
-
-        // Fait défiler vers le haut en douceur
         window.scrollTo({ top: 0, behavior: "smooth" });
     }
 
-    /* === Navigation entre les sections === */
     buttons.forEach(btn => {
         btn.addEventListener("click", () => {
             buttons.forEach(b => b.classList.remove("active"));
@@ -90,22 +108,44 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    /* === Section par défaut === */
+    // Default
     const defaultId = "owen";
     document.querySelector(`.unity-btn[data-target="${defaultId}"]`)?.classList.add("active");
     showContent(defaultId);
 
-    /* === Déblocage audio au premier clic === */
+    // Déblocage audio au premier clic
     document.addEventListener("click", () => {
-        if (!isAudioInitialized) {
-            isAudioInitialized = true;
-            if (currentAudio) {
-                currentAudio.play().catch(err => console.warn("Lecture audio bloquée :", err));
-            }
+        if (isAudioInitialized) return;
+        isAudioInitialized = true;
+        if (currentAudio) {
+            currentAudio.play().catch(err => console.warn("Lecture audio bloquée :", err));
         }
     }, { once: true });
 
-    /* === Carrousel Rise of Freedom (PRO) === */
+
+    /* =========================
+       OWEN CAROUSEL (scroll)
+       Tes boutons existent dans le HTML Owen
+    ========================== */
+    const owenCarousel = document.querySelector("#owen .carousel");
+    if (owenCarousel) {
+        const track = owenCarousel.querySelector(".carousel-track");
+        const next = owenCarousel.querySelector(".carousel-btn.next");
+        const prev = owenCarousel.querySelector(".carousel-btn.prev");
+
+        next?.addEventListener("click", () => {
+            track?.scrollBy({ left: 320, behavior: "smooth" });
+        });
+
+        prev?.addEventListener("click", () => {
+            track?.scrollBy({ left: -320, behavior: "smooth" });
+        });
+    }
+
+
+    /* =========================
+       RISE CAROUSEL (PRO)
+    ========================== */
     const riseCarousel = document.querySelector("#rise-carousel");
     if (riseCarousel) {
         const track = riseCarousel.querySelector(".rise-track");
@@ -119,6 +159,7 @@ document.addEventListener("DOMContentLoaded", () => {
         let isHover = false;
 
         // Dots
+        let dots = [];
         if (dotsContainer) {
             dotsContainer.innerHTML = "";
             slides.forEach((_, i) => {
@@ -132,11 +173,11 @@ document.addEventListener("DOMContentLoaded", () => {
                 });
                 dotsContainer.appendChild(dot);
             });
+            dots = Array.from(dotsContainer.children);
         }
 
-        const dots = dotsContainer ? Array.from(dotsContainer.children) : [];
-
         function update() {
+            if (!track) return;
             track.style.transform = `translateX(-${index * 100}%)`;
             dots.forEach((d, i) => d.classList.toggle("active", i === index));
         }
@@ -154,37 +195,36 @@ document.addEventListener("DOMContentLoaded", () => {
         btnNext?.addEventListener("click", () => { next(); restartAuto(); });
         btnPrev?.addEventListener("click", () => { prev(); restartAuto(); });
 
-        // Clavier (quand le carousel est focus)
+        // clavier
         riseCarousel.tabIndex = 0;
         riseCarousel.addEventListener("keydown", (e) => {
             if (e.key === "ArrowRight") { next(); restartAuto(); }
             if (e.key === "ArrowLeft") { prev(); restartAuto(); }
         });
 
-        // Swipe mobile (touch)
+        // swipe mobile
+        const viewport = riseCarousel.querySelector(".rise-viewport");
         let startX = 0;
         let currentX = 0;
         let isDown = false;
 
-        const viewport = riseCarousel.querySelector(".rise-viewport");
-
-        viewport.addEventListener("touchstart", (e) => {
+        viewport?.addEventListener("touchstart", (e) => {
             isDown = true;
             startX = e.touches[0].clientX;
             currentX = startX;
         }, { passive: true });
 
-        viewport.addEventListener("touchmove", (e) => {
+        viewport?.addEventListener("touchmove", (e) => {
             if (!isDown) return;
             currentX = e.touches[0].clientX;
         }, { passive: true });
 
-        viewport.addEventListener("touchend", () => {
+        viewport?.addEventListener("touchend", () => {
             if (!isDown) return;
             isDown = false;
 
             const diff = currentX - startX;
-            const threshold = 40; // sensibilité swipe
+            const threshold = 40;
 
             if (diff > threshold) prev();
             else if (diff < -threshold) next();
@@ -192,7 +232,7 @@ document.addEventListener("DOMContentLoaded", () => {
             restartAuto();
         });
 
-        // Autoplay (pause hover)
+        // autoplay + pause hover
         function startAuto() {
             if (autoTimer) clearInterval(autoTimer);
             autoTimer = setInterval(() => {
@@ -211,16 +251,4 @@ document.addEventListener("DOMContentLoaded", () => {
         startAuto();
     }
 
-});
-
-
-//NAV///
-document.addEventListener("DOMContentLoaded", () => {
-    const menuToggle = document.getElementById("menu-toggle");
-    const navLinks = document.getElementById("nav-links");
-
-    menuToggle.addEventListener("click", () => {
-        menuToggle.classList.toggle("open");
-        navLinks.classList.toggle("open");
-    });
 });
