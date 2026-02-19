@@ -210,9 +210,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (episodesContainer) {
         const episodes = [
-            {spotifyId: "74bvfy9AdWZJh3wcyXLglB",
+            {
+                spotifyId: "74bvfy9AdWZJh3wcyXLglB",
             },
-            { spotifyId: "1iobBlp5l80yzJGmmIU6pj",
+            {
+                spotifyId: "1iobBlp5l80yzJGmmIU6pj",
             },
         ];
 
