@@ -222,6 +222,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
         episodesContainer.innerHTML = episodes.map(ep => `
         <article class="episode-card">
+
+                <p class="episode-desc">${ep.desc}</p>
+
                 <div class="episode-player">
                     <iframe
                         style="border-radius:12px"
@@ -233,8 +236,6 @@ document.addEventListener("DOMContentLoaded", () => {
                         loading="lazy">
                     </iframe>
                 </div>
-
-                <p class="episode-desc">${ep.desc}</p>
             </div>
         </article>
     `).join("");
