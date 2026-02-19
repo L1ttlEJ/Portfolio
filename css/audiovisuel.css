@@ -690,16 +690,15 @@ body {
 }
 
 .episode-card {
-    display: grid;
-    grid-template-columns: 120px 1fr;
-    gap: 1rem;
     background: #111;
     border: 1px solid #333;
     border-radius: 15px;
     overflow: hidden;
+    padding: 1rem 1.2rem;
     box-shadow: 0 6px 15px rgba(0,0,0,0.4);
     transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
 }
+
 
     .episode-card:hover {
         transform: translateY(-3px);
@@ -740,6 +739,11 @@ body {
     line-height: 1.5;
     margin-bottom: 0.8rem;
 }
+
+.episode-player iframe {
+    display: block;
+}
+
 
 .episode-audio {
     width: 100%;

@@ -204,8 +204,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     /* =========================
-   PODCAST EPISODES (Spotify)
-========================= */
+       PODCAST EPISODES (Spotify)
+    ========================= */
     const episodesContainer = document.getElementById("podcast-episodes");
 
     if (episodesContainer) {
@@ -215,14 +215,14 @@ document.addEventListener("DOMContentLoaded", () => {
                 spotifyId: "74bvfy9AdWZJh3wcyXLglB",
             },
             {
-                desc: "Focus sur Ra’s Al Ghul : sa philosophie, son héritage, et son impact sur l’univers de Batman.Dans ce second épisode, Benjamin et Johannes parlent du comics La Saga de Ra’s al Ghul. Au programme : l’origin story du personnage, sa relation particulière avec sa fille et Batman, ainsi qu’une bonne gorgée d’eau du Puits de Lazare !",
+                desc: "Dans ce second épisode, Benjamin et Johannes parlent du comics La Saga de Ra’s al Ghul. Au programme : l’origin story du personnage, sa relation particulière avec sa fille et Batman, ainsi qu’une bonne gorgée d’eau du Puits de Lazare !",
                 spotifyId: "1iobBlp5l80yzJGmmIU6pj",
             },
         ];
 
         episodesContainer.innerHTML = episodes.map(ep => `
         <article class="episode-card">
-
+            <div class="episode-body">
                 <p class="episode-desc">${ep.desc}</p>
 
                 <div class="episode-player">
