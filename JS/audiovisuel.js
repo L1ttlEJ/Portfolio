@@ -212,7 +212,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 date: "2026-02-01",
                 duration: "45 min",
                 desc: "Petit résumé : de quoi on parle, pourquoi c’est cool, et ce que l’auditeur va apprendre.",
-                thumb: "imgs/podcast/ep01.jpg",
+                thumb: "imgs/podcast/mrfreeze.png",
                 audio: "audio/podcast/ep01.mp3",
             },
             {
@@ -220,7 +220,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 date: "2026-03-01",
                 duration: "52 min",
                 desc: "Résumé court de l’épisode.",
-                thumb: "imgs/podcast/ep02.jpg",
+                thumb: "imgs/podcast/rasalghul.png",
                 audio: "audio/podcast/ep02.mp3",
             },
         ];
