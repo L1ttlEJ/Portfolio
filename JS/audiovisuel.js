@@ -201,4 +201,53 @@ document.addEventListener("DOMContentLoaded", () => {
         updateCarousel();
     }
 
+<<<<<<< HEAD
+<<<<<<< HEAD
+
+    /* =========================
+   PODCAST EPISODES (optionnel)
+========================= */
+    const episodesContainer = document.getElementById("podcast-episodes");
+
+    if (episodesContainer) {
+        const episodes = [
+            {
+                title: "JLD#1 - L'hivers s'installe avec Mr Freeze",
+                date: "2025-19-01",
+                duration: "1h 45min",
+                desc: "Dans ce premier épisode, initialement conçu comme un test, Benjamin et Johannes parlent du comics One Bad Day – Mr. Freeze. À travers cette histoire, Batman et Robin proposent une solution au criminel dans sa quête désespérée pour sauver sa femme, Nora.",
+                thumb: "imgs/podcast/mrfreeze.png",
+                audio: "audio/jld/01.mp3",
+            },
+            {
+                title: "JLD#2 - L'éternel Ra's Al Ghul",
+                date: "2026-24-01",
+                duration: "2h 01min",
+                desc: "Dans ce second épisode, Benjamin et Johannes parlent du comics La Saga de Ra’s al Ghul. Au programme : l’origin story du personnage, sa relation particulière avec sa fille et Batman, ainsi qu’une bonne gorgée d’eau du Puits de Lazare !",
+                thumb: "imgs/podcast/rasalgul.png",
+                audio: "audio/jld/02.mp3",
+            },
+        ];
+
+        episodesContainer.innerHTML = episodes.map(ep => `
+        <article class="episode-card">
+            <img class="episode-thumb" src="${ep.thumb}" alt="Vignette ${ep.title}">
+            <div class="episode-body">
+                <h4 class="episode-title">${ep.title}</h4>
+                <p class="episode-meta">Publié le ${ep.date} • ${ep.duration}</p>
+                <p class="episode-desc">${ep.desc}</p>
+                <audio class="episode-audio" controls preload="none">
+                    <source src="${ep.audio}" type="audio/mpeg">
+                    Ton navigateur ne supporte pas l’audio.
+                </audio>
+            </div>
+        </article>
+    `).join("");
+    }
+
+
+=======
+>>>>>>> parent of cab1628 (update)
+=======
+>>>>>>> parent of cab1628 (update)
 });
