@@ -626,6 +626,69 @@ body {
     gap: 1.2rem;
 }
 
+.epconstruction {
+    width: 90%;
+    max-width: 1000px;
+    margin: 2.5rem auto;
+    padding: 1.8rem 2rem;
+    background: linear-gradient(145deg, #121212, #0c0c0c);
+    border: 1px solid #2b2b2b;
+    border-radius: 18px;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+}
+
+    /* petite barre décorative */
+    .epconstruction::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 100%;
+        width: 5px;
+        border-radius: 18px 0 0 18px;
+        background: linear-gradient(180deg, #7C3AED, #FACC15);
+    }
+
+    .epconstruction h3 {
+        color: #FACC15;
+        font-size: 1.6rem;
+        margin-bottom: 1rem;
+        letter-spacing: 0.5px;
+    }
+
+    .epconstruction p {
+        color: #dcdcdc;
+        line-height: 1.8;
+        font-size: 1.02rem;
+        margin-bottom: 1rem;
+    }
+
+    .epconstruction strong {
+        color: #ffffff;
+    }
+
+    .epconstruction:hover {
+        border-color: rgba(124, 58, 237, 0.6);
+        box-shadow: 0 12px 35px rgba(124, 58, 237, 0.25);
+        transform: translateY(-2px);
+        transition: all 0.25s ease;
+    }
+
+@media (max-width: 600px) {
+    .epconstruction {
+        padding: 1.4rem 1.3rem;
+    }
+
+        .epconstruction h3 {
+            font-size: 1.3rem;
+        }
+
+        .epconstruction p {
+            font-size: 0.98rem;
+        }
+}
+
 .episode-card {
     display: grid;
     grid-template-columns: 120px 1fr;

@@ -211,31 +211,17 @@ document.addEventListener("DOMContentLoaded", () => {
     if (episodesContainer) {
         const episodes = [
             {
-                title: "L'hiver s'installe avec Mr Freeze",
-                date: "2026-02-01",
-                duration: "45 min",
                 desc: "On revient sur Mr Freeze : origine, motivations, moments clés et pourquoi ce personnage est si marquant.",
-                thumb: "imgs/podcast/mrfreeze.png",
                 spotifyId: "74bvfy9AdWZJh3wcyXLglB",
             },
             {
-                title: "JLD#2 — L'éternel Ra's Al Ghul",
-                date: "2026-03-01",
-                duration: "52 min",
                 desc: "Focus sur Ra’s Al Ghul : sa philosophie, son héritage, et son impact sur l’univers de Batman.",
-                thumb: "imgs/podcast/rasalghul.png",
                 spotifyId: "1iobBlp5l80yzJGmmIU6pj",
             },
         ];
 
         episodesContainer.innerHTML = episodes.map(ep => `
         <article class="episode-card">
-            <img class="episode-thumb" src="${ep.thumb}" alt="Vignette ${ep.title}">
-            <div class="episode-body">
-                <h4 class="episode-title">${ep.title}</h4>
-                <p class="episode-meta">Publié le ${ep.date} • ${ep.duration}</p>
-                <p class="episode-desc">${ep.desc}</p>
-
                 <div class="episode-player">
                     <iframe
                         style="border-radius:12px"
@@ -247,6 +233,8 @@ document.addEventListener("DOMContentLoaded", () => {
                         loading="lazy">
                     </iframe>
                 </div>
+
+                <p class="episode-desc">${ep.desc}</p>
             </div>
         </article>
     `).join("");
