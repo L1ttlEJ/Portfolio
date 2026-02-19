@@ -200,32 +200,28 @@ document.addEventListener("DOMContentLoaded", () => {
         window.addEventListener("resize", updateCarousel);
         updateCarousel();
     }
-
-<<<<<<< HEAD
-<<<<<<< HEAD
-
     /* =========================
-   PODCAST EPISODES (optionnel)
-========================= */
+       PODCAST EPISODES (optionnel)
+    ========================= */
     const episodesContainer = document.getElementById("podcast-episodes");
 
     if (episodesContainer) {
         const episodes = [
             {
-                title: "JLD#1 - L'hivers s'installe avec Mr Freeze",
-                date: "2025-19-01",
-                duration: "1h 45min",
-                desc: "Dans ce premier épisode, initialement conçu comme un test, Benjamin et Johannes parlent du comics One Bad Day – Mr. Freeze. À travers cette histoire, Batman et Robin proposent une solution au criminel dans sa quête désespérée pour sauver sa femme, Nora.",
-                thumb: "imgs/podcast/mrfreeze.png",
-                audio: "audio/jld/01.mp3",
+                title: "Épisode 01 — Titre de l’épisode",
+                date: "2026-02-01",
+                duration: "45 min",
+                desc: "Petit résumé : de quoi on parle, pourquoi c’est cool, et ce que l’auditeur va apprendre.",
+                thumb: "imgs/podcast/ep01.jpg",
+                audio: "audio/podcast/ep01.mp3",
             },
             {
-                title: "JLD#2 - L'éternel Ra's Al Ghul",
-                date: "2026-24-01",
-                duration: "2h 01min",
-                desc: "Dans ce second épisode, Benjamin et Johannes parlent du comics La Saga de Ra’s al Ghul. Au programme : l’origin story du personnage, sa relation particulière avec sa fille et Batman, ainsi qu’une bonne gorgée d’eau du Puits de Lazare !",
-                thumb: "imgs/podcast/rasalgul.png",
-                audio: "audio/jld/02.mp3",
+                title: "Épisode 02 — Titre de l’épisode",
+                date: "2026-03-01",
+                duration: "52 min",
+                desc: "Résumé court de l’épisode.",
+                thumb: "imgs/podcast/ep02.jpg",
+                audio: "audio/podcast/ep02.mp3",
             },
         ];
 
@@ -245,9 +241,4 @@ document.addEventListener("DOMContentLoaded", () => {
     `).join("");
     }
 
-
-=======
->>>>>>> parent of cab1628 (update)
-=======
->>>>>>> parent of cab1628 (update)
 });
