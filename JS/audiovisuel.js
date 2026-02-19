@@ -208,7 +208,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (episodesContainer) {
         const episodes = [
             {
-                title: "Épisode 01 — Titre de l’épisode",
+                title: "L'hivers s'installe avec Mr Freeze",
                 date: "2026-02-01",
                 duration: "45 min",
                 desc: "Petit résumé : de quoi on parle, pourquoi c’est cool, et ce que l’auditeur va apprendre.",
@@ -216,7 +216,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 audio: "audio/podcast/ep01.mp3",
             },
             {
-                title: "Épisode 02 — Titre de l’épisode",
+                title: "JLD#2 - L'éternel Ra's Al Ghul",
                 date: "2026-03-01",
                 duration: "52 min",
                 desc: "Résumé court de l’épisode.",

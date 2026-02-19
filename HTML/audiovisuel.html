@@ -207,7 +207,7 @@
         <!-- Grille d'épisodes -->
         <div class="podcast-episodes" id="podcast-episodes">
 
-            <!-- Exemple 1 (tu peux dupliquer) -->
+            <!--  1  -->
             <article class="episode-card">
                 <img class="episode-thumb" src="imgs/podcast/ep01.jpg" alt="Vignette épisode 1">
                 <div class="episode-body">
@@ -217,14 +217,19 @@
                         Petit résumé : de quoi on parle, pourquoi c’est cool, et ce que l’auditeur va apprendre.
                     </p>
 
-                    <audio class="episode-audio" controls preload="none">
-                        <source src="audio/podcast/ep01.mp3" type="audio/mpeg">
-                        Ton navigateur ne supporte pas l’audio.
-                    </audio>
+                    <iframe data-testid="embed-iframe"
+                            style="border-radius:12px"
+                            src="https://open.spotify.com/embed/episode/74bvfy9AdWZJh3wcyXLglB?utm_source=generator"
+                            width="100%" height="152"
+                            frameBorder="0"
+                            allowfullscreen=""
+                            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                            loading="lazy">
+                    </iframe>
                 </div>
             </article>
 
-            <!-- Exemple 2 -->
+            <!-- 2 -->
             <article class="episode-card">
                 <img class="episode-thumb" src="imgs/podcast/ep02.jpg" alt="Vignette épisode 2">
                 <div class="episode-body">
@@ -234,10 +239,27 @@
                         Résumé court de l’épisode.
                     </p>
 
-                    <audio class="episode-audio" controls preload="none">
-                        <source src="audio/podcast/ep02.mp3" type="audio/mpeg">
-                        Ton navigateur ne supporte pas l’audio.
-                    </audio>
+                    <article class="episode-card">
+                        <img class="episode-thumb" src="imgs/podcast/ep01.jpg" alt="Vignette épisode 1">
+                        <div class="episode-body">
+                            <h4 class="episode-title">Épisode 01 — Titre de l’épisode</h4>
+                            <p class="episode-meta">Publié le 2026-02-01 • 45 min</p>
+                            <p class="episode-desc">
+                                Petit résumé : de quoi on parle, pourquoi c’est cool, et ce que l’auditeur va apprendre.
+                            </p>
+
+                            <iframe data-testid="embed-iframe" 
+                                    style="border-radius:12px" 
+                                    src="https://open.spotify.com/embed/episode/74bvfy9AdWZJh3wcyXLglB?utm_source=generator" 
+                                    width="100%" height="152" 
+                                    frameBorder="0" 
+                                    allowfullscreen="" 
+                                    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+                                    loading="lazy">
+
+                            </iframe>
+                        </div>
+                    </article>
                 </div>
             </article>
 
