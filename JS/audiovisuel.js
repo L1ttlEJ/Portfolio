@@ -200,28 +200,31 @@ document.addEventListener("DOMContentLoaded", () => {
         window.addEventListener("resize", updateCarousel);
         updateCarousel();
     }
+
+
+
     /* =========================
-       PODCAST EPISODES (optionnel)
-    ========================= */
+   PODCAST EPISODES (Spotify)
+========================= */
     const episodesContainer = document.getElementById("podcast-episodes");
 
     if (episodesContainer) {
         const episodes = [
             {
-                title: "L'hivers s'installe avec Mr Freeze",
+                title: "L'hiver s'installe avec Mr Freeze",
                 date: "2026-02-01",
                 duration: "45 min",
-                desc: "Petit résumé : de quoi on parle, pourquoi c’est cool, et ce que l’auditeur va apprendre.",
+                desc: "On revient sur Mr Freeze : origine, motivations, moments clés et pourquoi ce personnage est si marquant.",
                 thumb: "imgs/podcast/mrfreeze.png",
-                audio: "audio/podcast/ep01.mp3",
+                spotifyId: "74bvfy9AdWZJh3wcyXLglB",
             },
             {
-                title: "JLD#2 - L'éternel Ra's Al Ghul",
+                title: "JLD#2 — L'éternel Ra's Al Ghul",
                 date: "2026-03-01",
                 duration: "52 min",
-                desc: "Résumé court de l’épisode.",
+                desc: "Focus sur Ra’s Al Ghul : sa philosophie, son héritage, et son impact sur l’univers de Batman.",
                 thumb: "imgs/podcast/rasalghul.png",
-                audio: "audio/podcast/ep02.mp3",
+                spotifyId: "1iobBlp5l80yzJGmmIU6pj",
             },
         ];
 
@@ -232,13 +235,24 @@ document.addEventListener("DOMContentLoaded", () => {
                 <h4 class="episode-title">${ep.title}</h4>
                 <p class="episode-meta">Publié le ${ep.date} • ${ep.duration}</p>
                 <p class="episode-desc">${ep.desc}</p>
-                <audio class="episode-audio" controls preload="none">
-                    <source src="${ep.audio}" type="audio/mpeg">
-                    Ton navigateur ne supporte pas l’audio.
-                </audio>
+
+                <div class="episode-player">
+                    <iframe
+                        style="border-radius:12px"
+                        src="https://open.spotify.com/embed/episode/${ep.spotifyId}?utm_source=generator&theme=0"
+                        width="100%"
+                        height="152"
+                        frameborder="0"
+                        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                        loading="lazy">
+                    </iframe>
+                </div>
             </div>
         </article>
     `).join("");
     }
+
+
+
 
 });
