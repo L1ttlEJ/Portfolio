@@ -210,20 +210,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (episodesContainer) {
         const episodes = [
-            {
-                desc: "Dans ce premier épisode, initialement conçu comme un test, Benjamin et Johannes parlent du comics One Bad Day – Mr. Freeze. À travers cette histoire, Batman et Robin proposent une solution au criminel dans sa quête désespérée pour sauver sa femme, Nora.",
-                spotifyId: "74bvfy9AdWZJh3wcyXLglB",
+            {spotifyId: "74bvfy9AdWZJh3wcyXLglB",
             },
-            {
-                desc: "Dans ce second épisode, Benjamin et Johannes parlent du comics La Saga de Ra’s al Ghul. Au programme : l’origin story du personnage, sa relation particulière avec sa fille et Batman, ainsi qu’une bonne gorgée d’eau du Puits de Lazare !",
-                spotifyId: "1iobBlp5l80yzJGmmIU6pj",
+            { spotifyId: "1iobBlp5l80yzJGmmIU6pj",
             },
         ];
 
         episodesContainer.innerHTML = episodes.map(ep => `
         <article class="episode-card">
             <div class="episode-body">
-                <p class="episode-desc">${ep.desc}</p>
 
                 <div class="episode-player">
                     <iframe

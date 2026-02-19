@@ -733,13 +733,6 @@ body {
     margin-top: 0.8rem;
 }
 
-.episode-desc {
-    color: #dcdcdc;
-    font-size: 0.95rem;
-    line-height: 1.5;
-    margin-bottom: 0.8rem;
-}
-
 .episode-player iframe {
     display: block;
 }
